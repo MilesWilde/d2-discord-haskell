@@ -10,9 +10,8 @@ import Discord.Types
 import UnliftIO (liftIO)
 import UnliftIO.Concurrent
 
--- | Replies "pong" to every message that starts with "ping"
-diabloServer :: IO ()
-diabloServer = do
+runDiabloServer :: IO ()
+runDiabloServer = do
   tok <- TIO.readFile "auth-token.secret"
 
   -- open ghci and run  [[ :info RunDiscordOpts ]] to see available fields

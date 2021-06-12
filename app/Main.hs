@@ -1,4 +1,7 @@
 import Core
+import Db.Migrations
 
 main :: IO ()
-main = diabloServer
+main = do
+  migrate
+  runDiabloServer

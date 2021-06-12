@@ -27,11 +27,20 @@ dependencies:
     - emoji
     - unliftio
     - text
+    - persistent-postgresql
+    - monad-logger
+    - persistent
+    - transformers
+    - persistent-template
+    - mtl
+    - dotenv
+    - bytestring
 
 library:
     source-dirs: src
     exposed-modules:
         - Core
+        - Db.Migrations
 
 executables:
     d2haskell-exe:
