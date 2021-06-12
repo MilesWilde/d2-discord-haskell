@@ -14,6 +14,7 @@
 
 module Db.Migrations where
 
+import CharClasses
 import Configuration.Dotenv (defaultConfig, loadFile)
 import Control.Monad.IO.Class (liftIO)
 import Control.Monad.Logger (runStderrLoggingT)
@@ -33,6 +34,20 @@ PTH.share
         timeCreated Int
         discordId Int
         Primary discordId
+        deriving Show Read
+
+    Character sql=characters
+        user UserId
+        charClass Int
+        name String
+        timePlayed Int
+        experience Int
+        level Int
+        dex Int
+        str Int
+        vit Int
+        int Int
+         
         deriving Show Read
 |]
 

@@ -6,9 +6,9 @@ cabal-version: 1.12
 
 name:           d2haskell
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/githubuser/d2haskell#readme>
-homepage:       https://github.com/githubuser/d2haskell#readme
-bug-reports:    https://github.com/githubuser/d2haskell/issues
+description:    Please see the README on GitHub at <https://github.com/MilesWilde/d2haskell#readme>
+homepage:       https://github.com/MilesWilde/d2haskell#readme
+bug-reports:    https://github.com/MilesWilde/d2haskell/issues
 author:         Author name here
 maintainer:     example@example.com
 copyright:      2021 Author name here
@@ -21,13 +21,14 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/githubuser/d2haskell
+  location: https://github.com/MilesWilde/d2haskell
 
 library
   exposed-modules:
       Core
       Db.Migrations
   other-modules:
+      CharClasses
       Commands
       Lib
       Paths_d2haskell
