@@ -4,6 +4,8 @@ import Commands
 import Control.Monad (forM_, when)
 import qualified Data.Text as T
 import qualified Data.Text.IO as TIO
+import Db.DbCommands
+import Db.DbHelpers
 import Discord
 import qualified Discord.Requests as R
 import Discord.Types
@@ -61,47 +63,28 @@ startHandler = do
 eventHandler :: Event -> DiscordHandler ()
 eventHandler event = case event of
   MessageCreate m -> when (not (fromBot m) && isBotCommand m) $ do
-    -- threadDelay (4 * 10 ^ (6 :: Int))
-    case (getCommand . T.tail . messageText) m of
-      Quest -> restCall (R.CreateMessage (messageChannel m) "Quest")
-      Run -> restCall (R.CreateMessage (messageChannel m) "Run")
-      CreateCharacter -> restCall (R.CreateMessage (messageChannel m) "CreateCharacter")
-      SelectCharacter -> restCall (R.CreateMessage (messageChannel m) "SelectCharacter")
-      ViewSkills -> restCall (R.CreateMessage (messageChannel m) "ViewSkills")
-      ViewStats -> restCall (R.CreateMessage (messageChannel m) "ViewStats")
-      Equip -> restCall (R.CreateMessage (messageChannel m) "Equip")
-      Unequip -> restCall (R.CreateMessage (messageChannel m) "Unequip")
-      Default -> restCall (R.CreateMessage (messageChannel m) "Default")
-
-    _ <- restCall (R.CreateMessage (messageChannel m) ("Your ID: " <> (T.pack . show . messageUserId) m))
-    _ <- restCall (R.CreateMessage (messageChannel m) ("Your Text: " <> (T.pack . show . messageText) m))
-    -- _ <- restCall (R.CreateReaction (messageChannel m, messageId m) "eyes")
-    -- liftIO . putStrLn . show . messageUserId $ m
-    -- liftIO . putStrLn . show . messageText $ m
-    -- -- A very simple message.
-    -- _ <- restCall (R.CreateMessage (messageChannel m) "Pong!")
-
-    -- -- A more complex message. Text-to-speech, does not mention everyone nor
-    -- -- the user, and uses Discord native replies.
-    -- -- Use ":info" in ghci to explore the type
-    -- let opts :: R.MessageDetailedOpts
-    --     opts =
-    --       def
-    --         { R.messageDetailedContent = "Here's a more complex message, but doesn't ping @everyone!",
-    --           R.messageDetailedTTS = True,
-    --           R.messageDetailedAllowedMentions =
-    --             Just $
-    --               def
-    --                 { R.mentionEveryone = False,
-    --                   R.mentionRepliedUser = False
-    --                 },
-    --           R.messageDetailedReference =
-    --             Just $
-    --               def {referenceMessageId = Just $ messageId m}
-    --         }
-    -- _ <- restCall (R.CreateMessageDetailed (messageChannel m) opts)
-
+    -- check if user exists, if not, then create
+    -- createUserStatus <- liftIO $ createUser muid
+    case getCommand m of
+      Right cmd -> case cmd of
+        Quest -> do
+          restCall (R.CreateMessage (messageChannel m) "Quest")
+        Run -> restCall (R.CreateMessage (messageChannel m) "Run")
+        CreateCharacter cc name -> do
+          restCall (R.CreateMessage (messageChannel m) "CreateCharacter")
+          createCharacterStatus <- liftIO $ createCharacter cc name muid
+          case createCharacterStatus of
+            Right status -> restCall (R.CreateMessage (messageChannel m) status)
+            Left err -> restCall (R.CreateMessage (messageChannel m) err)
+        SelectCharacter -> restCall (R.CreateMessage (messageChannel m) "SelectCharacter")
+        ViewSkills -> restCall (R.CreateMessage (messageChannel m) "ViewSkills")
+        ViewStats -> restCall (R.CreateMessage (messageChannel m) "ViewStats")
+        Equip -> restCall (R.CreateMessage (messageChannel m) "Equip")
+        Unequip -> restCall (R.CreateMessage (messageChannel m) "Unequip")
+      Left error -> restCall (R.CreateMessage (messageChannel m) error)
     pure ()
+    where
+      muid = messageUserId m
   _ -> pure ()
 
 isTextChannel :: Channel -> Bool
@@ -113,9 +96,6 @@ fromBot m = userIsBot (messageAuthor m)
 
 isBotCommand :: Message -> Bool
 isBotCommand = (== '\\') . T.head . messageText
-
-messageUserId :: Message -> Snowflake
-messageUserId = userId . messageAuthor
 
 showSnowflake :: Snowflake -> String
 showSnowflake (Snowflake w) = show w

@@ -1,17 +1,53 @@
 module Commands where
 
+import CharClasses
+import qualified Data.List.NonEmpty as NE
 import qualified Data.Text as T
+import Discord.Types
 
-data Command = Quest | Run | CreateCharacter | SelectCharacter | ViewSkills | ViewStats | Equip | Unequip | Default deriving (Show, Eq)
+data Command = Quest | Run | CreateCharacter CharClass CharName | SelectCharacter | ViewSkills | ViewStats | Equip | Unequip deriving (Show, Eq)
 
-getCommand :: T.Text -> Command
-getCommand c = case T.toLower c of
-  "quest" -> Quest
-  "run" -> Run
-  "create" -> CreateCharacter
-  "select" -> SelectCharacter
-  "viewskills" -> ViewSkills
-  "viewstats" -> ViewStats
-  "equip" -> Equip
-  "unequip" -> Unequip
-  _ -> Default
+type CmdError = T.Text
+
+type CharName = T.Text
+
+getCommand :: Message -> Either CmdError Command
+getCommand m =
+  case baseCommand of
+    "quest" -> Right Quest
+    "run" -> Right Run
+    "create"
+      | length commandArgs == 2 ->
+        case parseClass commandArgs of
+          Just charClass ->
+            case parseName commandArgs of
+              Just charName -> Right $ CreateCharacter charClass charName
+              Nothing -> Left "Name needs to be 20 characters or less"
+          Nothing -> Left $ "Matched none of the available options: \\create " <> T.intercalate ", " (showC <$> [Amazon .. Sorceress]) <> " [Name]"
+      | otherwise -> Left "Wrong number of arguments. CreateCharacter usage: \\create [Class] [CharacterName]"
+    "select" -> Right SelectCharacter
+    "viewskills" -> Right ViewSkills
+    "viewstats" -> Right ViewStats
+    "equip" -> Right Equip
+    "unequip" -> Right Unequip
+    _ -> Left ""
+  where
+    baseCommand = fst $ parseCommand m
+    commandArgs = snd $ parseCommand m
+
+parseCommand :: Message -> (T.Text, [T.Text])
+parseCommand m = (baseCommand, commandArgs)
+  where
+    baseCommand = head lowerCaseCmdList
+    commandArgs = tail lowerCaseCmdList
+    lowerCaseCmdList = (T.words . T.toLower . messageText) m
+
+parseClass :: [T.Text] -> Maybe CharClass
+parseClass = readC . head
+
+parseName :: [T.Text] -> Maybe T.Text
+parseName ts
+  | T.length name <= 20 = Just name
+  | otherwise = Nothing
+  where
+    name = ts !! 1

@@ -15,15 +15,16 @@
 module Db.Migrations where
 
 import CharClasses
+import Commands
 import Configuration.Dotenv (defaultConfig, loadFile)
 import Control.Monad.IO.Class (liftIO)
 import Control.Monad.Logger (runStderrLoggingT)
 import Control.Monad.Trans.Reader (runReaderT)
-import Data.ByteString.Internal as BLU
 import Database.Persist (Entity (..))
 import Database.Persist.Postgresql
 import Database.Persist.Sql
 import qualified Database.Persist.TH as PTH
+import Db.DbHelpers
 import System.Environment
 
 PTH.share
@@ -34,11 +35,12 @@ PTH.share
         timeCreated Int
         discordId Int
         Primary discordId
-        deriving Show Read
+        UniqueUser discordId
+        deriving Show Read Eq
 
     Character sql=characters
         user UserId
-        charClass Int
+        class Int
         name String
         timePlayed Int
         experience Int
@@ -47,16 +49,8 @@ PTH.share
         str Int
         vit Int
         int Int
-         
         deriving Show Read
 |]
-
--- connString = pure "host=ip port=port user=whatever dbname=whatever password=pass"
-connString :: IO ConnectionString
-connString = stringToConn <$> getEnv "DB_CONNECTION_STRING"
-
-stringToConn :: String -> ConnectionString
-stringToConn = BLU.packChars
 
 migrate :: IO ()
 migrate = do
@@ -67,7 +61,5 @@ migrate = do
       flip runSqlPersistMPool pool $ do
         runMigrationUnsafe migrateAll
 
-      -- johnId <- insert $ User 123 321
-      -- janeId <- insert $ User 321 123
-
-      liftIO $ print "whatever"
+        johnId <- insert $ User 123 321 10
+        liftIO $ print "whatever"

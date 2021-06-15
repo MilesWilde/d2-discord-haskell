@@ -35,6 +35,9 @@ dependencies:
     - mtl
     - dotenv
     - bytestring
+    - text-show
+    - time
+    - rio
 
 library:
     source-dirs: src
