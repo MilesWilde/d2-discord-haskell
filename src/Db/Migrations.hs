@@ -20,6 +20,7 @@ import Configuration.Dotenv (defaultConfig, loadFile)
 import Control.Monad.IO.Class (liftIO)
 import Control.Monad.Logger (runStderrLoggingT)
 import Control.Monad.Trans.Reader (runReaderT)
+import qualified Data.Text as T
 import Database.Persist (Entity (..))
 import Database.Persist.Postgresql
 import Database.Persist.Sql
@@ -41,7 +42,7 @@ PTH.share
     Character sql=characters
         user UserId
         class Int
-        name String
+        name T.Text
         timePlayed Int
         experience Int
         level Int

@@ -21,7 +21,7 @@ import Db.Migrations
 import qualified Discord.Types as DT
 import System.Environment
 import TextShow
-import UnliftIO (liftIO)
+import UnliftIO (liftIO, unliftIO)
 
 type MsgUserId = DT.Snowflake
 
@@ -34,36 +34,61 @@ createCharacter cClass cName muid = do
   runStderrLoggingT $
     withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
       flip runSqlPersistMPool pool $ do
-        case cClass of
-          Sorceress -> do
-            character <-
-              insert $ createCharByStats userMuid cClass cName 10 25 35 10
-            user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
-            pure $ Right $ showC cClass <> " created with name " <> cName
-          Barbarian -> do
-            character <-
-              insert $ createCharByStats userMuid cClass cName 30 20 10 25
-            user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
-            pure $ Right $ showC cClass <> " created with name " <> cName
-          _ -> do
-            pure $ Left $ "Matched none of the available options: \\create " <> T.intercalate ", " (showC <$> [Amazon .. Sorceress])
+        validatedCharName <- liftIO $ validateCharName cName (snowflakeToKey muid)
+        case validatedCharName of
+          Right _ ->
+            case cClass of
+              Sorceress -> do
+                character <-
+                  insert $ createSorceress userMuid cName
+                user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+                pure $ Right $ showC cClass <> " created with name " <> cName
+              Barbarian -> do
+                character <-
+                  insert $ createBarbarian userMuid cName
+                user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+                pure $ Right $ showC cClass <> " created with name " <> cName
+              Amazon -> do
+                character <-
+                  insert $ createAmazon userMuid cName
+                user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+                pure $ Right $ showC cClass <> " created with name " <> cName
+              Necromancer -> do
+                character <-
+                  insert $ createNecromancer userMuid cName
+                user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+                pure $ Right $ showC cClass <> " created with name " <> cName
+              Paladin -> do
+                character <-
+                  insert $ createPaladin userMuid cName
+                user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+                pure $ Right $ showC cClass <> " created with name " <> cName
+              Druid -> do
+                character <-
+                  insert $ createDruid userMuid cName
+                user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+                pure $ Right $ showC cClass <> " created with name " <> cName
+              Assassin -> do
+                character <-
+                  insert $ createAssassin userMuid cName
+                user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+                pure $ Right $ showC cClass <> " created with name " <> cName
+          Left error -> pure $ Left error
   where
     userMuid = snowflakeToKey muid
 
-createCharByStats :: Key User -> CharClass -> CharName -> Int -> Int -> Int -> Int -> Character
-createCharByStats userMuid cClass cName str dex int vit =
-  Character
-    { characterUser = userMuid,
-      characterClass = fromEnum cClass,
-      characterName = T.unpack cName,
-      characterTimePlayed = 0,
-      characterExperience = 0,
-      characterLevel = 1,
-      characterStr = str,
-      characterDex = dex,
-      characterInt = int,
-      characterVit = vit
-    }
+validateCharName :: CharName -> Key User -> IO (Either CmdError ())
+validateCharName cName muid = do
+  loadFile defaultConfig
+  connectionString <- connString
+  runStderrLoggingT $
+    withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
+      flip runSqlPersistMPool pool $ do
+        character <- selectList [CharacterUser ==. muid, CharacterName ==. cName] []
+        let validate
+              | not (null character) = Left ("Can't create character. You have a character named " <> cName <> " already. You can \\delete them to reuse the name.")
+              | otherwise = Right ()
+        pure validate
 
 createUser :: MsgUserId -> IO ()
 createUser muid = do
@@ -83,3 +108,108 @@ createUser muid = do
 
 snowflakeToKey :: Integral a => a -> Key User
 snowflakeToKey s = UserKey {unUserKey = fromIntegral s}
+
+createSorceress :: Key User -> CharName -> Character
+createSorceress userMuid cName =
+  Character
+    { characterUser = userMuid,
+      characterClass = fromEnum Sorceress,
+      characterName = cName,
+      characterTimePlayed = 0,
+      characterExperience = 0,
+      characterLevel = 1,
+      characterStr = 10,
+      characterDex = 25,
+      characterInt = 35,
+      characterVit = 10
+    }
+
+createBarbarian :: Key User -> CharName -> Character
+createBarbarian userMuid cName =
+  Character
+    { characterUser = userMuid,
+      characterClass = fromEnum Barbarian,
+      characterName = cName,
+      characterTimePlayed = 0,
+      characterExperience = 0,
+      characterLevel = 1,
+      characterStr = 30,
+      characterDex = 20,
+      characterInt = 10,
+      characterVit = 25
+    }
+
+createPaladin :: Key User -> CharName -> Character
+createPaladin userMuid cName =
+  Character
+    { characterUser = userMuid,
+      characterClass = fromEnum Paladin,
+      characterName = cName,
+      characterTimePlayed = 0,
+      characterExperience = 0,
+      characterLevel = 1,
+      characterStr = 25,
+      characterDex = 20,
+      characterInt = 15,
+      characterVit = 25
+    }
+
+createNecromancer :: Key User -> CharName -> Character
+createNecromancer userMuid cName =
+  Character
+    { characterUser = userMuid,
+      characterClass = fromEnum Necromancer,
+      characterName = cName,
+      characterTimePlayed = 0,
+      characterExperience = 0,
+      characterLevel = 1,
+      characterStr = 15,
+      characterDex = 25,
+      characterInt = 25,
+      characterVit = 15
+    }
+
+createAmazon :: Key User -> CharName -> Character
+createAmazon userMuid cName =
+  Character
+    { characterUser = userMuid,
+      characterClass = fromEnum Amazon,
+      characterName = cName,
+      characterTimePlayed = 0,
+      characterExperience = 0,
+      characterLevel = 1,
+      characterStr = 15,
+      characterDex = 25,
+      characterInt = 25,
+      characterVit = 15
+    }
+
+createDruid :: Key User -> CharName -> Character
+createDruid userMuid cName =
+  Character
+    { characterUser = userMuid,
+      characterClass = fromEnum Druid,
+      characterName = cName,
+      characterTimePlayed = 0,
+      characterExperience = 0,
+      characterLevel = 1,
+      characterStr = 15,
+      characterDex = 20,
+      characterInt = 20,
+      characterVit = 25
+    }
+
+createAssassin :: Key User -> CharName -> Character
+createAssassin userMuid cName =
+  Character
+    { characterUser = userMuid,
+      characterClass = fromEnum Assassin,
+      characterName = cName,
+      characterTimePlayed = 0,
+      characterExperience = 0,
+      characterLevel = 1,
+      characterStr = 20,
+      characterDex = 20,
+      characterInt = 25,
+      characterVit = 20
+    }

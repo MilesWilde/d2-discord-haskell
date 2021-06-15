@@ -16,7 +16,7 @@ showC Paladin = "Paladin"
 showC Sorceress = "Sorceress"
 
 readC :: T.Text -> Maybe CharClass
-readC t = do
+readC t =
   case T.toLower t of
     "amazon" -> Just Amazon
     "assassin" -> Just Assassin
