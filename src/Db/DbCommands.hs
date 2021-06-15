@@ -37,24 +37,35 @@ createCharacter cClass cName muid = do
         case cClass of
           Sorceress -> do
             character <-
-              insert $
-                Character
-                  { characterUser = snowflakeToKey muid,
-                    characterClass = fromEnum Sorceress,
-                    characterName = T.unpack cName,
-                    characterTimePlayed = 0,
-                    characterExperience = 0,
-                    characterLevel = 1,
-                    characterStr = 10,
-                    characterDex = 25,
-                    characterInt = 35,
-                    characterVit = 10
-                  }
+              insert $ createCharByStats userMuid cClass cName 10 25 35 10
+            user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+            pure $ Right $ showC cClass <> " created with name " <> cName
+          Barbarian -> do
+            character <-
+              insert $ createCharByStats userMuid cClass cName 30 20 10 25
+            user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
             pure $ Right $ showC cClass <> " created with name " <> cName
           _ -> do
             pure $ Left $ "Matched none of the available options: \\create " <> T.intercalate ", " (showC <$> [Amazon .. Sorceress])
+  where
+    userMuid = snowflakeToKey muid
 
-createUser :: MsgUserId -> IO (Either CmdError DbStatus)
+createCharByStats :: Key User -> CharClass -> CharName -> Int -> Int -> Int -> Int -> Character
+createCharByStats userMuid cClass cName str dex int vit =
+  Character
+    { characterUser = userMuid,
+      characterClass = fromEnum cClass,
+      characterName = T.unpack cName,
+      characterTimePlayed = 0,
+      characterExperience = 0,
+      characterLevel = 1,
+      characterStr = str,
+      characterDex = dex,
+      characterInt = int,
+      characterVit = vit
+    }
+
+createUser :: MsgUserId -> IO ()
 createUser muid = do
   loadFile defaultConfig
   connectionString <- connString
@@ -62,14 +73,13 @@ createUser muid = do
     withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
       flip runSqlPersistMPool pool $ do
         nowEpoch <- liftIO $ round `fmap` getPOSIXTime
-        res <-
-          insertUnique
-            User
-              { userCurrentCharId = 0,
-                userTimeCreated = nowEpoch,
-                userDiscordId = fromIntegral muid
-              }
-        pure $ Right $ showC cClass <> " created with name " <> cName
+        insertUnique
+          User
+            { userCurrentCharId = 0,
+              userTimeCreated = nowEpoch,
+              userDiscordId = fromIntegral muid
+            }
+      pure ()
 
-snowflakeToKey :: Integral a => a -> Key Db.Migrations.User
+snowflakeToKey :: Integral a => a -> Key User
 snowflakeToKey s = UserKey {unUserKey = fromIntegral s}

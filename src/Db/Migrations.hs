@@ -60,6 +60,4 @@ migrate = do
     withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
       flip runSqlPersistMPool pool $ do
         runMigrationUnsafe migrateAll
-
-        johnId <- insert $ User 123 321 10
         liftIO $ print "whatever"

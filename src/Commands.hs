@@ -30,7 +30,7 @@ getCommand m =
     "viewstats" -> Right ViewStats
     "equip" -> Right Equip
     "unequip" -> Right Unequip
-    _ -> Left ""
+    _ -> Left $ "Matched none of the available commands. You said: " <> baseCommand
   where
     baseCommand = fst $ parseCommand m
     commandArgs = snd $ parseCommand m
@@ -38,9 +38,9 @@ getCommand m =
 parseCommand :: Message -> (T.Text, [T.Text])
 parseCommand m = (baseCommand, commandArgs)
   where
-    baseCommand = head lowerCaseCmdList
-    commandArgs = tail lowerCaseCmdList
-    lowerCaseCmdList = (T.words . T.toLower . messageText) m
+    baseCommand = T.tail $ T.toLower $ head cmdList
+    commandArgs = tail cmdList
+    cmdList = (T.words . messageText) m
 
 parseClass :: [T.Text] -> Maybe CharClass
 parseClass = readC . head

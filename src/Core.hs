@@ -63,15 +63,13 @@ startHandler = do
 eventHandler :: Event -> DiscordHandler ()
 eventHandler event = case event of
   MessageCreate m -> when (not (fromBot m) && isBotCommand m) $ do
-    -- check if user exists, if not, then create
-    -- createUserStatus <- liftIO $ createUser muid
+    createUserStatus <- liftIO $ createUser muid
     case getCommand m of
       Right cmd -> case cmd of
         Quest -> do
           restCall (R.CreateMessage (messageChannel m) "Quest")
         Run -> restCall (R.CreateMessage (messageChannel m) "Run")
         CreateCharacter cc name -> do
-          restCall (R.CreateMessage (messageChannel m) "CreateCharacter")
           createCharacterStatus <- liftIO $ createCharacter cc name muid
           case createCharacterStatus of
             Right status -> restCall (R.CreateMessage (messageChannel m) status)
