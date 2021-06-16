@@ -9,6 +9,7 @@ import Control.Monad.Logger (runStderrLoggingT)
 import Data.ByteString.Internal as BLU
 import Data.Int
 import qualified Data.List as L
+import qualified Data.List.NonEmpty as NE
 import qualified Data.Text as T
 import Data.Time.Clock.POSIX
 import Data.Word
@@ -21,76 +22,111 @@ import Db.Migrations
 import qualified Discord.Types as DT
 import System.Environment
 import TextShow
-import UnliftIO (liftIO, unliftIO)
+import UnliftIO (liftIO)
 
 type MsgUserId = DT.Snowflake
 
 type DbStatus = T.Text
 
-createCharacter :: CharClass -> CharName -> MsgUserId -> IO (Either CmdError DbStatus)
-createCharacter cClass cName muid = do
+createCharacter :: CharClass -> CharName -> Key User -> IO (Either CmdError DbStatus)
+createCharacter cClass cName userKey = do
   loadFile defaultConfig
   connectionString <- connString
   runStderrLoggingT $
     withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
       flip runSqlPersistMPool pool $ do
-        validatedCharName <- liftIO $ validateCharName cName (snowflakeToKey muid)
+        validatedCharName <- liftIO $ validateCharCreation cName userKey
         case validatedCharName of
           Right _ ->
             case cClass of
               Sorceress -> do
                 character <-
-                  insert $ createSorceress userMuid cName
-                user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+                  insert $ createSorceress userKey cName
+                user <- update userKey [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
                 pure $ Right $ showC cClass <> " created with name " <> cName
               Barbarian -> do
                 character <-
-                  insert $ createBarbarian userMuid cName
-                user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+                  insert $ createBarbarian userKey cName
+                user <- update userKey [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
                 pure $ Right $ showC cClass <> " created with name " <> cName
               Amazon -> do
                 character <-
-                  insert $ createAmazon userMuid cName
-                user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+                  insert $ createAmazon userKey cName
+                user <- update userKey [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
                 pure $ Right $ showC cClass <> " created with name " <> cName
               Necromancer -> do
                 character <-
-                  insert $ createNecromancer userMuid cName
-                user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+                  insert $ createNecromancer userKey cName
+                user <- update userKey [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
                 pure $ Right $ showC cClass <> " created with name " <> cName
               Paladin -> do
                 character <-
-                  insert $ createPaladin userMuid cName
-                user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+                  insert $ createPaladin userKey cName
+                user <- update userKey [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
                 pure $ Right $ showC cClass <> " created with name " <> cName
               Druid -> do
                 character <-
-                  insert $ createDruid userMuid cName
-                user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+                  insert $ createDruid userKey cName
+                user <- update userKey [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
                 pure $ Right $ showC cClass <> " created with name " <> cName
               Assassin -> do
                 character <-
-                  insert $ createAssassin userMuid cName
-                user <- update userMuid [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
+                  insert $ createAssassin userKey cName
+                user <- update userKey [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
                 pure $ Right $ showC cClass <> " created with name " <> cName
           Left error -> pure $ Left error
-  where
-    userMuid = snowflakeToKey muid
 
-validateCharName :: CharName -> Key User -> IO (Either CmdError ())
-validateCharName cName muid = do
+selectCharacter :: CharName -> Key User -> IO (Either CmdError DbStatus)
+selectCharacter cName userKey = do
+  loadFile defaultConfig
+  connectionString <- connString
+  runStderrLoggingT $
+    withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
+      flip runSqlPersistMPool pool $ do
+        character <- selectFirst [CharacterUser ==. userKey, CharacterName ==. cName] []
+        case character of
+          Just character -> do
+            let characterId = (fromIntegral . fromSqlKey . entityKey) character
+            update userKey [UserCurrentCharId =. characterId]
+            pure $ Right $ cName <> " will now be used for commands."
+          Nothing -> pure $ Left $ "You do not have a character with name " <> cName <> ". Try \\viewcharacters to see your available characters."
+
+viewCharactersNames :: Key User -> IO (Either CmdError DbStatus)
+viewCharactersNames userKey = do
+  loadFile defaultConfig
+  connectionString <- connString
+  runStderrLoggingT $
+    withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
+      flip runSqlPersistMPool pool $ do
+        dbCharacters <- selectList [CharacterUser ==. userKey] []
+        let names
+              | not (null dbCharacters) = pure $ Right $ viewCharactersText dbCharacters
+              | otherwise = pure $ Left "It looks like you have no characters. Try creating one using \\create [Class] [Name]"
+        names
+
+viewCharactersText :: [Entity Character] -> T.Text
+viewCharactersText [] = ""
+viewCharactersText (e : es) = name <> ": Level " <> level <> " " <> charClass <> "\n" <> viewCharactersText es
+  where
+    character = entityVal e
+    charClass = (showC . toEnum . characterClass) character
+    name = characterName character
+    level = (T.pack . show . characterLevel) character
+
+validateCharCreation :: CharName -> Key User -> IO (Either CmdError ())
+validateCharCreation cName muid = do
   loadFile defaultConfig
   connectionString <- connString
   runStderrLoggingT $
     withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
       flip runSqlPersistMPool pool $ do
         character <- selectList [CharacterUser ==. muid, CharacterName ==. cName] []
-        let validate
+        let validated
               | not (null character) = Left ("Can't create character. You have a character named " <> cName <> " already. You can \\delete them to reuse the name.")
               | otherwise = Right ()
-        pure validate
+        pure validated
 
-createUser :: MsgUserId -> IO ()
+createUser :: DT.Snowflake -> IO ()
 createUser muid = do
   loadFile defaultConfig
   connectionString <- connString

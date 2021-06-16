@@ -55,7 +55,7 @@ startHandler = do
     Right chans <- restCall $ R.GetGuildChannels (guildId guild)
     case filter isTextChannel chans of
       (c : _) -> do
-        _ <- restCall $ R.CreateMessage (channelId c) "Hello! I will reply to pings with pongs"
+        _ <- restCall $ R.CreateMessage (channelId c) "Hello! Try to \\create a character, and then send it on a \\run"
         pure ()
       _ -> pure ()
 
@@ -63,26 +63,51 @@ startHandler = do
 eventHandler :: Event -> DiscordHandler ()
 eventHandler event = case event of
   MessageCreate m -> when (not (fromBot m) && isBotCommand m) $ do
-    createUserStatus <- liftIO $ createUser muid
+    createUserStatus <- liftIO $ createUser (messageUserId m)
     case getCommand m of
       Right cmd -> case cmd of
         Quest -> do
           restCall (R.CreateMessage (messageChannel m) "Quest")
         Run -> restCall (R.CreateMessage (messageChannel m) "Run")
-        CreateCharacter cc name -> do
-          createCharacterStatus <- liftIO $ createCharacter cc name muid
+        CreateCharacter cClass cName -> do
+          createCharacterStatus <- liftIO $ createCharacter cClass cName userKey
           case createCharacterStatus of
             Right status -> restCall (R.CreateMessage (messageChannel m) status)
             Left err -> restCall (R.CreateMessage (messageChannel m) err)
-        SelectCharacter -> restCall (R.CreateMessage (messageChannel m) "SelectCharacter")
-        ViewSkills -> restCall (R.CreateMessage (messageChannel m) "ViewSkills")
-        ViewStats -> restCall (R.CreateMessage (messageChannel m) "ViewStats")
+        SelectCharacter cName -> do
+          selectCharacterStatus <- liftIO $ selectCharacter cName userKey
+          case selectCharacterStatus of
+            Right status -> restCall (R.CreateMessage (messageChannel m) status)
+            Left err -> restCall (R.CreateMessage (messageChannel m) err)
+        View viewCommand cName ->
+          case cName of
+            Nothing -> do
+              viewNamesStatus <- liftIO $ viewCharactersNames userKey
+              case viewNamesStatus of
+                Right status -> restCall (R.CreateMessage (messageChannel m) status)
+                Left err -> restCall (R.CreateMessage (messageChannel m) err)
+            Just name -> do
+              selectCharacterStatus <- liftIO $ selectCharacter name userKey
+              case selectCharacterStatus of
+                Left err -> restCall (R.CreateMessage (messageChannel m) err)
+                Right _ -> do
+                  case viewCommand of
+                    Characters -> do
+                      viewNamesStatus <- liftIO $ viewCharactersNames userKey
+                      case viewNamesStatus of
+                        Right status -> restCall (R.CreateMessage (messageChannel m) status)
+                        Left err -> restCall (R.CreateMessage (messageChannel m) err)
+                    _ -> restCall (R.CreateMessage (messageChannel m) "View Other")
+        -- Stats
+        -- Skills
+        -- Inventory
+
         Equip -> restCall (R.CreateMessage (messageChannel m) "Equip")
         Unequip -> restCall (R.CreateMessage (messageChannel m) "Unequip")
       Left error -> restCall (R.CreateMessage (messageChannel m) error)
     pure ()
     where
-      muid = messageUserId m
+      userKey = snowflakeToKey $ messageUserId m
   _ -> pure ()
 
 isTextChannel :: Channel -> Bool
