@@ -157,7 +157,9 @@ createSorceress userMuid cName =
       characterStr = 10,
       characterDex = 25,
       characterInt = 35,
-      characterVit = 10
+      characterVit = 10,
+      characterAvlStats = 0,
+      characterAvlSkills = 0
     }
 
 createBarbarian :: Key User -> CharName -> Character
@@ -172,7 +174,9 @@ createBarbarian userMuid cName =
       characterStr = 30,
       characterDex = 20,
       characterInt = 10,
-      characterVit = 25
+      characterVit = 25,
+      characterAvlStats = 0,
+      characterAvlSkills = 0
     }
 
 createPaladin :: Key User -> CharName -> Character
@@ -187,7 +191,9 @@ createPaladin userMuid cName =
       characterStr = 25,
       characterDex = 20,
       characterInt = 15,
-      characterVit = 25
+      characterVit = 25,
+      characterAvlStats = 0,
+      characterAvlSkills = 0
     }
 
 createNecromancer :: Key User -> CharName -> Character
@@ -202,7 +208,9 @@ createNecromancer userMuid cName =
       characterStr = 15,
       characterDex = 25,
       characterInt = 25,
-      characterVit = 15
+      characterVit = 15,
+      characterAvlStats = 0,
+      characterAvlSkills = 0
     }
 
 createAmazon :: Key User -> CharName -> Character
@@ -217,7 +225,9 @@ createAmazon userMuid cName =
       characterStr = 15,
       characterDex = 25,
       characterInt = 25,
-      characterVit = 15
+      characterVit = 15,
+      characterAvlStats = 0,
+      characterAvlSkills = 0
     }
 
 createDruid :: Key User -> CharName -> Character
@@ -232,7 +242,9 @@ createDruid userMuid cName =
       characterStr = 15,
       characterDex = 20,
       characterInt = 20,
-      characterVit = 25
+      characterVit = 25,
+      characterAvlStats = 0,
+      characterAvlSkills = 0
     }
 
 createAssassin :: Key User -> CharName -> Character
@@ -247,5 +259,7 @@ createAssassin userMuid cName =
       characterStr = 20,
       characterDex = 20,
       characterInt = 25,
-      characterVit = 20
+      characterVit = 20,
+      characterAvlStats = 0,
+      characterAvlSkills = 0
     }

@@ -50,6 +50,8 @@ PTH.share
         str Int
         vit Int
         int Int
+        avlStats Int
+        avlSkills Int
         deriving Show Read
 |]
 

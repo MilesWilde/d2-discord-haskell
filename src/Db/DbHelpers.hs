@@ -14,6 +14,3 @@ connString = stringToConn <$> getEnv "DB_CONNECTION_STRING"
 
 stringToConn :: String -> ConnectionString
 stringToConn = BLU.packChars
-
-messageUserId :: Message -> Snowflake
-messageUserId = userId . messageAuthor

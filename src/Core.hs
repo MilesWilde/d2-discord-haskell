@@ -2,6 +2,7 @@ module Core where
 
 import Commands
 import Control.Monad (forM_, when)
+import Control.Monad.Reader (ReaderT)
 import qualified Data.Text as T
 import qualified Data.Text.IO as TIO
 import Db.DbCommands
@@ -65,6 +66,7 @@ eventHandler event = case event of
   MessageCreate m -> when (not (fromBot m) && isBotCommand m) $ do
     createUserStatus <- liftIO $ createUser (messageUserId m)
     case getCommand m of
+      Left error -> restCall (R.CreateMessage (messageChannel m) error)
       Right cmd -> case cmd of
         Quest -> do
           restCall (R.CreateMessage (messageChannel m) "Quest")
@@ -81,30 +83,16 @@ eventHandler event = case event of
             Left err -> restCall (R.CreateMessage (messageChannel m) err)
         View viewCommand cName ->
           case cName of
-            Nothing -> do
-              viewNamesStatus <- liftIO $ viewCharactersNames userKey
-              case viewNamesStatus of
-                Right status -> restCall (R.CreateMessage (messageChannel m) status)
-                Left err -> restCall (R.CreateMessage (messageChannel m) err)
+            Nothing -> sendViewMessage viewCommand m
             Just name -> do
               selectCharacterStatus <- liftIO $ selectCharacter name userKey
               case selectCharacterStatus of
                 Left err -> restCall (R.CreateMessage (messageChannel m) err)
-                Right _ -> do
-                  case viewCommand of
-                    Characters -> do
-                      viewNamesStatus <- liftIO $ viewCharactersNames userKey
-                      case viewNamesStatus of
-                        Right status -> restCall (R.CreateMessage (messageChannel m) status)
-                        Left err -> restCall (R.CreateMessage (messageChannel m) err)
-                    _ -> restCall (R.CreateMessage (messageChannel m) "View Other")
-        -- Stats
-        -- Skills
-        -- Inventory
-
+                Right _ -> sendViewMessage viewCommand m
+        AssignStats amount stat -> restCall (R.CreateMessage (messageChannel m) "AssignStats")
+        AssignSkills int skill -> restCall (R.CreateMessage (messageChannel m) "AssignSkill")
         Equip -> restCall (R.CreateMessage (messageChannel m) "Equip")
         Unequip -> restCall (R.CreateMessage (messageChannel m) "Unequip")
-      Left error -> restCall (R.CreateMessage (messageChannel m) error)
     pure ()
     where
       userKey = snowflakeToKey $ messageUserId m
@@ -122,3 +110,19 @@ isBotCommand = (== '\\') . T.head . messageText
 
 showSnowflake :: Snowflake -> String
 showSnowflake (Snowflake w) = show w
+
+messageUserId :: Message -> Snowflake
+messageUserId = userId . messageAuthor
+
+sendViewMessage :: ViewCommand -> Message -> DiscordHandler (Either RestCallErrorCode Message)
+sendViewMessage vc m = case vc of
+  Characters -> do
+    viewCharsStatus <- liftIO $ viewCharactersNames userKey
+    case viewCharsStatus of
+      Right status -> restCall (R.CreateMessage (messageChannel m) status)
+      Left err -> restCall (R.CreateMessage (messageChannel m) err)
+  Stats -> restCall (R.CreateMessage (messageChannel m) "View Stats")
+  Skills -> restCall (R.CreateMessage (messageChannel m) "View Skills")
+  Inventory -> restCall (R.CreateMessage (messageChannel m) "View Inventory")
+  where
+    userKey = snowflakeToKey $ messageUserId m
