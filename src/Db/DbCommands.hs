@@ -5,7 +5,9 @@ module Db.DbCommands where
 import CharClasses
 import Commands
 import Configuration.Dotenv (defaultConfig, loadFile)
-import Control.Monad.Logger (runStderrLoggingT)
+import Control.Monad.Logger (NoLoggingT, runStderrLoggingT)
+import Control.Monad.Reader (ReaderT)
+import Control.Monad.Trans.Resource (ResourceT)
 import Data.ByteString.Internal as BLU
 import Data.Int
 import qualified Data.List as L
@@ -15,6 +17,22 @@ import Data.Time.Clock.POSIX
 import Data.Word
 import Database.Persist (Entity (..))
 import Database.Persist.Postgresql
+  ( Entity (entityKey, entityVal),
+    PersistEntity (Key),
+    PersistQueryRead (selectFirst),
+    PersistStoreWrite (insert, update),
+    PersistUniqueWrite (insertUnique),
+    SqlBackend,
+    fromSqlKey,
+    runSqlPersistMPool,
+    selectList,
+    toSqlKey,
+    withPostgresqlPool,
+    (+=.),
+    (-=.),
+    (=.),
+    (==.),
+  )
 import Database.Persist.Sql
 import qualified Database.Persist.TH as PTH
 import Db.DbHelpers
@@ -142,6 +160,43 @@ createUser muid = do
             }
       pure ()
 
+assignStats :: Int -> Stat -> DT.Snowflake -> IO (Either CmdError DbStatus)
+assignStats pts stat userKey = do
+  loadFile defaultConfig
+  connectionString <- connString
+  runStderrLoggingT $
+    withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
+      flip runSqlPersistMPool pool $ do
+        mCharacter <- (getUserCurrentCharacter . fromIntegral) userKey
+        case mCharacter of
+          Nothing -> pure $ Left "User has no current character. Try creating one with \\create."
+          Just character -> do
+            let charAvlStats = (characterAvlStats . entityVal) character
+            if charAvlStats < pts
+              then pure $ Left $ "You do not have enough available stat points to allocate. You currently have " <> (T.pack . show) charAvlStats <> " points to spend."
+              else case stat of
+                Strength -> do
+                  update (entityKey character) [CharacterStr +=. pts, CharacterAvlStats -=. pts]
+                  pure $ Right $ "Your " <> showStat stat <> " is now " <> (T.pack . show) ((characterStr . entityVal) character + pts) <> ". You now have " <> (T.pack . show) (charAvlStats - pts) <> " points to spend."
+                Dexterity -> do
+                  update (entityKey character) [CharacterDex +=. pts, CharacterAvlStats -=. pts]
+                  pure $ Right $ "Your " <> showStat stat <> " is now " <> (T.pack . show) ((characterDex . entityVal) character + pts) <> ". You now have " <> (T.pack . show) (charAvlStats - pts) <> " points to spend."
+                Vitality -> do
+                  update (entityKey character) [CharacterVit +=. pts, CharacterAvlStats -=. pts]
+                  pure $ Right $ "Your " <> showStat stat <> " is now " <> (T.pack . show) ((characterVit . entityVal) character + pts) <> ". You now have " <> (T.pack . show) (charAvlStats - pts) <> " points to spend."
+                Energy -> do
+                  update (entityKey character) [CharacterNrg +=. pts, CharacterAvlStats -=. pts]
+                  pure $ Right $ "Your " <> showStat stat <> " is now " <> (T.pack . show) ((characterNrg . entityVal) character + pts) <> ". You now have " <> (T.pack . show) (charAvlStats - pts) <> " points to spend."
+
+getUserCurrentCharacter :: Int -> ReaderT SqlBackend (NoLoggingT (ResourceT IO)) (Maybe (Entity Character))
+getUserCurrentCharacter userKeyInt = do
+  mUser <- selectFirst [UserDiscordId ==. userKeyInt] []
+  case mUser of
+    Nothing -> pure Nothing
+    Just user -> do
+      let userCurCharId = (userCurrentCharId . entityVal) user
+      selectFirst [CharacterId ==. (toSqlKey . fromIntegral) userCurCharId] []
+
 snowflakeToKey :: Integral a => a -> Key User
 snowflakeToKey s = UserKey {unUserKey = fromIntegral s}
 
@@ -156,7 +211,7 @@ createSorceress userMuid cName =
       characterLevel = 1,
       characterStr = 10,
       characterDex = 25,
-      characterInt = 35,
+      characterNrg = 35,
       characterVit = 10,
       characterAvlStats = 0,
       characterAvlSkills = 0
@@ -173,7 +228,7 @@ createBarbarian userMuid cName =
       characterLevel = 1,
       characterStr = 30,
       characterDex = 20,
-      characterInt = 10,
+      characterNrg = 10,
       characterVit = 25,
       characterAvlStats = 0,
       characterAvlSkills = 0
@@ -190,7 +245,7 @@ createPaladin userMuid cName =
       characterLevel = 1,
       characterStr = 25,
       characterDex = 20,
-      characterInt = 15,
+      characterNrg = 15,
       characterVit = 25,
       characterAvlStats = 0,
       characterAvlSkills = 0
@@ -207,7 +262,7 @@ createNecromancer userMuid cName =
       characterLevel = 1,
       characterStr = 15,
       characterDex = 25,
-      characterInt = 25,
+      characterNrg = 25,
       characterVit = 15,
       characterAvlStats = 0,
       characterAvlSkills = 0
@@ -224,7 +279,7 @@ createAmazon userMuid cName =
       characterLevel = 1,
       characterStr = 15,
       characterDex = 25,
-      characterInt = 25,
+      characterNrg = 25,
       characterVit = 15,
       characterAvlStats = 0,
       characterAvlSkills = 0
@@ -241,7 +296,7 @@ createDruid userMuid cName =
       characterLevel = 1,
       characterStr = 15,
       characterDex = 20,
-      characterInt = 20,
+      characterNrg = 20,
       characterVit = 25,
       characterAvlStats = 0,
       characterAvlSkills = 0
@@ -258,7 +313,7 @@ createAssassin userMuid cName =
       characterLevel = 1,
       characterStr = 20,
       characterDex = 20,
-      characterInt = 25,
+      characterNrg = 25,
       characterVit = 20,
       characterAvlStats = 0,
       characterAvlSkills = 0

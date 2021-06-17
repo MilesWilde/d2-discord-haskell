@@ -89,7 +89,11 @@ eventHandler event = case event of
               case selectCharacterStatus of
                 Left err -> restCall (R.CreateMessage (messageChannel m) err)
                 Right _ -> sendViewMessage viewCommand m
-        AssignStats amount stat -> restCall (R.CreateMessage (messageChannel m) "AssignStats")
+        AssignStats amount stat -> do
+          assignStatsStatus <- liftIO $ assignStats amount stat (messageUserId m)
+          case assignStatsStatus of
+            Right status -> restCall (R.CreateMessage (messageChannel m) status)
+            Left err -> restCall (R.CreateMessage (messageChannel m) err)
         AssignSkills int skill -> restCall (R.CreateMessage (messageChannel m) "AssignSkill")
         Equip -> restCall (R.CreateMessage (messageChannel m) "Equip")
         Unequip -> restCall (R.CreateMessage (messageChannel m) "Unequip")

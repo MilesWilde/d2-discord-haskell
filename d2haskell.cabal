@@ -49,6 +49,7 @@ library
     , persistent
     , persistent-postgresql
     , persistent-template
+    , resourcet
     , rio
     , text
     , text-show
@@ -78,6 +79,7 @@ executable d2haskell-exe
     , persistent
     , persistent-postgresql
     , persistent-template
+    , resourcet
     , rio
     , text
     , text-show
@@ -108,6 +110,7 @@ test-suite d2haskell-test
     , persistent
     , persistent-postgresql
     , persistent-template
+    , resourcet
     , rio
     , text
     , text-show

@@ -38,7 +38,7 @@ dependencies:
     - text-show
     - time
     - rio
-
+    - resourcet
 library:
     source-dirs: src
     exposed-modules:

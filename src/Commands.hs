@@ -10,7 +10,7 @@ data Command = Quest | Run | CreateCharacter CharClass CharName | SelectCharacte
 
 data ViewCommand = Stats | Skills | Inventory | Characters deriving (Show, Eq, Enum)
 
-data Stat = Strength | Dexterity | Intelligence | Vitality deriving (Show, Eq, Enum)
+data Stat = Strength | Dexterity | Vitality | Energy deriving (Show, Eq, Enum)
 
 data Skill = Unimplemented deriving (Show, Eq)
 
@@ -19,14 +19,14 @@ readStat t =
   case T.toLower t of
     "strength" -> Just Strength
     "dexterity" -> Just Dexterity
-    "intelligence" -> Just Intelligence
+    "energy" -> Just Energy
     "vitality" -> Just Vitality
     _ -> Nothing
 
 showStat :: Stat -> T.Text
 showStat Strength = "Strength"
 showStat Dexterity = "Dexterity"
-showStat Intelligence = "Intelligence"
+showStat Energy = "Energy"
 showStat Vitality = "Vitality"
 
 readV :: T.Text -> Maybe ViewCommand
@@ -85,7 +85,7 @@ getCommand m =
     "assignstats"
       | length commandArgs == 2 ->
         case parseInitAmount commandArgs of
-          Nothing -> Left $ "Amount must be an integer. Usage: \\assignstats (amount) (" <> statText <> ")"
+          Nothing -> Left $ "Amount must be an integer greater than zero. Usage: \\assignstats (amount) (" <> statText <> ")"
           Just amount ->
             case parseStat commandArgs of
               Nothing -> Left $ "Stat must be one of the available options. Usage: \\assignstats (amount) (" <> statText <> ")"
@@ -97,7 +97,7 @@ getCommand m =
     commandArgs = snd $ parseCommand m
     viewCText = T.intercalate ", " (showV <$> [Stats .. Characters])
     charactersText = T.intercalate ", " (showC <$> [Amazon .. Sorceress])
-    statText = T.intercalate ", " (showStat <$> [Strength .. Vitality])
+    statText = T.intercalate ", " (showStat <$> [Strength .. Energy])
 
 parseView :: [T.Text] -> Maybe ViewCommand
 parseView = readV . head
@@ -134,7 +134,7 @@ parseInitAmount ts =
   case decimalInit of
     Left err -> Nothing
     Right tuple
-      | fst tuple >= 0 && snd tuple == "" -> Just $ fst tuple
+      | fst tuple > 0 && snd tuple == "" -> Just $ fst tuple
       | otherwise -> Nothing
   where
     decimalInit = TR.decimal $ head ts

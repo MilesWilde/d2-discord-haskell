@@ -49,7 +49,7 @@ PTH.share
         dex Int
         str Int
         vit Int
-        int Int
+        nrg Int
         avlStats Int
         avlSkills Int
         deriving Show Read
