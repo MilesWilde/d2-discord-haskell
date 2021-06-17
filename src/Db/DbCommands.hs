@@ -109,8 +109,8 @@ selectCharacter cName userKey = do
             pure $ Right $ cName <> " will now be used for commands."
           Nothing -> pure $ Left $ "You do not have a character with name " <> cName <> ". Try \\viewcharacters to see your available characters."
 
-viewCharactersNames :: Key User -> IO (Either CmdError DbStatus)
-viewCharactersNames userKey = do
+viewCharacterNames :: Key User -> IO (Either CmdError DbStatus)
+viewCharacterNames userKey = do
   loadFile defaultConfig
   connectionString <- connString
   runStderrLoggingT $
@@ -131,14 +131,40 @@ viewCharactersText (e : es) = name <> ": Level " <> level <> " " <> charClass <>
     name = characterName character
     level = (T.pack . show . characterLevel) character
 
-validateCharCreation :: CharName -> Key User -> IO (Either CmdError ())
-validateCharCreation cName muid = do
+viewStats :: DT.Snowflake -> IO (Either CmdError DbStatus)
+viewStats muid = do
   loadFile defaultConfig
   connectionString <- connString
   runStderrLoggingT $
     withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
       flip runSqlPersistMPool pool $ do
-        character <- selectList [CharacterUser ==. muid, CharacterName ==. cName] []
+        mCharacter <- getUserCurrentCharacter $ fromIntegral muid
+        case mCharacter of
+          Nothing -> pure $ Left "User has no current character. Try creating one with \\create."
+          Just character -> pure $ Right $ viewStatsText character
+
+viewStatsText :: Entity Character -> T.Text
+viewStatsText e = levelLine <> str <> dex <> vit <> nrg <> avlStats
+  where
+    character = entityVal e
+    charClass = (showC . toEnum . characterClass) character
+    name = characterName character
+    level = (T.pack . show . characterLevel) character
+    levelLine = name <> ": Level " <> level <> " " <> charClass <> "\n"
+    str = "Strength: " <> (T.pack . show . characterStr) character <> "\n"
+    dex = "Dexterity: " <> (T.pack . show . characterDex) character <> "\n"
+    vit = "Vitality: " <> (T.pack . show . characterVit) character <> "\n"
+    nrg = "Energy: " <> (T.pack . show . characterNrg) character <> "\n"
+    avlStats = "Available points to spend: " <> (T.pack . show . characterAvlStats) character <> "\n"
+
+validateCharCreation :: CharName -> Key User -> IO (Either CmdError ())
+validateCharCreation cName userKey = do
+  loadFile defaultConfig
+  connectionString <- connString
+  runStderrLoggingT $
+    withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
+      flip runSqlPersistMPool pool $ do
+        character <- selectList [CharacterUser ==. userKey, CharacterName ==. cName] []
         let validated
               | not (null character) = Left ("Can't create character. You have a character named " <> cName <> " already. You can \\delete them to reuse the name.")
               | otherwise = Right ()
@@ -201,9 +227,9 @@ snowflakeToKey :: Integral a => a -> Key User
 snowflakeToKey s = UserKey {unUserKey = fromIntegral s}
 
 createSorceress :: Key User -> CharName -> Character
-createSorceress userMuid cName =
+createSorceress userKey cName =
   Character
-    { characterUser = userMuid,
+    { characterUser = userKey,
       characterClass = fromEnum Sorceress,
       characterName = cName,
       characterTimePlayed = 0,
@@ -218,9 +244,9 @@ createSorceress userMuid cName =
     }
 
 createBarbarian :: Key User -> CharName -> Character
-createBarbarian userMuid cName =
+createBarbarian userKey cName =
   Character
-    { characterUser = userMuid,
+    { characterUser = userKey,
       characterClass = fromEnum Barbarian,
       characterName = cName,
       characterTimePlayed = 0,
@@ -235,9 +261,9 @@ createBarbarian userMuid cName =
     }
 
 createPaladin :: Key User -> CharName -> Character
-createPaladin userMuid cName =
+createPaladin userKey cName =
   Character
-    { characterUser = userMuid,
+    { characterUser = userKey,
       characterClass = fromEnum Paladin,
       characterName = cName,
       characterTimePlayed = 0,
@@ -252,9 +278,9 @@ createPaladin userMuid cName =
     }
 
 createNecromancer :: Key User -> CharName -> Character
-createNecromancer userMuid cName =
+createNecromancer userKey cName =
   Character
-    { characterUser = userMuid,
+    { characterUser = userKey,
       characterClass = fromEnum Necromancer,
       characterName = cName,
       characterTimePlayed = 0,
@@ -269,9 +295,9 @@ createNecromancer userMuid cName =
     }
 
 createAmazon :: Key User -> CharName -> Character
-createAmazon userMuid cName =
+createAmazon userKey cName =
   Character
-    { characterUser = userMuid,
+    { characterUser = userKey,
       characterClass = fromEnum Amazon,
       characterName = cName,
       characterTimePlayed = 0,
@@ -286,9 +312,9 @@ createAmazon userMuid cName =
     }
 
 createDruid :: Key User -> CharName -> Character
-createDruid userMuid cName =
+createDruid userKey cName =
   Character
-    { characterUser = userMuid,
+    { characterUser = userKey,
       characterClass = fromEnum Druid,
       characterName = cName,
       characterTimePlayed = 0,
@@ -303,9 +329,9 @@ createDruid userMuid cName =
     }
 
 createAssassin :: Key User -> CharName -> Character
-createAssassin userMuid cName =
+createAssassin userKey cName =
   Character
-    { characterUser = userMuid,
+    { characterUser = userKey,
       characterClass = fromEnum Assassin,
       characterName = cName,
       characterTimePlayed = 0,

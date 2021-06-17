@@ -29,16 +29,8 @@ import Db.DbHelpers
 import System.Environment
 
 PTH.share
-  [PTH.mkPersist PTH.sqlSettings, PTH.mkMigrate "migrateAll"]
+  [PTH.mkPersist PTH.sqlSettings, PTH.mkMigrate "migrateMutable"]
   [PTH.persistLowerCase|
-    User sql=users
-        currentCharId Int
-        timeCreated Int
-        discordId Int
-        Primary discordId
-        UniqueUser discordId
-        deriving Show Read Eq
-
     Character sql=characters
         user UserId
         class Int
@@ -53,6 +45,22 @@ PTH.share
         avlStats Int
         avlSkills Int
         deriving Show Read
+
+    User sql=users
+        currentCharId Int
+        timeCreated Int
+        discordId Int
+        Primary discordId
+        UniqueUser discordId
+        deriving Show Read Eq
+|]
+
+PTH.share
+  [PTH.mkPersist PTH.sqlSettings, PTH.mkMigrate "migrateImmutable"]
+  [PTH.persistLowerCase|
+    GDClasses sql=gdclasses
+        class Int
+        deriving Show Read Eq
 |]
 
 migrate :: IO ()
@@ -62,5 +70,6 @@ migrate = do
   runStderrLoggingT $
     withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
       flip runSqlPersistMPool pool $ do
-        runMigrationUnsafe migrateAll
+        runMigrationUnsafe migrateMutable
+        runMigrationUnsafe migrateImmutable
         liftIO $ print "whatever"

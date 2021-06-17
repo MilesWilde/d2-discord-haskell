@@ -112,8 +112,8 @@ fromBot m = userIsBot (messageAuthor m)
 isBotCommand :: Message -> Bool
 isBotCommand = (== '\\') . T.head . messageText
 
-showSnowflake :: Snowflake -> String
-showSnowflake (Snowflake w) = show w
+showSnowflake :: Snowflake -> T.Text
+showSnowflake (Snowflake w) = (T.pack . show) w
 
 messageUserId :: Message -> Snowflake
 messageUserId = userId . messageAuthor
@@ -121,11 +121,15 @@ messageUserId = userId . messageAuthor
 sendViewMessage :: ViewCommand -> Message -> DiscordHandler (Either RestCallErrorCode Message)
 sendViewMessage vc m = case vc of
   Characters -> do
-    viewCharsStatus <- liftIO $ viewCharactersNames userKey
+    viewCharsStatus <- liftIO $ viewCharacterNames userKey
     case viewCharsStatus of
       Right status -> restCall (R.CreateMessage (messageChannel m) status)
       Left err -> restCall (R.CreateMessage (messageChannel m) err)
-  Stats -> restCall (R.CreateMessage (messageChannel m) "View Stats")
+  Stats -> do
+    viewStatsStatus <- liftIO $ viewStats (messageUserId m)
+    case viewStatsStatus of
+      Right status -> restCall (R.CreateMessage (messageChannel m) status)
+      Left err -> restCall (R.CreateMessage (messageChannel m) err)
   Skills -> restCall (R.CreateMessage (messageChannel m) "View Skills")
   Inventory -> restCall (R.CreateMessage (messageChannel m) "View Inventory")
   where
