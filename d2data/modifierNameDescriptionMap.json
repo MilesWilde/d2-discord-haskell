@@ -1,0 +1,1187 @@
+{
+    "Mechanic's": {
+        "mod1description": "Socketed (#d1)"
+    },
+    "Artisan's": {
+        "mod1description": "Socketed (3)"
+    },
+    "Jeweler's": {
+        "mod1description": "Socketed (4)"
+    },
+    "Bronze": {
+        "mod1description": "+#d1 to Attack Rating"
+    },
+    "Iron": {
+        "mod1description": "+#d1 to Attack Rating"
+    },
+    "Steel": {
+        "mod1description": "+#d1 to Attack Rating"
+    },
+    "Silver": {
+        "mod1description": "+#d1 to Attack Rating"
+    },
+    "Gold": {
+        "mod1description": "+#d1 to Attack Rating"
+    },
+    "Platinum": {
+        "mod1description": "+#d1 to Attack Rating"
+    },
+    "Meteoric": {
+        "mod1description": "+#d1 to Attack Rating"
+    },
+    "Strange": {
+        "mod1description": "+#d1 to Attack Rating"
+    },
+    "Weird": {
+        "mod1description": "+#d1 to Attack Rating"
+    },
+    "Tin": {
+        "mod1description": "+#d1 to Attack Rating"
+    },
+    "Argent": {
+        "mod1description": "+#d1 to Attack Rating"
+    },
+    "Hawkeye": {
+        "mod1description": "+#d1 Attack Rating (Based on Character Level)"
+    },
+    "Visionary": {
+        "mod1description": "+#d1% Bonus to Attack Rating (Based on Character Level)"
+    },
+    "Sharp": {
+        "mod1description": "+#d1 to Attack Rating",
+        "mod2description": "+#d2 to Maximum Damage"
+    },
+    "Fine": {
+        "mod1description": "+#d1 to Attack Rating",
+        "mod2description": "+#d2 to Maximum Damage"
+    },
+    "Warrior's": {
+        "mod1description": "+#d1 to Attack Rating",
+        "mod2description": "+#d2% Enhanced Damage"
+    },
+    "Soldier's": {
+        "mod1description": "+#d1 to Attack Rating",
+        "mod2description": "+#d2% Enhanced Damage"
+    },
+    "Knight's": {
+        "mod1description": "+#d1 to Attack Rating",
+        "mod2description": "+#d2% Enhanced Damage"
+    },
+    "Lord's": {
+        "mod1description": "+#d1 to Attack Rating",
+        "mod2description": "+#d2% Enhanced Damage"
+    },
+    "King's": {
+        "mod1description": "+#d1 to Attack Rating",
+        "mod2description": "+#d2% Enhanced Damage"
+    },
+    "Master's": {
+        "mod1description": "+#d1 to Attack Rating",
+        "mod2description": "+#d2% Enhanced Damage"
+    },
+    "Grandmaster's": {
+        "mod1description": "+#d1 to Attack Rating",
+        "mod2description": "+#d2% Enhanced Damage"
+    },
+    "Fool's": {
+        "mod1description": "+#d1 to Attack Rating (Based on Character Level)",
+        "mod2description": "+#d2 to Maximum Damage (Based on Character Level)"
+    },
+    "Lunar": {
+        "mod1description": "+#d1 to Attack Rating vs. Demons",
+        "mod2description": "+#d2% Enhanced Damage vs. Demons"
+    },
+    "Diamond": {
+        "mod1description": "+#d1 to Attack Rating vs. Demons",
+        "mod2description": "+#d2% Enhanced Damage vs. Demons"
+    },
+    "Arcadian": {
+        "mod1description": "+#d1 to Attack Rating vs. Demons",
+        "mod2description": "+#d2% Enhanced Damage vs. Demons"
+    },
+    "Unearthly": {
+        "mod1description": "+#d1 to Attack Rating vs. Demons",
+        "mod2description": "+#d2% Enhanced Damage vs. Demons"
+    },
+    "Astral": {
+        "mod1description": "+#d1 to Attack Rating vs. Demons",
+        "mod2description": "+#d2% Enhanced Damage vs. Demons"
+    },
+    "Elysian": {
+        "mod1description": "+#d1 to Attack Rating vs. Demons",
+        "mod2description": "+#d2% Enhanced Damage vs. Demons"
+    },
+    "Celestial": {
+        "mod1description": "+#d1 to Attack Rating vs. Demons",
+        "mod2description": "+#d2% Enhanced Damage vs. Demons"
+    },
+    "Pearl": {
+        "mod1description": "+#d1 to Attack Rating vs. Undead",
+        "mod2description": "+#d2% Enhanced Damage vs. Undead"
+    },
+    "Consecrated": {
+        "mod1description": "+#d1 to Attack Rating vs. Undead",
+        "mod2description": "+#d2% Enhanced Damage vs. Undead"
+    },
+    "Pure": {
+        "mod1description": "+#d1 to Attack Rating vs. Undead",
+        "mod2description": "+#d2% Enhanced Damage vs. Undead"
+    },
+    "Sacred": {
+        "mod1description": "+#d1 to Attack Rating vs. Undead",
+        "mod2description": "+#d2% Enhanced Damage vs. Undead"
+    },
+    "Hallowed": {
+        "mod1description": "+#d1 to Attack Rating vs. Undead",
+        "mod2description": "+#d2% Enhanced Damage vs. Undead"
+    },
+    "Divine": {
+        "mod1description": "+#d1 to Attack Rating vs. Undead",
+        "mod2description": "+#d2% Enhanced Damage vs. Undead"
+    },
+    "Sturdy": {
+        "mod1description": "+#d1% Enhanced Defense"
+    },
+    "Strong": {
+        "mod1description": "+#d1% Enhanced Defense"
+    },
+    "Glorious": {
+        "mod1description": "+#d1% Enhanced Defense"
+    },
+    "Blessed": {
+        "mod1description": "+#d1% Enhanced Defense"
+    },
+    "Saintly": {
+        "mod1description": "+#d1% Enhanced Defense"
+    },
+    "Holy": {
+        "mod1description": "+#d1% Enhanced Defense"
+    },
+    "Godly": {
+        "mod1description": "+#d1% Enhanced Defense"
+    },
+    "Stout": {
+        "mod1description": "+#d1 Defense"
+    },
+    "Burly": {
+        "mod1description": "+#d1 Defense"
+    },
+    "Stalwart": {
+        "mod1description": "+#d1 Defense"
+    },
+    "Blanched": {
+        "mod1description": "+#d1 Defense"
+    },
+    "Eburine": {
+        "mod1description": "+#d1 Defense"
+    },
+    "Bone": {
+        "mod1description": "+#d1 Defense"
+    },
+    "Ivory": {
+        "mod1description": "+#d1 Defense"
+    },
+    "Faithful": {
+        "mod1description": "+#d1 Defense (Based on Character Level)"
+    },
+    "Snowy": {
+        "mod1description": "Adds #d1 to #d2 Cold Damage – 1 sec Duration"
+    },
+    "Shivering": {
+        "mod1description": "Adds #d1 to #d2 Cold Damage – 2 sec Duration"
+    },
+    "Boreal": {
+        "mod1description": "Adds #d1 to #d2 Cold Damage – 3 sec Duration"
+    },
+    "Hibernal": {
+        "mod1description": "Adds #d1 to #d2 Cold Damage – 4 sec Duration"
+    },
+    "Ember": {
+        "mod1description": "Adds 1 to #d2 Fire Damage"
+    },
+    "Fiery": {
+        "mod1description": "Adds #d1 to #d2 Fire Damage"
+    },
+    "Smoldering": {
+        "mod1description": "Adds #d1 to #d2 Fire Damage"
+    },
+    "Smoking": {
+        "mod1description": "Adds #d1 to #d2 Fire Damage"
+    },
+    "Flaming": {
+        "mod1description": "Adds #d1 to #d2 Fire Damage"
+    },
+    "Condensing": {
+        "mod1description": "Adds #d1 to #d2 Fire Damage"
+    },
+    "Static": {
+        "mod1description": "Adds 1 to #d2 Lighting Damage"
+    },
+    "Glowing": {
+        "mod1description": "+#d1 to Light Radius"
+    },
+    "Buzzing": {
+        "mod1description": "Adds 1 to #d2 Lighting Damage"
+    },
+    "Arcing": {
+        "mod1description": "Adds 1 to #d2 Lighting Damage"
+    },
+    "Shocking": {
+        "mod1description": "Adds 1 to #d2 Lighting Damage"
+    },
+    "Septic": {
+        "mod1description": "+#d1 Poison Damage over 3 Seconds"
+    },
+    "Foul": {
+        "mod1description": "+#d1 Poison Damage over 4 Seconds"
+    },
+    "Corrosive": {
+        "mod1description": "+#d1 Poison Damage over 4 Seconds"
+    },
+    "Toxic": {
+        "mod1description": "+#d1 Poison Damage over 5 Seconds"
+    },
+    "Pestilent": {
+        "mod1description": "+#d1 Poison Damage over 6 Seconds"
+    },
+    "Shimmering": {
+        "mod1description": "All Resistances +#d1%"
+    },
+    "Rainbow": {
+        "mod1description": "All Resistances +#d1%"
+    },
+    "Scintillating": {
+        "mod1description": "All Resistances +#d1%"
+    },
+    "Prismatic": {
+        "mod1description": "All Resistances +#d1%"
+    },
+    "Chromatic": {
+        "mod1description": "All Resistances +#d1%"
+    },
+    "Azure": {
+        "mod1description": "Cold Resist +#d1%"
+    },
+    "Lapis": {
+        "mod1description": "Cold Resist +#d1%"
+    },
+    "Cobalt": {
+        "mod1description": "Cold Resist +#d1%"
+    },
+    "Sapphire": {
+        "mod1description": "Cold Resist +#d1%"
+    },
+    "Lapis Lazuli": {
+        "mod1description": "Cold Resist +#d1%"
+    },
+    "Crimson": {
+        "mod1description": "+#d1 to Minimum Damage"
+    },
+    "Russet": {
+        "mod1description": "Fire Resist +#d1%"
+    },
+    "Garnet": {
+        "mod1description": "Fire Resist +#d1%"
+    },
+    "Ruby": {
+        "mod1description": "+#d1% Enhanced Damage"
+    },
+    "Tangerine": {
+        "mod1description": "Lightning Resist +#d1%"
+    },
+    "Ocher": {
+        "mod1description": "Lightning Resist +#d1%"
+    },
+    "Coral": {
+        "mod1description": "Lightning Resist +#d1%"
+    },
+    "Amber": {
+        "mod1description": "Lightning Resist +#d1%"
+    },
+    "Camphor": {
+        "mod1description": "Lightning Resist +#d1%"
+    },
+    "Ambergris": {
+        "mod1description": "Lightning Resist +#d1%"
+    },
+    "Beryl": {
+        "mod1description": "Poison Resist +#d1%"
+    },
+    "Viridian": {
+        "mod1description": "Poison Resist +#d1%"
+    },
+    "Jade": {
+        "mod1description": "Poison Resist +#d1%"
+    },
+    "Emerald": {
+        "mod1description": "+#d1% Better Chance of Getting Magic Items"
+    },
+    "Jagged": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Deadly": {
+        "mod1description": "+#d1% Enhanced Damage"
+    },
+    "Vicious": {
+        "mod1description": "+#d1% Enhanced Damage"
+    },
+    "Brutal": {
+        "mod1description": "+#d1% Enhanced Damage"
+    },
+    "Massive": {
+        "mod1description": "+#d1% Enhanced Damage"
+    },
+    "Savage": {
+        "mod1description": "+#d1% Enhanced Damage"
+    },
+    "Merciless": {
+        "mod1description": "+#d1% Enhanced Damage"
+    },
+    "Ferocious": {
+        "mod1description": "+#d1% Enhanced Damage"
+    },
+    "Cruel": {
+        "mod1description": "+#d1% Enhanced Damage"
+    },
+    "Cinnabar": {
+        "mod1description": "+#d1% Enhanced Damage"
+    },
+    "Rusty": {
+        "mod1description": "+#d1% Enhanced Damage"
+    },
+    "Realgar": {
+        "mod1description": "+#d1% Enhanced Damage"
+    },
+    "Forked": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Serrated": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Carbuncle": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Carmine": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Vermilion": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Grinding": {
+        "mod1description": "+#d1 to Maximum Damage (Based on Character Level)"
+    },
+    "Red": {
+        "mod1description": "+#d1 to Minimum Damage"
+    },
+    "Sanguinary": {
+        "mod1description": "+#d1 to Minimum Damage"
+    },
+    "Bloody": {
+        "mod1description": "+#d1 to Minimum Damage"
+    },
+    "Scarlet": {
+        "mod1description": "+#d1 to Minimum Damage"
+    },
+    "Compact": {
+        "mod1description": "+#d1 Quantity"
+    },
+    "Thin": {
+        "mod1description": "+#d1 Quantity"
+    },
+    "Dense": {
+        "mod1description": "+#d1 Quantity"
+    },
+    "Bright": {
+        "mod1description": "+#d1 to Light Radius",
+        "mod2description": "+#d2 to Attack Rating"
+    },
+    "Glimmering": {
+        "mod1description": "+#d1 to Light Radius"
+    },
+    "Lucky": {
+        "mod1description": "+#d1% Better Chance of Getting Magic Items"
+    },
+    "Felicitous": {
+        "mod1description": "+#d1% Better Chance of Getting Magic Items"
+    },
+    "Fortuitous": {
+        "mod1description": "+#d1% Better Chance of Getting Magic Items"
+    },
+    "Lizard's": {
+        "mod1description": "+#d1 to Mana"
+    },
+    "Snake's": {
+        "mod1description": "+#d1 to Mana"
+    },
+    "Serpent's": {
+        "mod1description": "+#d1 to Mana"
+    },
+    "Drake's": {
+        "mod1description": "+#d1 to Mana"
+    },
+    "Dragon's": {
+        "mod1description": "+#d1 to Mana"
+    },
+    "Wyrm's": {
+        "mod1description": "+#d1 to Mana"
+    },
+    "Great Wyrm's": {
+        "mod1description": "+#d1 to Mana"
+    },
+    "Bahamut's": {
+        "mod1description": "+#d1 to Mana"
+    },
+    "Zircon": {
+        "mod1description": "+#d1 to Mana"
+    },
+    "Jacinth": {
+        "mod1description": "+#d1 to Mana"
+    },
+    "Turquoise": {
+        "mod1description": "+#d1 to Mana"
+    },
+    "Mnemonic": {
+        "mod1description": "+#d1 to Mana (Based on Character Level)"
+    },
+    "Dun": {
+        "mod1description": "+#d1% of Damage Taken Goes to Mana"
+    },
+    "Vulpine": {
+        "mod1description": "+#d1% of Damage Taken Goes to Mana"
+    },
+    "Triumphant": {
+        "mod1description": "+#d1 Mana After Each Kill"
+    },
+    "Aureolic": {
+        "mod1description": "+#d1 Mana After Each Kill"
+    },
+    "Victorious": {
+        "mod1description": "+#d1 Mana After Each Kill"
+    },
+    "Screaming": {
+        "mod1description": "+#d1%"
+    },
+    "Howling": {
+        "mod1description": "+#d1%"
+    },
+    "Wailing": {
+        "mod1description": "+#d1%"
+    },
+    "Maiden's": {
+        "mod1description": "+#d1 to Amazon Skills"
+    },
+    "Valkyrie's": {
+        "mod1description": "+#d1 to Amazon Skills"
+    },
+    "Fletcher's": {
+        "mod1description": "+#d1 to Bow and Crossbow Skills (Amazon only)"
+    },
+    "Bowyer's": {
+        "mod1description": "+#d1 to Bow and Crossbow Skills (Amazon only)"
+    },
+    "Archer's": {
+        "mod1description": "+#d1 to Bow and Crossbow Skills (Amazon only)"
+    },
+    "Acrobat's": {
+        "mod1description": "+#d1 to Passive and Magic Skills (Amazon only)"
+    },
+    "Gymnast's": {
+        "mod1description": "+#d1 to Passive and Magic Skills (Amazon only)"
+    },
+    "Athlete's": {
+        "mod1description": "+#d1 to Passive and Magic Skills (Amazon only)"
+    },
+    "Harpoonist's": {
+        "mod1description": "+#d1 to Javelin and Spear Skills (Amazon only)"
+    },
+    "Spearmaiden's": {
+        "mod1description": "+#d1 to Javelin and Spear Skills (Amazon only)"
+    },
+    "Lancer's": {
+        "mod1description": "+#d1 to Javelin and Spear Skills (Amazon only)"
+    },
+    "Magekiller's": {
+        "mod1description": "+#d1 to Assassin Skills"
+    },
+    "Witch-hunter's": {
+        "mod1description": "+#d1 to Assassin Skills"
+    },
+    "Entrapping": {
+        "mod1description": "+#d1 to Traps (Assassin only)"
+    },
+    "Trickster's": {
+        "mod1description": "+#d1 to Traps (Assassin only)"
+    },
+    "Cunning": {
+        "mod1description": "+#d1 to Traps (Assassin only)"
+    },
+    "Mentalist's": {
+        "mod1description": "+#d1 to Shadow Disciplines (Assassin only)"
+    },
+    "Psychic": {
+        "mod1description": "+#d1 to Shadow Disciplines (Assassin only)"
+    },
+    "Shadow": {
+        "mod1description": "+#d1 to Shadow Disciplines (Assassin only)"
+    },
+    "Shogukusha's": {
+        "mod1description": "+#d1 to Martial Arts (Assassin only)"
+    },
+    "Sensei's": {
+        "mod1description": "+#d1 to Martial Arts (Assassin only)"
+    },
+    "Kenshi's": {
+        "mod1description": "+#d1 to Martial Arts (Assassin only)"
+    },
+    "Slayer's": {
+        "mod1description": "+#d1 to Barbarian Skills"
+    },
+    "Berserker's": {
+        "mod1description": "+#d1 to Barbarian Skills"
+    },
+    "Expert's": {
+        "mod1description": "+#d1 to Combat Skills (Barbarian only)"
+    },
+    "Veteran's": {
+        "mod1description": "+#d1 to Combat Skills (Barbarian only)"
+    },
+    "BMaster's": {
+        "mod1description": "+#d1 to Combat Skills (Barbarian only)"
+    },
+    "Fanatic": {
+        "mod1description": "+#d1 to Combat Masteries (Barbarian only)"
+    },
+    "Raging": {
+        "mod1description": "+#d1 to Combat Masteries (Barbarian only)"
+    },
+    "Furious": {
+        "mod1description": "+#d1 to Combat Masteries (Barbarian only)"
+    },
+    "Sounding": {
+        "mod1description": "+#d1 to Warcries (Barbarian only)"
+    },
+    "Resonant": {
+        "mod1description": "+#d1 to Warcries (Barbarian only)"
+    },
+    "Echoing": {
+        "mod1description": "+#d1 to Warcries (Barbarian only)"
+    },
+    "Shaman's": {
+        "mod1description": "+#d1 to Druid Skills"
+    },
+    "Hierophant's": {
+        "mod1description": "+#d1 to Druid Skills"
+    },
+    "Trainer's": {
+        "mod1description": "+#d1 to Summoning Skills (Druid only)"
+    },
+    "Caretaker's": {
+        "mod1description": "+#d1 to Summoning Skills (Druid only)"
+    },
+    "Keeper's": {
+        "mod1description": "+#d1 to Summoning Skills (Druid only)"
+    },
+    "Spiritual": {
+        "mod1description": "+#d1 to Shapeshifting Skills (Druid only)"
+    },
+    "Feral": {
+        "mod1description": "+#d1 to Shapeshifting Skills (Druid only)"
+    },
+    "Communal": {
+        "mod1description": "+#d1 to Shapeshifting Skills (Druid only)"
+    },
+    "Nature's": {
+        "mod1description": "+#d1 to Elemental Skills (Druid only)"
+    },
+    "Terrene": {
+        "mod1description": "+#d1 to Elemental Skills (Druid only)"
+    },
+    "Gaea's": {
+        "mod1description": "+#d1 to Elemental Skills (Druid only)"
+    },
+    "Summoner's": {
+        "mod1description": "+#d1 to Necromancer Skills"
+    },
+    "Necromancer's": {
+        "mod1description": "+#d1 to Necromancer Skills"
+    },
+    "Hexing": {
+        "mod1description": "+#d1 to Curses (Necromancer only)"
+    },
+    "Blighting": {
+        "mod1description": "+#d1 to Curses (Necromancer only)"
+    },
+    "Cursing": {
+        "mod1description": "+#d1 to Curses (Necromancer only)"
+    },
+    "Fungal": {
+        "mod1description": "+#d1 to Poison and Bone Skills (Necromancer only)"
+    },
+    "Noxious": {
+        "mod1description": "+#d1 to Poison and Bone Skills (Necromancer only)"
+    },
+    "Venomous": {
+        "mod1description": "+#d1 to Poison and Bone Skills (Necromancer only)"
+    },
+    "Graverobber's": {
+        "mod1description": "+#d1 to Summoning Skills (Necromancer only)"
+    },
+    "Mojo": {
+        "mod1description": "+#d1 to Summoning Skills (Necromancer only)"
+    },
+    "Golemlord's": {
+        "mod1description": "+#d1 to Summoning Skills (Necromancer only)"
+    },
+    "Monk's": {
+        "mod1description": "+#d1 to Paladin Skills"
+    },
+    "Priest's": {
+        "mod1description": "+#d1 to Paladin Skills"
+    },
+    "Lion Branded": {
+        "mod1description": "+#d1 to Combat Skills (Paladin only)"
+    },
+    "Hawk Branded": {
+        "mod1description": "+#d1 to Combat Skills (Paladin only)"
+    },
+    "Rose Branded": {
+        "mod1description": "+#d1 to Combat Skills (Paladin only)"
+    },
+    "Captain's": {
+        "mod1description": "+#d1 to Offensive Auras (Paladin only)"
+    },
+    "Commander's": {
+        "mod1description": "+#d1 to Offensive Auras (Paladin only)"
+    },
+    "Marshal's": {
+        "mod1description": "+#d1 to Offensive Auras (Paladin only)"
+    },
+    "Preserver's": {
+        "mod1description": "+#d1 to Defensive Auras (Paladin only)"
+    },
+    "Warden's": {
+        "mod1description": "+#d1 to Defensive Auras (Paladin only)"
+    },
+    "Guardian's": {
+        "mod1description": "+#d1 to Defensive Auras (Paladin only)"
+    },
+    "Angel's": {
+        "mod1description": "+#d1 to Sorceress Skills"
+    },
+    "Arch-Angel's": {
+        "mod1description": "+#d1 to Sorceress Skills"
+    },
+    "Burning": {
+        "mod1description": "Adds #d1 to #d2 Fire Damage"
+    },
+    "Blazing": {
+        "mod1description": "+#d1 to Fire Skills (Sorceress only)"
+    },
+    "Volcanic": {
+        "mod1description": "+#d1 to Fire Skills (Sorceress only)"
+    },
+    "Sparking": {
+        "mod1description": "+#d1 to Lightning Skills (Sorceress only)"
+    },
+    "Charged": {
+        "mod1description": "+#d1 to Lightning Skills (Sorceress only)"
+    },
+    "Powered": {
+        "mod1description": "+#d1 to Lightning Skills (Sorceress only)"
+    },
+    "Chilling": {
+        "mod1description": "+#d1 to Cold Skills (Sorceress only)"
+    },
+    "Freezing": {
+        "mod1description": "+#d1 to Cold Skills (Sorceress only)"
+    },
+    "Glacial": {
+        "mod1description": "+#d1 to Cold Skills (Sorceress only)"
+    },
+    "Rugged": {
+        "mod1description": "+#d1 to Maximum Stamina"
+    },
+    "Vigorous": {
+        "mod1description": "+#d1 to Maximum Stamina"
+    },
+    "Chestnut": {
+        "mod1description": "+#d1 to Maximum Stamina"
+    },
+    "Maroon": {
+        "mod1description": "+#d1 to Maximum Stamina"
+    },
+    "Brown": {
+        "mod1description": "Heal Stamina +#d1%"
+    },
+    "Tireless": {
+        "mod1description": "Heal Stamina +#d1%"
+    },
+    "Piercing": {
+        "mod1description": "+#d1 Target's Defense"
+    },
+    "Bear": {
+        "mod1description": "#d1Knockback"
+    },
+    "Vileness": {
+        "mod1description": "+#d1 Monster Heal"
+    },
+    "Apprentice": {
+        "mod1description": "+#d1% Faster Cast Rate"
+    },
+    "Magus": {
+        "mod1description": "+#d1% Faster Cast Rate"
+    },
+    "Blocking": {
+        "mod1description": "+#d1% Increased Chance of Blocking",
+        "mod2description": "+#d2% Faster Block Rate"
+    },
+    "Deflecting": {
+        "mod1description": "+#d1% Increased Chance of Blocking",
+        "mod2description": "+#d2% Faster Block Rate"
+    },
+    "Truth": {
+        "mod1description": "+#d1% Faster Hit Recovery"
+    },
+    "Balance": {
+        "mod1description": "+#d1% Faster Hit Recovery"
+    },
+    "Equilibrium": {
+        "mod1description": "+#d1% Faster Hit Recovery"
+    },
+    "Stability": {
+        "mod1description": "+#d1% Faster Hit Recovery"
+    },
+    "Readiness": {
+        "mod1description": "+#d1% Increased Attack Speed"
+    },
+    "Fervor": {
+        "mod1description": "+#d1% Increased Attack Speed"
+    },
+    "Alacrity": {
+        "mod1description": "+#d1% Increased Attack Speed"
+    },
+    "Swiftness": {
+        "mod1description": "+#d1% Increased Attack Speed"
+    },
+    "Quickness": {
+        "mod1description": "+#d1% Increased Attack Speed"
+    },
+    "Health": {
+        "mod1description": "Damage Reduced by 1"
+    },
+    "Protection": {
+        "mod1description": "Damage Reduced by 2"
+    },
+    "Absorption": {
+        "mod1description": "Damage Reduced by 3"
+    },
+    "Life": {
+        "mod1description": "Damage Reduced by #d1"
+    },
+    "Amicae": {
+        "mod1description": "Damage Reduced by #d1"
+    },
+    "Life Everlasting": {
+        "mod1description": "Damage Reduced by #d1"
+    },
+    "Warding": {
+        "mod1description": "Magic Damage Reduced by #d1"
+    },
+    "Sentinel": {
+        "mod1description": "Magic Damage Reduced by #d1"
+    },
+    "Guarding": {
+        "mod1description": "Magic Damage Reduced by #d1"
+    },
+    "Negation": {
+        "mod1description": "Magic Damage Reduced by #d1"
+    },
+    "Thorns": {
+        "mod1description": "Attacker Takes Damage of #d1"
+    },
+    "Malice": {
+        "mod1description": "Attacker Takes Damage of #d1"
+    },
+    "Spikes": {
+        "mod1description": "Attacker Takes Damage of #d1"
+    },
+    "Razors": {
+        "mod1description": "Attacker Takes Damage of #d1"
+    },
+    "Swords": {
+        "mod1description": "Attacker Takes Damage of #d1"
+    },
+    "Ages": {
+        "mod1description": "Indestructible"
+    },
+    "Self-Repair": {
+        "mod1description": "Repairs 1 Durability Every 33 Seconds"
+    },
+    "Restoration": {
+        "mod1description": "Repairs 1 Durability Every 20 Seconds"
+    },
+    "Replenishing": {
+        "mod1description": "Replenishes 1 Quantity Every 20 Seconds"
+    },
+    "Propagation": {
+        "mod1description": "Replenishes 1 Quantity Every 10 Seconds"
+    },
+    "Frost": {
+        "mod1description": "Adds 1 to #d2 Cold Damage - 2 sec Duration"
+    },
+    "Frigidity": {
+        "mod1description": "Adds 1 to 5 Cold Damage - 2 sec Duration"
+    },
+    "Icicle": {
+        "mod1description": "Adds #d1 to #d2 Cold Damage - 2 sec Duration"
+    },
+    "Glacier": {
+        "mod1description": "Adds #d1 to #d2 Cold Damage - 2 sec Duration"
+    },
+    "Winter": {
+        "mod1description": "Adds #d1 to #d2 Cold Damage - 5 sec Duration"
+    },
+    "Flame": {
+        "mod1description": "Adds 1 to #d2 Fire Damage"
+    },
+    "Passion": {
+        "mod1description": "Adds #d1 to #d2 Fire Damage"
+    },
+    "Fire": {
+        "mod1description": "Adds #d1 to #d2 Fire Damage"
+    },
+    "Incineration": {
+        "mod1description": "Adds #d1 to #d2 Fire Damage"
+    },
+    "Shock": {
+        "mod1description": "Adds 1 to #d2 Lightning Damage"
+    },
+    "Ennui": {
+        "mod1description": "Adds 1 to #d2 Lightning Damage"
+    },
+    "Lightning": {
+        "mod1description": "#d1% Chance to Cast Level 3 Lightning on Attack"
+    },
+    "Thunder": {
+        "mod1description": "Adds 1 to #d2 Lightning Damage"
+    },
+    "Storms": {
+        "mod1description": "Adds 1 to #d2 Lightning Damage"
+    },
+    "Blight": {
+        "mod1description": "Adds 1-50 Poison Damage Over 3 Seconds"
+    },
+    "Envy": {
+        "mod1description": "Adds 20 Poison Damage Over 2 Seconds"
+    },
+    "Venom": {
+        "mod1description": "Adds 21 Poison Damage Over 4 Seconds"
+    },
+    "Pestilence": {
+        "mod1description": "Adds 50 Poison Damage Over 5 Seconds"
+    },
+    "Anthrax": {
+        "mod1description": "Adds 100 Poison Damage Over 6 Seconds"
+    },
+    "Craftsmanship": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Ire": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Quality": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Wrath": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Maiming": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Slaying": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Gore": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Carnage": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Slaughter": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Butchery": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Evisceration": {
+        "mod1description": "+#d1 to Maximum Damage"
+    },
+    "Worth": {
+        "mod1description": "+#d1 to Minimum Damage"
+    },
+    "Joyfulness": {
+        "mod1description": "+#d1 to Minimum Damage"
+    },
+    "Measure": {
+        "mod1description": "+#d1 to Minimum Damage"
+    },
+    "Excellence": {
+        "mod1description": "+#d1 to Minimum Damage"
+    },
+    "Bliss": {
+        "mod1description": "+#d1 to Minimum Damage"
+    },
+    "Performance": {
+        "mod1description": "+#d1 to Minimum Damage"
+    },
+    "Transcendence": {
+        "mod1description": "+#d1 to Minimum Damage"
+    },
+    "Inertia": {
+        "mod1description": "+#d1% Faster Run/Walk"
+    },
+    "Pacing": {
+        "mod1description": "+#d1% Faster Run/Walk"
+    },
+    "Haste": {
+        "mod1description": "+#d1% Faster Run/Walk"
+    },
+    "Speed": {
+        "mod1description": "+#d1% Faster Run/Walk"
+    },
+    "Transportation": {
+        "mod1description": "+#d1% Faster Run/Walk",
+        "mod2description": "+#d2% Slower Stamina Drain"
+    },
+    "Acceleration": {
+        "mod1description": "+#d1% Faster Run/Walk"
+    },
+    "Avarice": {
+        "mod1description": "+#d1% Extra Gold From Monsters"
+    },
+    "Greed": {
+        "mod1description": "+#d1% Extra Gold From Monsters"
+    },
+    "Wealth": {
+        "mod1description": "+#d1% Extra Gold From Monsters"
+    },
+    "Fortune": {
+        "mod1description": "+#d1% Better Chance of Getting Magic Items"
+    },
+    "Good Luck": {
+        "mod1description": "+#d1% Better Chance of Getting Magic Items"
+    },
+    "Prosperity": {
+        "mod1description": "+#d1% Better Chance of Getting Magic Items"
+    },
+    "Chance": {
+        "mod1description": "+#d1% Better Chance of Getting Magic Items"
+    },
+    "Luck": {
+        "mod1description": "+#d1% Better Chance of Getting Magic Items"
+    },
+    "Leech": {
+        "mod1description": "+#d1% Life Stolen per Hit"
+    },
+    "Locust": {
+        "mod1description": "+#d1% Life Stolen per Hit"
+    },
+    "Lamprey": {
+        "mod1description": "+#d1% Life Stolen per Hit"
+    },
+    "Bat": {
+        "mod1description": "+#d1% Mana Stolen per Hit"
+    },
+    "Wraith": {
+        "mod1description": "+#d1% Mana Stolen per Hit"
+    },
+    "Vampire": {
+        "mod1description": "+#d1% Mana Stolen per Hit"
+    },
+    "Honor": {
+        "mod1description": "Replenish Life+#d1"
+    },
+    "Regeneration": {
+        "mod1description": "Replenish Life+#d1"
+    },
+    "Regrowth": {
+        "mod1description": "Replenish Life+#d1"
+    },
+    "Revivification": {
+        "mod1description": "Replenish Life+#d1"
+    },
+    "Light": {
+        "mod1description": "+#d1 to Light Radius, +10-15 to Attack Rating"
+    },
+    "Radiance": {
+        "mod1description": "+#d1 to Light Radius, +30 to Attack Rating"
+    },
+    "Sun": {
+        "mod1description": "+#d1% Bonus to Attack Rating"
+    },
+    "Freedom": {
+        "mod1description": "Requirements -15%"
+    },
+    "Ease": {
+        "mod1description": "Requirements -20%"
+    },
+    "Simplicity": {
+        "mod1description": "Requirements -30%"
+    },
+    "Fire Bolts": {
+        "mod1description": "#d1% Chance to Cast Fire Bolt on Striking"
+    },
+    "Charged Bolt": {
+        "mod1description": "#d1% Chance to Cast Charged Bolt when Struck"
+    },
+    "Ice Bolt": {
+        "mod1description": " #d1% Chance to Cast Level 3 Ice Bolt on Attack"
+    },
+    "Frost Shield": {
+        "mod1description": "#d1% Chance to Cast Level 3 Frost Nova when Struck"
+    },
+    "Nova": {
+        "mod1description": "#d1% Chance to Cast Nova on Striking"
+    },
+    "Nova Shield": {
+        "mod1description": "#d1% Chance to Cast Nova when Struck"
+    },
+    "Chain Lightning": {
+        "mod1description": "#d1% Chance to Cast Chain Lightning on Attack"
+    },
+    "Hydra Shield": {
+        "mod1description": "#d1% Chance to Cast Level 3 Hydra when Struck"
+    },
+    "Amplify Damage": {
+        "mod1description": "#d1% Chance to Cast Level 1 Amplify Damage on Striking"
+    },
+    "Thawing": {
+        "mod1description": "+#d1 Freeze Duration"
+    },
+    "Remedy": {
+        "mod1description": "Poison Length Reduced by 25%"
+    },
+    "Amelioration": {
+        "mod1description": "Poison Length Reduced by 50%"
+    },
+    "Defiance": {
+        "mod1description": "Poison Length Reduced by 75%"
+    },
+    "Dexterity": {
+        "mod1description": "+#d1 to Dexterity"
+    },
+    "Daring": {
+        "mod1description": "+#d1 to Dexterity"
+    },
+    "Skill": {
+        "mod1description": "+#d1 to Dexterity"
+    },
+    "Accuracy": {
+        "mod1description": "+#d1 to Dexterity"
+    },
+    "Precision": {
+        "mod1description": "+#d1 to Dexterity"
+    },
+    "Perfection": {
+        "mod1description": "+#d1 to Dexterity"
+    },
+    "Nirvana": {
+        "mod1description": "+#d1 to Dexterity"
+    },
+    "Energy": {
+        "mod1description": "+#d1 to Energy"
+    },
+    "Knowledge": {
+        "mod1description": "+#d1 to Energy"
+    },
+    "Mind": {
+        "mod1description": "+#d1 to Energy"
+    },
+    "Brilliance": {
+        "mod1description": "+#d1 to Energy"
+    },
+    "Sorcery": {
+        "mod1description": "+#d1 to Energy"
+    },
+    "Wizardry": {
+        "mod1description": "+#d1 to Energy"
+    },
+    "Enlightenment": {
+        "mod1description": "+#d1 to Energy"
+    },
+    "Jackal": {
+        "mod1description": "+#d1 to Life"
+    },
+    "Spirit": {
+        "mod1description": "+#d1 to Life"
+    },
+    "Fox": {
+        "mod1description": "+#d1 to Life"
+    },
+    "Hope": {
+        "mod1description": "+#d1 to Life"
+    },
+    "Wolf": {
+        "mod1description": "+#d1 to Life"
+    },
+    "Tiger": {
+        "mod1description": "+#d1 to Life"
+    },
+    "Mammoth": {
+        "mod1description": "+#d1 to Life"
+    },
+    "Colossus": {
+        "mod1description": "+#d1 to Life"
+    },
+    "Squid": {
+        "mod1description": "+#d1 to Life"
+    },
+    "Whale": {
+        "mod1description": "+#d1 to Life"
+    },
+    "Centaur": {
+        "mod1description": "+#d1 to Life (Based on Character Level)"
+    },
+    "Sustenance": {
+        "mod1description": "+#d1 to Life"
+    },
+    "Vita": {
+        "mod1description": "+#d1 to Life"
+    },
+    "Elephant": {
+        "mod1description": "#d1 to Life and #d2 to Mana (Based on Character Level)"
+    },
+    "Memory": {
+        "mod1description": "+#d1 to Mana (Based on Character Level)"
+    },
+    "Strength": {
+        "mod1description": "+#d1 to Strength"
+    },
+    "Virility": {
+        "mod1description": "+#d1 to Strength"
+    },
+    "Might": {
+        "mod1description": "+#d1 to Strength"
+    },
+    "Ox": {
+        "mod1description": "+#d1 to Strength"
+    },
+    "Giant": {
+        "mod1description": "+#d1 to Strength"
+    },
+    "Titan": {
+        "mod1description": "+#d1 to Strength"
+    },
+    "Atlas": {
+        "mod1description": "+#d1 to Strength"
+    },
+    "Fortified": {
+        "mod1description": "Magic Damage Reduced By #d1"
+    },
+    "Devious": {
+        "mod1description": "Magic Damage Reduced By #d1"
+    },
+    "Nickel": {
+        "mod1description": "#d1 Attack Rating"
+    }
+}

@@ -1,0 +1,223 @@
+{
+ "undead": {
+  "type": "undead"
+ },
+ "demon": {
+  "type": "demon"
+ },
+ "insect": {
+  "type": "insect"
+ },
+ "human": {
+  "type": "human"
+ },
+ "construct": {
+  "type": "construct"
+ },
+ "lowundead": {
+  "type": "lowundead",
+  "equiv1": "undead"
+ },
+ "highundead": {
+  "type": "highundead",
+  "equiv1": "undead"
+ },
+ "skeleton": {
+  "type": "skeleton",
+  "equiv1": "lowundead"
+ },
+ "zombie": {
+  "type": "zombie",
+  "equiv1": "lowundead"
+ },
+ "bighead": {
+  "type": "bighead",
+  "equiv1": "demon",
+  "strsing": "Afflicted",
+  "strplur": "Afflicted"
+ },
+ "foulcrow": {
+  "type": "foulcrow"
+ },
+ "fallen": {
+  "type": "fallen",
+  "equiv1": "demon",
+  "strsing": "Fallen",
+  "strplur": "Fallen"
+ },
+ "brute": {
+  "type": "brute",
+  "strsing": "Yeti",
+  "strplur": "Yeti"
+ },
+ "sandraider": {
+  "type": "sandraider"
+ },
+ "wraith": {
+  "type": "wraith",
+  "equiv1": "undead"
+ },
+ "corruptrogue": {
+  "type": "corruptrogue",
+  "equiv1": "demon"
+ },
+ "baboon": {
+  "type": "baboon"
+ },
+ "goatman": {
+  "type": "goatman",
+  "equiv1": "demon"
+ },
+ "quillrat": {
+  "type": "quillrat"
+ },
+ "sandmaggot": {
+  "type": "sandmaggot"
+ },
+ "clawviper": {
+  "type": "clawviper",
+  "equiv1": "demon"
+ },
+ "sandleaper": {
+  "type": "sandleaper"
+ },
+ "pantherwoman": {
+  "type": "pantherwoman"
+ },
+ "swarm": {
+  "type": "swarm",
+  "equiv1": "insect",
+  "strsing": "HellSwarm",
+  "strplur": "HellSwarm"
+ },
+ "scarab": {
+  "type": "scarab",
+  "equiv1": "insect"
+ },
+ "mummy": {
+  "type": "mummy",
+  "equiv1": "lowundead"
+ },
+ "unraveler": {
+  "type": "unraveler",
+  "equiv1": "highundead"
+ },
+ "vulture": {
+  "type": "vulture"
+ },
+ "mosquito": {
+  "type": "mosquito",
+  "equiv1": "insect"
+ },
+ "willowisp": {
+  "type": "willowisp"
+ },
+ "arach": {
+  "type": "arach",
+  "equiv1": "insect"
+ },
+ "thornhulk": {
+  "type": "thornhulk"
+ },
+ "vampire": {
+  "type": "vampire",
+  "equiv1": "highundead"
+ },
+ "batdemon": {
+  "type": "batdemon"
+ },
+ "fetish": {
+  "type": "fetish",
+  "equiv1": "demon",
+  "strsing": "Fetish",
+  "strplur": "Fetish"
+ },
+ "blunderbore": {
+  "type": "blunderbore",
+  "equiv1": "demon"
+ },
+ "undeadfetish": {
+  "type": "undeadfetish",
+  "equiv1": "lowundead",
+  "equiv2": "demon",
+  "strsing": "Undead Fetish",
+  "strplur": "Undead Fetish"
+ },
+ "zakarum": {
+  "type": "zakarum"
+ },
+ "frogdemon": {
+  "type": "frogdemon"
+ },
+ "tentacle": {
+  "type": "tentacle"
+ },
+ "fingermage": {
+  "type": "fingermage",
+  "equiv1": "lowundead"
+ },
+ "golem": {
+  "type": "golem",
+  "equiv1": "construct"
+ },
+ "vilekind": {
+  "type": "vilekind",
+  "equiv1": "demon"
+ },
+ "regurgitator": {
+  "type": "regurgitator",
+  "equiv1": "demon"
+ },
+ "doomknight": {
+  "type": "doomknight",
+  "equiv1": "lowundead"
+ },
+ "councilmember": {
+  "type": "councilmember",
+  "equiv1": "demon"
+ },
+ "megademon": {
+  "type": "megademon",
+  "equiv1": "demon"
+ },
+ "bovine": {
+  "type": "bovine"
+ },
+ "siegebeast": {
+  "type": "siegebeast"
+ },
+ "snowyeti": {
+  "type": "snowyeti",
+  "strsing": "Yeti",
+  "strplur": "Yeti"
+ },
+ "minion": {
+  "type": "minion"
+ },
+ "succubus": {
+  "type": "succubus",
+  "equiv1": "demon"
+ },
+ "overseer": {
+  "type": "overseer",
+  "equiv1": "demon"
+ },
+ "imp": {
+  "type": "imp",
+  "equiv1": "demon"
+ },
+ "frozenhorror": {
+  "type": "frozenhorror"
+ },
+ "bloodlord": {
+  "type": "bloodlord",
+  "equiv1": "demon"
+ },
+ "deathmauler": {
+  "type": "deathmauler"
+ },
+ "putriddefiler": {
+  "type": "putriddefiler",
+  "equiv1": "demon"
+ }
+}

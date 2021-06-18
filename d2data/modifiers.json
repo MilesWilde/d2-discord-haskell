@@ -1,0 +1,45 @@
+{
+    "Prefixes": [
+        {
+            "+ #% to Defense": [
+                {"Name": "Sturdy", "MinValue": 10, "MaxValue": 30, "ItemTypes": ["Armor", "Belts", "Boots", "Gloves", "Shields"], "AffixLevel":1, "LevelRequirement": 1},
+                {"Name": "Strong", "MinValue": 31, "MaxValue": 40, "ItemTypes": ["Armor", "Belts", "Boots", "Gloves", "Shields"], "AffixLevel":9, "LevelRequirement": 6},
+                {"Name": "Glorious", "MinValue": 41, "MaxValue": 50, "ItemTypes": ["Armor", "Belts", "Boots", "Gloves", "Shields"], "AffixLevel":19, "LevelRequirement": 14},
+                {"Name": "Blessed", "MinValue": 51, "MaxValue": 65, "ItemTypes": ["Armor", "Belts", "Boots", "Gloves", "Shields"], "AffixLevel":25, "LevelRequirement": 18},
+                {"Name": "Saintly", "MinValue": 66, "MaxValue": 80, "ItemTypes": ["Armor", "Belts", "Boots", "Gloves", "Shields"], "AffixLevel":31, "LevelRequirement": 23},
+                {"Name": "Holy", "MinValue": 81, "MaxValue": 100, "ItemTypes": ["Armor", "Belts", "Boots", "Gloves", "Shields"], "AffixLevel":36, "LevelRequirement": 27},
+                {"Name": "Godly", "MinValue": 101, "MaxValue": 200, "ItemTypes": ["Armor", "Belts", "Boots", "Gloves", "Shields"], "AffixLevel":45, "LevelRequirement": 38}
+            ],
+            "Static" : true
+        },
+        {
+            "+# points to Defense (based on character level)" : [
+                {"Name": "Faithful", "MinValue": 0.5, "MaxValue": 49.5, "ItemTypes": ["Armor", "Belts", "Boots", "Gloves", "Shields"], "AffixLevel":30, "LevelRequirement": 22}
+            ],
+            "Static" : false,
+            "PerLevel" : 0.5
+        },
+        {   
+            "%# Damage taken goes to Mana" : [
+                {"Name": "Vulpine", "MinValue": 7, "MaxValue": 12, "ItemTypes": ["Amulets", "Orbs", "Shields", "Staves"], "AffixLevel":9, "LevelRequirement": 6}
+            ],
+            "Static" : true
+        },
+        {
+            "+# points to Mana" : [
+                {"Name": "Lizard's", "MinValue": 3, "MaxValue": 5, "ItemTypes": ["Amulets", "Armor", "Belts", "Rings", "Scepters", "Shields", "Staves", "Wands"], "AffixLevel": 3, "LevelRequirement": 2},
+                    {"Name": "Snake's", "MinValue": 5, "MaxValue": 10, "ItemTypes": ["Amulets", "Armor", "Belts", "Rings", "Scepters", "Shields", "Staves", "Wands"], "AffixLevel": 6, "LevelRequirement": 4},
+                    {"Name": "Serpent's", "MinValue": 11, "MaxValue": 20, "ItemTypes": ["Amulets", "Belts", "Body Armors", "Boots", "Bows", "Circlets", "Gloves", "Orbs", "Rings", "Scepters", "Shields", "Staves", "Wands", "Weapons"], "AffixLevel": 14,"LevelRequirement": 10},
+                    {"Name": "Drake's", "MinValue": 21, "MaxValue": 30, "ItemTypes": ["Amulets", "Circlets", "Orbs", "Rings", "Scepters", "Staves", "Wands"], "AffixLevel": 20, "LevelRequirement": 15},
+                    {"Name": "Dragon's", "MinValue": 31, "MaxValue": 40, "ItemTypes": ["Amulets", "Body Armors", "Boots", "Circlets", "Gloves", "Orbs", "Rings", "Scepters", "Staves", "Wands"],	"AffixLevel": 24, "LevelRequirement": 18},
+                    {"Name": "Wyrm's", "MinValue": 41, "MaxValue": 60, "ItemTypes": ["Amulets", "Circlets", "Orbs", "Rings", "Scepters", "Staves", "Wands"], "AffixLevel": 30, "LevelRequirement": 22},
+                    {"Name": "Great Wyrm's", "MinValue": 61, "MaxValue": 90, "ItemTypes": ["Amulets", "Circlets", "Orbs", "Rings", "Scepters", "Staves", "Wands"], "AffixLevel": 37, "LevelRequirement": 29},
+                    {"Name": "Bahamut's", "MinValue": 91, "MaxValue": 120, "ItemTypes": ["Amulets", "Circlets", "Orbs", "Rings", "Scepters", "Staves", "Wands"], "AffixLevel": 45, "LevelRequirement": 37 }
+            ],
+            "Static" : true
+        }
+    ],
+    "Suffixes": [
+
+    ]
+}
