@@ -17,27 +17,12 @@ import Data.Time.Clock.POSIX
 import Data.Word
 import Database.Persist (Entity (..))
 import Database.Persist.Postgresql
-  ( Entity (entityKey, entityVal),
-    PersistEntity (Key),
-    PersistQueryRead (selectFirst),
-    PersistStoreWrite (insert, update),
-    PersistUniqueWrite (insertUnique),
-    SqlBackend,
-    fromSqlKey,
-    runSqlPersistMPool,
-    selectList,
-    toSqlKey,
-    withPostgresqlPool,
-    (+=.),
-    (-=.),
-    (=.),
-    (==.),
-  )
 import Database.Persist.Sql
 import qualified Database.Persist.TH as PTH
 import Db.DbHelpers
 import Db.Migrations
 import qualified Discord.Types as DT
+import Stats
 import System.Environment
 import TextShow
 import UnliftIO (liftIO)
@@ -55,44 +40,15 @@ createCharacter cClass cName userKey = do
       flip runSqlPersistMPool pool $ do
         validatedCharName <- liftIO $ validateCharCreation cName userKey
         case validatedCharName of
-          Right _ ->
-            case cClass of
-              Sorceress -> do
-                character <-
-                  insert $ createSorceress userKey cName
-                user <- update userKey [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
-                pure $ Right $ showC cClass <> " created with name " <> cName
-              Barbarian -> do
-                character <-
-                  insert $ createBarbarian userKey cName
-                user <- update userKey [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
-                pure $ Right $ showC cClass <> " created with name " <> cName
-              Amazon -> do
-                character <-
-                  insert $ createAmazon userKey cName
-                user <- update userKey [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
-                pure $ Right $ showC cClass <> " created with name " <> cName
-              Necromancer -> do
-                character <-
-                  insert $ createNecromancer userKey cName
-                user <- update userKey [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
-                pure $ Right $ showC cClass <> " created with name " <> cName
-              Paladin -> do
-                character <-
-                  insert $ createPaladin userKey cName
-                user <- update userKey [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
-                pure $ Right $ showC cClass <> " created with name " <> cName
-              Druid -> do
-                character <-
-                  insert $ createDruid userKey cName
-                user <- update userKey [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
-                pure $ Right $ showC cClass <> " created with name " <> cName
-              Assassin -> do
-                character <-
-                  insert $ createAssassin userKey cName
-                user <- update userKey [UserCurrentCharId =. (fromIntegral . fromSqlKey) character]
-                pure $ Right $ showC cClass <> " created with name " <> cName
           Left error -> pure $ Left error
+          Right _ -> do
+            mCreateClass <- liftIO $ createClass cClass cName userKey
+            case mCreateClass of
+              Nothing -> liftIO $ pure $ Left "Unable to create class, this would happen if seeds aren't run"
+              Just characterToInsert -> do
+                character <- insert characterToInsert
+                user <- update userKey [CurrentCharId =. (fromIntegral . fromSqlKey) character]
+                pure $ Right $ showC cClass <> " created with name " <> cName
 
 selectCharacter :: CharName -> Key User -> IO (Either CmdError DbStatus)
 selectCharacter cName userKey = do
@@ -101,11 +57,11 @@ selectCharacter cName userKey = do
   runStderrLoggingT $
     withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
       flip runSqlPersistMPool pool $ do
-        character <- selectFirst [CharacterUser ==. userKey, CharacterName ==. cName] []
+        character <- selectFirst [CUser ==. userKey, Name ==. cName] []
         case character of
           Just character -> do
             let characterId = (fromIntegral . fromSqlKey . entityKey) character
-            update userKey [UserCurrentCharId =. characterId]
+            update userKey [CurrentCharId =. characterId]
             pure $ Right $ cName <> " will now be used for commands."
           Nothing -> pure $ Left $ "You do not have a character with name " <> cName <> ". Try \\viewcharacters to see your available characters."
 
@@ -116,7 +72,7 @@ viewCharacterNames userKey = do
   runStderrLoggingT $
     withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
       flip runSqlPersistMPool pool $ do
-        dbCharacters <- selectList [CharacterUser ==. userKey] []
+        dbCharacters <- selectList [CUser ==. userKey] []
         let names
               | not (null dbCharacters) = pure $ Right $ viewCharactersText dbCharacters
               | otherwise = pure $ Left "It looks like you have no characters. Try creating one using \\create [Class] [Name]"
@@ -124,12 +80,12 @@ viewCharacterNames userKey = do
 
 viewCharactersText :: [Entity Character] -> T.Text
 viewCharactersText [] = ""
-viewCharactersText (e : es) = name <> ": Level " <> level <> " " <> charClass <> "\n" <> viewCharactersText es
+viewCharactersText (e : es) = cName <> ": Level " <> cLevel <> " " <> cClass <> "\n" <> viewCharactersText es
   where
     character = entityVal e
-    charClass = (showC . toEnum . characterClass) character
-    name = characterName character
-    level = (T.pack . show . characterLevel) character
+    cClass = (showC . toEnum . charClass) character
+    cName = name character
+    cLevel = (T.pack . show . level) character
 
 viewStats :: DT.Snowflake -> IO (Either CmdError DbStatus)
 viewStats muid = do
@@ -144,18 +100,20 @@ viewStats muid = do
           Just character -> pure $ Right $ viewStatsText character
 
 viewStatsText :: Entity Character -> T.Text
-viewStatsText e = levelLine <> str <> dex <> vit <> nrg <> avlStats
+viewStatsText e = levelLine <> strLine <> dexLine <> vitLine <> nrgLine <> lifeLine <> manaLine <> avlStatsLine
   where
     character = entityVal e
-    charClass = (showC . toEnum . characterClass) character
-    name = characterName character
-    level = (T.pack . show . characterLevel) character
-    levelLine = name <> ": Level " <> level <> " " <> charClass <> "\n"
-    str = "Strength: " <> (T.pack . show . characterStr) character <> "\n"
-    dex = "Dexterity: " <> (T.pack . show . characterDex) character <> "\n"
-    vit = "Vitality: " <> (T.pack . show . characterVit) character <> "\n"
-    nrg = "Energy: " <> (T.pack . show . characterNrg) character <> "\n"
-    avlStats = "Available points to spend: " <> (T.pack . show . characterAvlStats) character <> "\n"
+    cClass = (showC . toEnum . charClass) character
+    cName = name character
+    cLevel = (T.pack . show . level) character
+    levelLine = cName <> ": Level " <> cLevel <> " " <> cClass <> "\n"
+    strLine = "Strength: " <> (T.pack . show . str) character <> "\n"
+    dexLine = "Dexterity: " <> (T.pack . show . dex) character <> "\n"
+    vitLine = "Vitality: " <> (T.pack . show . vit) character <> "\n"
+    nrgLine = "Energy: " <> (T.pack . show . nrg) character <> "\n"
+    lifeLine = "Life: " <> (T.pack . show) (getLife character) <> "\n"
+    manaLine = "Mana: " <> (T.pack . show) (getMana character) <> "\n"
+    avlStatsLine = "Available points to spend: " <> (T.pack . show . avlStats) character <> "\n"
 
 validateCharCreation :: CharName -> Key User -> IO (Either CmdError ())
 validateCharCreation cName userKey = do
@@ -164,7 +122,7 @@ validateCharCreation cName userKey = do
   runStderrLoggingT $
     withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
       flip runSqlPersistMPool pool $ do
-        character <- selectList [CharacterUser ==. userKey, CharacterName ==. cName] []
+        character <- selectList [CUser ==. userKey, Name ==. cName] []
         let validated
               | not (null character) = Left ("Can't create character. You have a character named " <> cName <> " already. You can \\delete them to reuse the name.")
               | otherwise = Right ()
@@ -180,9 +138,9 @@ createUser muid = do
         nowEpoch <- liftIO $ round `fmap` getPOSIXTime
         insertUnique
           User
-            { userCurrentCharId = 0,
-              userTimeCreated = nowEpoch,
-              userDiscordId = fromIntegral muid
+            { currentCharId = 0,
+              timeCreated = nowEpoch,
+              discordId = fromIntegral muid
             }
       pure ()
 
@@ -197,150 +155,66 @@ assignStats pts stat userKey = do
         case mCharacter of
           Nothing -> pure $ Left "User has no current character. Try creating one with \\create."
           Just character -> do
-            let charAvlStats = (characterAvlStats . entityVal) character
+            let charAvlStats = (avlStats . entityVal) character
             if charAvlStats < pts
               then pure $ Left $ "You do not have enough available stat points to allocate. You currently have " <> (T.pack . show) charAvlStats <> " points to spend."
               else case stat of
                 Strength -> do
-                  update (entityKey character) [CharacterStr +=. pts, CharacterAvlStats -=. pts]
-                  pure $ Right $ "Your " <> showStat stat <> " is now " <> (T.pack . show) ((characterStr . entityVal) character + pts) <> ". You now have " <> (T.pack . show) (charAvlStats - pts) <> " points to spend."
+                  update (entityKey character) [Str +=. pts, AvlStats -=. pts]
+                  pure $ Right $ "Your " <> showStat stat <> " is now " <> (T.pack . show) ((str . entityVal) character + pts) <> ". You now have " <> (T.pack . show) (charAvlStats - pts) <> " points to spend."
                 Dexterity -> do
-                  update (entityKey character) [CharacterDex +=. pts, CharacterAvlStats -=. pts]
-                  pure $ Right $ "Your " <> showStat stat <> " is now " <> (T.pack . show) ((characterDex . entityVal) character + pts) <> ". You now have " <> (T.pack . show) (charAvlStats - pts) <> " points to spend."
+                  update (entityKey character) [Dex +=. pts, AvlStats -=. pts]
+                  pure $ Right $ "Your " <> showStat stat <> " is now " <> (T.pack . show) ((dex . entityVal) character + pts) <> ". You now have " <> (T.pack . show) (charAvlStats - pts) <> " points to spend."
                 Vitality -> do
-                  update (entityKey character) [CharacterVit +=. pts, CharacterAvlStats -=. pts]
-                  pure $ Right $ "Your " <> showStat stat <> " is now " <> (T.pack . show) ((characterVit . entityVal) character + pts) <> ". You now have " <> (T.pack . show) (charAvlStats - pts) <> " points to spend."
+                  update (entityKey character) [Vit +=. pts, AvlStats -=. pts]
+                  pure $ Right $ "Your " <> showStat stat <> " is now " <> (T.pack . show) ((vit . entityVal) character + pts) <> ". You now have " <> (T.pack . show) (charAvlStats - pts) <> " points to spend."
                 Energy -> do
-                  update (entityKey character) [CharacterNrg +=. pts, CharacterAvlStats -=. pts]
-                  pure $ Right $ "Your " <> showStat stat <> " is now " <> (T.pack . show) ((characterNrg . entityVal) character + pts) <> ". You now have " <> (T.pack . show) (charAvlStats - pts) <> " points to spend."
+                  update (entityKey character) [Nrg +=. pts, AvlStats -=. pts]
+                  pure $ Right $ "Your " <> showStat stat <> " is now " <> (T.pack . show) ((nrg . entityVal) character + pts) <> ". You now have " <> (T.pack . show) (charAvlStats - pts) <> " points to spend."
 
 getUserCurrentCharacter :: Int -> ReaderT SqlBackend (NoLoggingT (ResourceT IO)) (Maybe (Entity Character))
 getUserCurrentCharacter userKeyInt = do
-  mUser <- selectFirst [UserDiscordId ==. userKeyInt] []
+  mUser <- selectFirst [DiscordId ==. userKeyInt] []
   case mUser of
     Nothing -> pure Nothing
     Just user -> do
-      let userCurCharId = (userCurrentCharId . entityVal) user
+      let userCurCharId = (currentCharId . entityVal) user
       selectFirst [CharacterId ==. (toSqlKey . fromIntegral) userCurCharId] []
 
 snowflakeToKey :: Integral a => a -> Key User
 snowflakeToKey s = UserKey {unUserKey = fromIntegral s}
 
-createSorceress :: Key User -> CharName -> Character
-createSorceress userKey cName =
-  Character
-    { characterUser = userKey,
-      characterClass = fromEnum Sorceress,
-      characterName = cName,
-      characterTimePlayed = 0,
-      characterExperience = 0,
-      characterLevel = 1,
-      characterStr = 10,
-      characterDex = 25,
-      characterNrg = 35,
-      characterVit = 10,
-      characterAvlStats = 0,
-      characterAvlSkills = 0
-    }
-
-createBarbarian :: Key User -> CharName -> Character
-createBarbarian userKey cName =
-  Character
-    { characterUser = userKey,
-      characterClass = fromEnum Barbarian,
-      characterName = cName,
-      characterTimePlayed = 0,
-      characterExperience = 0,
-      characterLevel = 1,
-      characterStr = 30,
-      characterDex = 20,
-      characterNrg = 10,
-      characterVit = 25,
-      characterAvlStats = 0,
-      characterAvlSkills = 0
-    }
-
-createPaladin :: Key User -> CharName -> Character
-createPaladin userKey cName =
-  Character
-    { characterUser = userKey,
-      characterClass = fromEnum Paladin,
-      characterName = cName,
-      characterTimePlayed = 0,
-      characterExperience = 0,
-      characterLevel = 1,
-      characterStr = 25,
-      characterDex = 20,
-      characterNrg = 15,
-      characterVit = 25,
-      characterAvlStats = 0,
-      characterAvlSkills = 0
-    }
-
-createNecromancer :: Key User -> CharName -> Character
-createNecromancer userKey cName =
-  Character
-    { characterUser = userKey,
-      characterClass = fromEnum Necromancer,
-      characterName = cName,
-      characterTimePlayed = 0,
-      characterExperience = 0,
-      characterLevel = 1,
-      characterStr = 15,
-      characterDex = 25,
-      characterNrg = 25,
-      characterVit = 15,
-      characterAvlStats = 0,
-      characterAvlSkills = 0
-    }
-
-createAmazon :: Key User -> CharName -> Character
-createAmazon userKey cName =
-  Character
-    { characterUser = userKey,
-      characterClass = fromEnum Amazon,
-      characterName = cName,
-      characterTimePlayed = 0,
-      characterExperience = 0,
-      characterLevel = 1,
-      characterStr = 15,
-      characterDex = 25,
-      characterNrg = 25,
-      characterVit = 15,
-      characterAvlStats = 0,
-      characterAvlSkills = 0
-    }
-
-createDruid :: Key User -> CharName -> Character
-createDruid userKey cName =
-  Character
-    { characterUser = userKey,
-      characterClass = fromEnum Druid,
-      characterName = cName,
-      characterTimePlayed = 0,
-      characterExperience = 0,
-      characterLevel = 1,
-      characterStr = 15,
-      characterDex = 20,
-      characterNrg = 20,
-      characterVit = 25,
-      characterAvlStats = 0,
-      characterAvlSkills = 0
-    }
-
-createAssassin :: Key User -> CharName -> Character
-createAssassin userKey cName =
-  Character
-    { characterUser = userKey,
-      characterClass = fromEnum Assassin,
-      characterName = cName,
-      characterTimePlayed = 0,
-      characterExperience = 0,
-      characterLevel = 1,
-      characterStr = 20,
-      characterDex = 20,
-      characterNrg = 25,
-      characterVit = 20,
-      characterAvlStats = 0,
-      characterAvlSkills = 0
-    }
+createClass :: CharClass -> CharName -> Key User -> IO (Maybe Character)
+createClass cClass cName userKey = do
+  loadFile defaultConfig
+  connectionString <- connString
+  runStderrLoggingT $
+    withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
+      flip runSqlPersistMPool pool $ do
+        mgdClassE <- selectFirst [GDClassClass ==. showC cClass] []
+        case mgdClassE of
+          Nothing -> pure Nothing
+          Just gdClassE -> do
+            let gdClass = entityVal gdClassE
+            pure $
+              Just
+                Character
+                  { cUser = userKey,
+                    charClass = fromEnum cClass,
+                    name = cName,
+                    timePlayed = 0,
+                    experience = 0,
+                    level = 1,
+                    dex = gDClassDex gdClass,
+                    str = gDClassStr gdClass,
+                    vit = gDClassVit gdClass,
+                    baseVit = gDClassVit gdClass,
+                    baseNrg = gDClassNrg gdClass,
+                    nrg = gDClassNrg gdClass,
+                    avlStats = 0,
+                    avlSkills = 0,
+                    lifePl = gDClassLifePl gdClass,
+                    manaPl = gDClassManaPl gdClass,
+                    lifePVit = gDClassLifePVit gdClass,
+                    manaPNrg = gDClassManaPNrg gdClass
+                  }

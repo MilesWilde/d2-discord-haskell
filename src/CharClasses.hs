@@ -1,6 +1,6 @@
 module CharClasses where
 
-import Data.Text as T
+import qualified Data.Text as T
 import Discord.Types
 import qualified TextShow.TH as TSG
 
@@ -26,3 +26,6 @@ readC t =
     "paladin" -> Just Paladin
     "sorceress" -> Just Sorceress
     _ -> Nothing
+
+parseClass :: [T.Text] -> Maybe CharClass
+parseClass = readC . head

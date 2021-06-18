@@ -5,44 +5,12 @@ import qualified Data.List.NonEmpty as NE
 import qualified Data.Text as T
 import Data.Text.Read as TR
 import Discord.Types
+import Stats
+import Views
 
 data Command = Quest | Run | CreateCharacter CharClass CharName | SelectCharacter CharName | View ViewCommand (Maybe CharName) | Equip | Unequip | AssignStats Int Stat | AssignSkills Int Skill deriving (Show, Eq)
 
-data ViewCommand = Stats | Skills | Inventory | Characters deriving (Show, Eq, Enum)
-
-data Stat = Strength | Dexterity | Vitality | Energy deriving (Show, Eq, Enum)
-
 data Skill = Unimplemented deriving (Show, Eq)
-
-readStat :: T.Text -> Maybe Stat
-readStat t =
-  case T.toLower t of
-    "strength" -> Just Strength
-    "dexterity" -> Just Dexterity
-    "energy" -> Just Energy
-    "vitality" -> Just Vitality
-    _ -> Nothing
-
-showStat :: Stat -> T.Text
-showStat Strength = "Strength"
-showStat Dexterity = "Dexterity"
-showStat Energy = "Energy"
-showStat Vitality = "Vitality"
-
-readV :: T.Text -> Maybe ViewCommand
-readV t =
-  case T.toLower t of
-    "stats" -> Just Stats
-    "skills" -> Just Skills
-    "inventory" -> Just Inventory
-    "characters" -> Just Characters
-    _ -> Nothing
-
-showV :: ViewCommand -> T.Text
-showV Stats = "Stats"
-showV Skills = "Skills"
-showV Inventory = "Inventory"
-showV Characters = "Characters"
 
 type CmdError = T.Text
 
@@ -99,21 +67,12 @@ getCommand m =
     charactersText = T.intercalate ", " (showC <$> [Amazon .. Sorceress])
     statText = T.intercalate ", " (showStat <$> [Strength .. Energy])
 
-parseView :: [T.Text] -> Maybe ViewCommand
-parseView = readV . head
-
-parseStat :: [T.Text] -> Maybe Stat
-parseStat ts = readStat (ts !! 1)
-
 parseCommand :: Message -> (T.Text, [T.Text])
 parseCommand m = (baseCommand, commandArgs)
   where
     baseCommand = T.tail $ T.toLower $ head cmdList
     commandArgs = tail cmdList
     cmdList = (T.words . messageText) m
-
-parseClass :: [T.Text] -> Maybe CharClass
-parseClass = readC . head
 
 parseName :: [T.Text] -> Maybe T.Text
 parseName ts

@@ -39,12 +39,14 @@ dependencies:
     - time
     - rio
     - resourcet
+    - aeson
+
 library:
     source-dirs: src
     exposed-modules:
         - Core
         - Db.Migrations
-
+        - Db.GameData.GDDbCommands
 executables:
     d2haskell-exe:
         main: Main.hs

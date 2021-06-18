@@ -27,19 +27,23 @@ library
   exposed-modules:
       Core
       Db.Migrations
+      Db.GameData.GDDbCommands
   other-modules:
       CharClasses
       Commands
       Db.DbCommands
       Db.DbHelpers
       Lib
+      Stats
+      Views
       Paths_d2haskell
   hs-source-dirs:
       src
   default-extensions:
       OverloadedStrings
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
     , bytestring
     , discord-haskell
     , dotenv
@@ -68,7 +72,8 @@ executable d2haskell-exe
       OverloadedStrings
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
     , bytestring
     , d2haskell
     , discord-haskell
@@ -99,7 +104,8 @@ test-suite d2haskell-test
       OverloadedStrings
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
     , bytestring
     , d2haskell
     , discord-haskell
