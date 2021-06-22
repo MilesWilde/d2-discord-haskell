@@ -1,0 +1,499 @@
+{
+    "Cave Level 1": [
+        "Cold Plains",
+        "Cave Level 2"
+    ],
+    "Underground Passage Level 1": [
+        "Stony Field",
+        "Dark Wood",
+        "Underground Passage Level 2"
+    ],
+    "Hole Level 1": [
+        "Black Marsh",
+        "Hole Level 2"
+    ],
+    "Pit Level 1": [
+        "Tamoe Highland",
+        "Pit Level 2"
+    ],
+    "Cave Level 2": [
+        "Cave Level 1"
+    ],
+    "Underground Passage Level 2": [
+        "Underground Passage Level 1"
+    ],
+    "Hole Level 2": [
+        "Hole Level 1"
+    ],
+    "Pit Level 2": [
+        "Pit Level 1"
+    ],
+    "Tower Cellar Level 1": [
+        "Forgotten Tower",
+        "Tower Cellar Level 2"
+    ],
+    "Tower Cellar Level 2": [
+        "Tower Cellar Level 1",
+        "Tower Cellar Level 3"
+    ],
+    "Tower Cellar Level 3": [
+        "Tower Cellar Level 2",
+        "Tower Cellar Level 4"
+    ],
+    "Tower Cellar Level 4": [
+        "Tower Cellar Level 3",
+        "Tower Cellar Level 5"
+    ],
+    "Tower Cellar Level 5": [
+        "Tower Cellar Level 4"
+    ],
+    "Jail Level 1": [
+        "Barracks",
+        "Jail Level 2"
+    ],
+    "Jail Level 2": [
+        "Jail Level 1",
+        "Jail Level 3"
+    ],
+    "Jail Level 3": [
+        "Jail Level 2",
+        "Inner Cloister"
+    ],
+    "Catacombs Level 1": [
+        "Cathedral",
+        "Catacombs Level 2"
+    ],
+    "Catacombs Level 2": [
+        "Catacombs Level 1",
+        "Catacombs Level 3"
+    ],
+    "Catacombs Level 3": [
+        "Catacombs Level 2",
+        "Catacombs Level 4"
+    ],
+    "Catacombs Level 4": [
+        "Catacombs Level 3"
+    ],
+    "Sewers Level 1 (Act II)": [
+        "Lut Gholein",
+        "Sewers Level 2 (Act II)"
+    ],
+    "Sewers Level 2 (Act II)": [
+        "Sewers Level 1 (Act II)",
+        "Sewers Level 3 (Act II)"
+    ],
+    "Sewers Level 3 (Act II)": [
+        "Sewers Level 2 (Act II)"
+    ],
+    "Harem Level 1": [
+        "Lut Gholein",
+        "Harem Level 2"
+    ],
+    "Harem Level 2": [
+        "Harem Level 1",
+        "Palace Cellar Level 1 "
+    ],
+    "Palace Cellar Level 1 ": [
+        "Harem Level 2",
+        "Palace Cellar Level 2"
+    ],
+    "Palace Cellar Level 2": [
+        "Palace Cellar Level 1",
+        "Palace Cellar Level 3"
+    ],
+    "Palace Cellar Level 3": [
+        "Palace Cellar Level 2"
+    ],
+    "Stony Tomb Level 1": [
+        "Rocky Waste",
+        "Stony Tomb Level 2"
+    ],
+    "Halls of the Dead Level 1": [
+        "Dry Hills",
+        "Halls of the Dead Level 2"
+    ],
+    "Halls of the Dead Level 2": [
+        "Halls of the Dead Level 1",
+        "Halls of the Dead Level 3"
+    ],
+    "Claw Viper Temple Level 1": [
+        "Valley of Snakes",
+        "Claw Viper Temple Level 2"
+    ],
+    "Stony Tomb Level 2": [
+        "Stony Tomb Level 1"
+    ],
+    "Halls of the Dead Level 3": [
+        "Halls of the Dead Level 2"
+    ],
+    "Claw Viper Temple Level 2": [
+        "Claw Viper Temple Level 1"
+    ],
+    "Maggot Lair Level 1": [
+        "Far Oasis",
+        "Maggot Lair Level 2"
+    ],
+    "Maggot Lair Level 2": [
+        "Maggot Lair Level 1",
+        "Maggot Lair Level 3"
+    ],
+    "Maggot Lair Level 3": [
+        "Maggot Lair Level 2"
+    ],
+    "Swampy Pit Level 1": [
+        "Swampy Pit Level 2",
+        "Flayer Jungle"
+    ],
+    "Swampy Pit Level 2": [
+        "Swampy Pit Level 3",
+        "Swampy Pit Level 1"
+    ],
+    "Flayer Dungeon Level 1": [
+        "Flayer Dungeon Level 2",
+        "Flayer Jungle"
+    ],
+    "Flayer Dungeon Level 2": [
+        "Flayer Dungeon Level 3",
+        "Flayer Dungeon Level 1"
+    ],
+    "Swampy Pit Level 3": [
+        "Swampy Pit Level 2"
+    ],
+    "Flayer Dungeon Level 3": [
+        "Flayer Dungeon Level 2"
+    ],
+    "Sewers Level 1 (Act III)": [
+        "Kurast Bazaar",
+        "Upper Kurast",
+        "Sewers Level 2 (Act III)"
+    ],
+    "Sewers Level 2 (Act III)": [
+        "Sewers Level 1 (Act III)"
+    ],
+    "Durance of Hate Level 1": [
+        "Durance of Hate Level 2",
+        "Travincal"
+    ],
+    "Durance of Hate Level 2": [
+        "Durance of Hate Level 3",
+        "Durance of Hate Level 1"
+    ],
+    "Durance of Hate Level 3": [
+        "Durance of Hate Level 2"
+    ],
+    "Blood Moor": [
+        "Rogue Encampment",
+        "Cold Plains",
+        "Den of Evil"
+    ],
+    "Den of Evil": [
+        "Blood Moor"
+    ],
+    "Cold Plains": [
+        "Blood Moor",
+        "Burial Grounds",
+        "Stony Field",
+        "Cave Level 1"
+    ],
+    "Burial Grounds": [
+        "Cold Plains",
+        "Crypt",
+        "Mausoleum"
+    ],
+    "Crypt": [
+        "Burial Grounds"
+    ],
+    "Mausoleum": [
+        "Burial Grounds"
+    ],
+    "Stony Field": [
+        "Cold Plains",
+        "Dark Wood",
+        "Underground Passage Level 1"
+    ],
+    "Tristram": [
+        "-"
+    ],
+    "Dark Wood": [
+        "Stony Field",
+        "Black Marsh",
+        "Underground Passage Level 1"
+    ],
+    "Black Marsh": [
+        "Dark Wood",
+        "Tamoe Highland",
+        "Forgotten Tower",
+        "Hole Level 1"
+    ],
+    "Forgotten Tower": [
+        "Black Marsh",
+        "Tower Cellar Level 1"
+    ],
+    "Tamoe Highland": [
+        "Black Marsh",
+        "Monastery Gate",
+        "Pit Level 1"
+    ],
+    "Monastery Gate": [
+        "Tamoe Highland",
+        "Outer Cloister"
+    ],
+    "Outer Cloister": [
+        "Monastery Gate",
+        "Barracks"
+    ],
+    "Barracks": [
+        "Outer Cloister",
+        "Jail Level 1"
+    ],
+    "Inner Cloister": [
+        "Cathedral",
+        "Jail Level 3"
+    ],
+    "Cathedral": [
+        "Inner Cloister",
+        "Catacombs Level 1"
+    ],
+    "Secret Cow Level": [
+        "Rogue Encampment"
+    ],
+    "Rogue Encampment": [
+        "Blood Moor",
+        "Secret Cow Level"
+    ],
+    "Rocky Waste": [
+        "Lut Gholein",
+        "Dry Hills",
+        "Stony Tomb Level 1"
+    ],
+    "Dry Hills": [
+        "Rocky Waste",
+        "Far Oasis",
+        "Halls of the Dead Level 1"
+    ],
+    "Far Oasis": [
+        "Dry Hills",
+        "Lost City",
+        "Maggot Lair Level 1"
+    ],
+    "Lost City": [
+        "Far Oasis",
+        "Valley of Snakes",
+        "Ancient Tunnels"
+    ],
+    "Ancient Tunnels": [
+        "Lost City"
+    ],
+    "Valley of Snakes": [
+        "Lost City",
+        "Claw Viper Temple Level 1"
+    ],
+    "Arcane Sanctuary": [
+        "Canyon of the Magi"
+    ],
+    "Canyon of the Magi": [
+        "Arcane Sanctuary",
+        "Tomb of Tal Rasha",
+        "Tal Rasha's Tomb"
+    ],
+    "Tal Rasha's Tomb": [
+        "Canyon of the Magi",
+        "Tal Rasha's Chamber"
+    ],
+    "Tal Rasha's Chamber": [
+        "Tomb of Tal Rasha",
+        "Tal Rasha's Tomb"
+    ],
+    "Lut Gholein": [
+        "Rocky Waste",
+        "Sewers Level 1 (Act II)",
+        "Harem Level 1"
+    ],
+    "Spider Forest": [
+        "Kurast Docks",
+        "Great Marsh",
+        "Flayer Jungle",
+        "Arachnid Lair",
+        "Spider Cavern"
+    ],
+    "Arachnid Lair": [
+        "Spider Forest"
+    ],
+    "Spider Cavern": [
+        "Spider Forest"
+    ],
+    "Great Marsh": [
+        "Spider Forest",
+        "Flayer Jungle"
+    ],
+    "Flayer Jungle": [
+        "Spider Forest",
+        "Great Marsh",
+        "Lower Kurast",
+        "Swampy Pit Level 1",
+        "Flayer Dungeon Level 1"
+    ],
+    "Lower Kurast": [
+        "Flayer Jungle",
+        "Kurast Bazaar"
+    ],
+    "Kurast Bazaar": [
+        "Lower Kurast",
+        "Upper Kurast",
+        "Disused Fane",
+        "Ruined Temple",
+        "Sewers Level 1 (Act III)"
+    ],
+    "Disused Fane": [
+        "Kurast Bazaar"
+    ],
+    "Ruined Temple": [
+        "Kurast Bazaar"
+    ],
+    "Upper Kurast": [
+        "Kurast Bazaar",
+        "Kurast Causeway",
+        "Forgotten Temple",
+        "Forgotten Reliquary",
+        "Sewers Level 1 (Act III)"
+    ],
+    "Forgotten Temple": [
+        "Upper Kurast"
+    ],
+    "Forgotten Reliquary": [
+        "Upper Kurast"
+    ],
+    "Kurast Causeway": [
+        "Upper Kurast",
+        "Travincal",
+        "Disused Reliquary",
+        "Ruined Fane"
+    ],
+    "Disused Reliquary": [
+        "Kurast Causeway"
+    ],
+    "Ruined Fane": [
+        "Kurast Causeway"
+    ],
+    "Travincal": [
+        "Kurast Causeway",
+        "Durance of Hate Level 1"
+    ],
+    "Kurast Docks": [
+        "Spider Forest"
+    ],
+    "Outer Steppes": [
+        "Pandemonium Fortress",
+        "Plains of Despair"
+    ],
+    "Plains of Despair": [
+        "Outer Steppes",
+        "City of the Damned"
+    ],
+    "City of the Damned": [
+        "Plains of Despair",
+        "River of Flame"
+    ],
+    "River of Flame": [
+        "City of the Damned",
+        "Chaos Sanctuary"
+    ],
+    "Chaos Sanctuary": [
+        "River of Flame"
+    ],
+    "Pandemonium Fortress": [
+        "Outer Steppes"
+    ],
+    "Bloody Foothills": [
+        "Harrogath",
+        "Frigid Highlands"
+    ],
+    "Frigid Highlands": [
+        "Bloody Foothills",
+        "Abaddon",
+        "Arreat Plateau"
+    ],
+    "Abaddon": [
+        "Frigid Highlands"
+    ],
+    "Arreat Plateau": [
+        "Frigid Highlands",
+        "Pit of Acheron",
+        "Crystalline Passage"
+    ],
+    "Pit of Acheron": [
+        "Arreat Plateau"
+    ],
+    "Crystalline Passage": [
+        "Arreat Plateau",
+        "Frozen River",
+        "Glacial Trail"
+    ],
+    "Frozen River": [
+        "Crystalline Passage"
+    ],
+    "Nihlathak's Temple": [
+        "Halls of Anguish"
+    ],
+    "Halls of Anguish": [
+        "Nihlathak's Temple",
+        "Halls of Pain"
+    ],
+    "Halls of Pain": [
+        "Halls of Anguish",
+        "Halls of Vaught"
+    ],
+    "Halls of Vaught": [
+        "Halls of Pain"
+    ],
+    "Glacial Trail": [
+        "Crystalline Passage",
+        "Drifter Cavern",
+        "Frozen Tundra"
+    ],
+    "Drifter Cavern": [
+        "Glacial Trail"
+    ],
+    "Frozen Tundra": [
+        "Glacial Trail",
+        "Infernal Pit",
+        "Ancients' Way"
+    ],
+    "Infernal Pit": [
+        "Frozen Tundra"
+    ],
+    "Ancients' Way": [
+        "Frozen Tundra",
+        "Icy Cellar",
+        "Arreat Summit"
+    ],
+    "Icy Cellar": [
+        "Ancients' Way"
+    ],
+    "Arreat Summit": [
+        "Ancients' Way",
+        "Worldstone Keep Level 1"
+    ],
+    "Worldstone Keep Level 1": [
+        "Arreat Summit",
+        "Worldstone Keep Level 2"
+    ],
+    "Worldstone Keep Level 2": [
+        "Worldstone Keep Level 1",
+        "Worldstone Keep Level 3"
+    ],
+    "Worldstone Keep Level 3": [
+        "Worldstone Keep Level 2",
+        "Throne of Destruction"
+    ],
+    "Throne of Destruction": [
+        "Worldstone Keep Level 3",
+        "Worldstone Chamber"
+    ],
+    "Worldstone Chamber": [
+        "Throne of Destruction"
+    ],
+    "Harrogath": [
+        "Bloody Foothills"
+    ]
+}

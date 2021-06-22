@@ -1,0 +1,2862 @@
+[
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 6,
+                "TH": 8,
+                "HP": 7,
+                "DM": 2,
+                "XP": 30
+            },
+            "nightmare": {
+                "AC": 92,
+                "TH": 108,
+                "HP": 107,
+                "DM": 3,
+                "XP": 78
+            },
+            "hell": {
+                "AC": 147,
+                "TH": 216,
+                "HP": 830,
+                "DM": 4,
+                "XP": 117
+            }
+        },
+        "Level": 1
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 12,
+                "TH": 12,
+                "HP": 9,
+                "DM": 3,
+                "XP": 40
+            },
+            "nightmare": {
+                "AC": 102,
+                "TH": 126,
+                "HP": 113,
+                "DM": 4,
+                "XP": 104
+            },
+            "hell": {
+                "AC": 162,
+                "TH": 254,
+                "HP": 852,
+                "DM": 6,
+                "XP": 156
+            }
+        },
+        "Level": 2
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 18,
+                "TH": 18,
+                "HP": 12,
+                "DM": 3,
+                "XP": 50
+            },
+            "nightmare": {
+                "AC": 112,
+                "TH": 144,
+                "HP": 120,
+                "DM": 4,
+                "XP": 131
+            },
+            "hell": {
+                "AC": 177,
+                "TH": 292,
+                "HP": 875,
+                "DM": 6,
+                "XP": 197
+            }
+        },
+        "Level": 3
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 24,
+                "TH": 26,
+                "HP": 15,
+                "DM": 4,
+                "XP": 60
+            },
+            "nightmare": {
+                "AC": 122,
+                "TH": 162,
+                "HP": 125,
+                "DM": 5,
+                "XP": 156
+            },
+            "hell": {
+                "AC": 192,
+                "TH": 330,
+                "HP": 897,
+                "DM": 7,
+                "XP": 234
+            }
+        },
+        "Level": 4
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 30,
+                "TH": 35,
+                "HP": 17,
+                "DM": 4,
+                "XP": 70
+            },
+            "nightmare": {
+                "AC": 133,
+                "TH": 180,
+                "HP": 132,
+                "DM": 5,
+                "XP": 182
+            },
+            "hell": {
+                "AC": 207,
+                "TH": 368,
+                "HP": 920,
+                "DM": 7,
+                "XP": 273
+            }
+        },
+        "Level": 5
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 36,
+                "TH": 45,
+                "HP": 20,
+                "DM": 5,
+                "XP": 80
+            },
+            "nightmare": {
+                "AC": 143,
+                "TH": 198,
+                "HP": 139,
+                "DM": 7,
+                "XP": 207
+            },
+            "hell": {
+                "AC": 222,
+                "TH": 406,
+                "HP": 942,
+                "DM": 9,
+                "XP": 311
+            }
+        },
+        "Level": 6
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 42,
+                "TH": 56,
+                "HP": 23,
+                "DM": 5,
+                "XP": 90
+            },
+            "nightmare": {
+                "AC": 153,
+                "TH": 216,
+                "HP": 145,
+                "DM": 7,
+                "XP": 234
+            },
+            "hell": {
+                "AC": 236,
+                "TH": 444,
+                "HP": 965,
+                "DM": 9,
+                "XP": 351
+            }
+        },
+        "Level": 7
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 48,
+                "TH": 67,
+                "HP": 27,
+                "DM": 6,
+                "XP": 100
+            },
+            "nightmare": {
+                "AC": 163,
+                "TH": 234,
+                "HP": 152,
+                "DM": 8,
+                "XP": 260
+            },
+            "hell": {
+                "AC": 252,
+                "TH": 482,
+                "HP": 987,
+                "DM": 11,
+                "XP": 390
+            }
+        },
+        "Level": 8
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 54,
+                "TH": 78,
+                "HP": 31,
+                "DM": 7,
+                "XP": 110
+            },
+            "nightmare": {
+                "AC": 173,
+                "TH": 252,
+                "HP": 157,
+                "DM": 9,
+                "XP": 285
+            },
+            "hell": {
+                "AC": 267,
+                "TH": 520,
+                "HP": 1010,
+                "DM": 13,
+                "XP": 428
+            }
+        },
+        "Level": 9
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 60,
+                "TH": 89,
+                "HP": 35,
+                "DM": 7,
+                "XP": 120
+            },
+            "nightmare": {
+                "AC": 184,
+                "TH": 270,
+                "HP": 164,
+                "DM": 9,
+                "XP": 312
+            },
+            "hell": {
+                "AC": 281,
+                "TH": 558,
+                "HP": 1032,
+                "DM": 13,
+                "XP": 468
+            }
+        },
+        "Level": 10
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 66,
+                "TH": 100,
+                "HP": 36,
+                "DM": 8,
+                "XP": 130
+            },
+            "nightmare": {
+                "AC": 194,
+                "TH": 288,
+                "HP": 171,
+                "DM": 11,
+                "XP": 338
+            },
+            "hell": {
+                "AC": 297,
+                "TH": 596,
+                "HP": 1055,
+                "DM": 15,
+                "XP": 507
+            }
+        },
+        "Level": 11
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 72,
+                "TH": 111,
+                "HP": 40,
+                "DM": 8,
+                "XP": 140
+            },
+            "nightmare": {
+                "AC": 204,
+                "TH": 306,
+                "HP": 177,
+                "DM": 11,
+                "XP": 363
+            },
+            "hell": {
+                "AC": 311,
+                "TH": 634,
+                "HP": 1077,
+                "DM": 15,
+                "XP": 545
+            }
+        },
+        "Level": 12
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 78,
+                "TH": 122,
+                "HP": 44,
+                "DM": 9,
+                "XP": 154
+            },
+            "nightmare": {
+                "AC": 214,
+                "TH": 324,
+                "HP": 184,
+                "DM": 12,
+                "XP": 401
+            },
+            "hell": {
+                "AC": 326,
+                "TH": 672,
+                "HP": 1100,
+                "DM": 17,
+                "XP": 602
+            }
+        },
+        "Level": 13
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 84,
+                "TH": 133,
+                "HP": 48,
+                "DM": 10,
+                "XP": 169
+            },
+            "nightmare": {
+                "AC": 224,
+                "TH": 342,
+                "HP": 189,
+                "DM": 13,
+                "XP": 440
+            },
+            "hell": {
+                "AC": 342,
+                "TH": 710,
+                "HP": 1122,
+                "DM": 19,
+                "XP": 660
+            }
+        },
+        "Level": 14
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 90,
+                "TH": 144,
+                "HP": 52,
+                "DM": 10,
+                "XP": 186
+            },
+            "nightmare": {
+                "AC": 235,
+                "TH": 360,
+                "HP": 196,
+                "DM": 13,
+                "XP": 482
+            },
+            "hell": {
+                "AC": 356,
+                "TH": 748,
+                "HP": 1145,
+                "DM": 19,
+                "XP": 723
+            }
+        },
+        "Level": 15
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 96,
+                "TH": 155,
+                "HP": 56,
+                "DM": 11,
+                "XP": 205
+            },
+            "nightmare": {
+                "AC": 245,
+                "TH": 378,
+                "HP": 203,
+                "DM": 15,
+                "XP": 533
+            },
+            "hell": {
+                "AC": 371,
+                "TH": 786,
+                "HP": 1167,
+                "DM": 20,
+                "XP": 800
+            }
+        },
+        "Level": 16
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 102,
+                "TH": 166,
+                "HP": 60,
+                "DM": 11,
+                "XP": 225
+            },
+            "nightmare": {
+                "AC": 255,
+                "TH": 396,
+                "HP": 209,
+                "DM": 15,
+                "XP": 584
+            },
+            "hell": {
+                "AC": 386,
+                "TH": 824,
+                "HP": 1190,
+                "DM": 20,
+                "XP": 876
+            }
+        },
+        "Level": 17
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 108,
+                "TH": 177,
+                "HP": 64,
+                "DM": 12,
+                "XP": 248
+            },
+            "nightmare": {
+                "AC": 265,
+                "TH": 414,
+                "HP": 216,
+                "DM": 16,
+                "XP": 644
+            },
+            "hell": {
+                "AC": 401,
+                "TH": 862,
+                "HP": 1212,
+                "DM": 22,
+                "XP": 966
+            }
+        },
+        "Level": 18
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 114,
+                "TH": 188,
+                "HP": 68,
+                "DM": 13,
+                "XP": 273
+            },
+            "nightmare": {
+                "AC": 275,
+                "TH": 432,
+                "HP": 221,
+                "DM": 17,
+                "XP": 708
+            },
+            "hell": {
+                "AC": 417,
+                "TH": 900,
+                "HP": 1235,
+                "DM": 24,
+                "XP": 1062
+            }
+        },
+        "Level": 19
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 120,
+                "TH": 199,
+                "HP": 73,
+                "DM": 13,
+                "XP": 300
+            },
+            "nightmare": {
+                "AC": 286,
+                "TH": 450,
+                "HP": 228,
+                "DM": 17,
+                "XP": 779
+            },
+            "hell": {
+                "AC": 431,
+                "TH": 938,
+                "HP": 1257,
+                "DM": 24,
+                "XP": 1169
+            }
+        },
+        "Level": 20
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 126,
+                "TH": 210,
+                "HP": 78,
+                "DM": 14,
+                "XP": 330
+            },
+            "nightmare": {
+                "AC": 296,
+                "TH": 468,
+                "HP": 236,
+                "DM": 19,
+                "XP": 857
+            },
+            "hell": {
+                "AC": 446,
+                "TH": 976,
+                "HP": 1280,
+                "DM": 26,
+                "XP": 1286
+            }
+        },
+        "Level": 21
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 132,
+                "TH": 221,
+                "HP": 84,
+                "DM": 14,
+                "XP": 363
+            },
+            "nightmare": {
+                "AC": 306,
+                "TH": 486,
+                "HP": 243,
+                "DM": 19,
+                "XP": 942
+            },
+            "hell": {
+                "AC": 461,
+                "TH": 1014,
+                "HP": 1302,
+                "DM": 26,
+                "XP": 1413
+            }
+        },
+        "Level": 22
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 138,
+                "TH": 232,
+                "HP": 89,
+                "DM": 15,
+                "XP": 399
+            },
+            "nightmare": {
+                "AC": 316,
+                "TH": 504,
+                "HP": 248,
+                "DM": 20,
+                "XP": 1035
+            },
+            "hell": {
+                "AC": 476,
+                "TH": 1052,
+                "HP": 1325,
+                "DM": 28,
+                "XP": 1553
+            }
+        },
+        "Level": 23
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 144,
+                "TH": 243,
+                "HP": 94,
+                "DM": 16,
+                "XP": 439
+            },
+            "nightmare": {
+                "AC": 326,
+                "TH": 522,
+                "HP": 255,
+                "DM": 21,
+                "XP": 1139
+            },
+            "hell": {
+                "AC": 491,
+                "TH": 1090,
+                "HP": 1347,
+                "DM": 30,
+                "XP": 1709
+            }
+        },
+        "Level": 24
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 150,
+                "TH": 254,
+                "HP": 100,
+                "DM": 16,
+                "XP": 470
+            },
+            "nightmare": {
+                "AC": 337,
+                "TH": 540,
+                "HP": 261,
+                "DM": 21,
+                "XP": 1220
+            },
+            "hell": {
+                "AC": 506,
+                "TH": 1128,
+                "HP": 1370,
+                "DM": 30,
+                "XP": 1830
+            }
+        },
+        "Level": 25
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 156,
+                "TH": 265,
+                "HP": 106,
+                "DM": 17,
+                "XP": 503
+            },
+            "nightmare": {
+                "AC": 347,
+                "TH": 558,
+                "HP": 268,
+                "DM": 23,
+                "XP": 1305
+            },
+            "hell": {
+                "AC": 521,
+                "TH": 1166,
+                "HP": 1392,
+                "DM": 31,
+                "XP": 1958
+            }
+        },
+        "Level": 26
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 162,
+                "TH": 276,
+                "HP": 113,
+                "DM": 17,
+                "XP": 538
+            },
+            "nightmare": {
+                "AC": 357,
+                "TH": 576,
+                "HP": 275,
+                "DM": 23,
+                "XP": 1397
+            },
+            "hell": {
+                "AC": 536,
+                "TH": 1204,
+                "HP": 1415,
+                "DM": 31,
+                "XP": 2096
+            }
+        },
+        "Level": 27
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 168,
+                "TH": 287,
+                "HP": 120,
+                "DM": 18,
+                "XP": 576
+            },
+            "nightmare": {
+                "AC": 367,
+                "TH": 594,
+                "HP": 280,
+                "DM": 24,
+                "XP": 1494
+            },
+            "hell": {
+                "AC": 551,
+                "TH": 1242,
+                "HP": 1437,
+                "DM": 33,
+                "XP": 2241
+            }
+        },
+        "Level": 28
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 174,
+                "TH": 298,
+                "HP": 126,
+                "DM": 19,
+                "XP": 616
+            },
+            "nightmare": {
+                "AC": 377,
+                "TH": 612,
+                "HP": 287,
+                "DM": 25,
+                "XP": 1598
+            },
+            "hell": {
+                "AC": 566,
+                "TH": 1280,
+                "HP": 1460,
+                "DM": 35,
+                "XP": 2397
+            }
+        },
+        "Level": 29
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 180,
+                "TH": 309,
+                "HP": 134,
+                "DM": 19,
+                "XP": 659
+            },
+            "nightmare": {
+                "AC": 388,
+                "TH": 630,
+                "HP": 320,
+                "DM": 25,
+                "XP": 1709
+            },
+            "hell": {
+                "AC": 581,
+                "TH": 1318,
+                "HP": 1482,
+                "DM": 35,
+                "XP": 2564
+            }
+        },
+        "Level": 30
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 186,
+                "TH": 320,
+                "HP": 142,
+                "DM": 20,
+                "XP": 706
+            },
+            "nightmare": {
+                "AC": 398,
+                "TH": 648,
+                "HP": 355,
+                "DM": 27,
+                "XP": 1832
+            },
+            "hell": {
+                "AC": 596,
+                "TH": 1356,
+                "HP": 1505,
+                "DM": 37,
+                "XP": 2748
+            }
+        },
+        "Level": 31
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 192,
+                "TH": 331,
+                "HP": 150,
+                "DM": 20,
+                "XP": 755
+            },
+            "nightmare": {
+                "AC": 408,
+                "TH": 666,
+                "HP": 388,
+                "DM": 27,
+                "XP": 1958
+            },
+            "hell": {
+                "AC": 610,
+                "TH": 1394,
+                "HP": 1527,
+                "DM": 37,
+                "XP": 2937
+            }
+        },
+        "Level": 32
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 198,
+                "TH": 342,
+                "HP": 158,
+                "DM": 21,
+                "XP": 808
+            },
+            "nightmare": {
+                "AC": 418,
+                "TH": 684,
+                "HP": 423,
+                "DM": 28,
+                "XP": 2097
+            },
+            "hell": {
+                "AC": 626,
+                "TH": 1432,
+                "HP": 1550,
+                "DM": 39,
+                "XP": 3146
+            }
+        },
+        "Level": 33
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 204,
+                "TH": 353,
+                "HP": 166,
+                "DM": 22,
+                "XP": 864
+            },
+            "nightmare": {
+                "AC": 428,
+                "TH": 702,
+                "HP": 456,
+                "DM": 29,
+                "XP": 2241
+            },
+            "hell": {
+                "AC": 641,
+                "TH": 1470,
+                "HP": 1572,
+                "DM": 41,
+                "XP": 3362
+            }
+        },
+        "Level": 34
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 210,
+                "TH": 364,
+                "HP": 174,
+                "DM": 22,
+                "XP": 925
+            },
+            "nightmare": {
+                "AC": 439,
+                "TH": 720,
+                "HP": 491,
+                "DM": 29,
+                "XP": 2399
+            },
+            "hell": {
+                "AC": 655,
+                "TH": 1508,
+                "HP": 1595,
+                "DM": 41,
+                "XP": 3599
+            }
+        },
+        "Level": 35
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 216,
+                "TH": 375,
+                "HP": 182,
+                "DM": 23,
+                "XP": 990
+            },
+            "nightmare": {
+                "AC": 449,
+                "TH": 738,
+                "HP": 525,
+                "DM": 31,
+                "XP": 2568
+            },
+            "hell": {
+                "AC": 671,
+                "TH": 1546,
+                "HP": 1617,
+                "DM": 43,
+                "XP": 3852
+            }
+        },
+        "Level": 36
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 222,
+                "TH": 386,
+                "HP": 190,
+                "DM": 23,
+                "XP": 1059
+            },
+            "nightmare": {
+                "AC": 459,
+                "TH": 756,
+                "HP": 559,
+                "DM": 31,
+                "XP": 2745
+            },
+            "hell": {
+                "AC": 685,
+                "TH": 1584,
+                "HP": 1640,
+                "DM": 43,
+                "XP": 4118
+            }
+        },
+        "Level": 37
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 228,
+                "TH": 397,
+                "HP": 198,
+                "DM": 24,
+                "XP": 1133
+            },
+            "nightmare": {
+                "AC": 469,
+                "TH": 774,
+                "HP": 593,
+                "DM": 32,
+                "XP": 2939
+            },
+            "hell": {
+                "AC": 700,
+                "TH": 1622,
+                "HP": 1662,
+                "DM": 44,
+                "XP": 4409
+            }
+        },
+        "Level": 38
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 234,
+                "TH": 408,
+                "HP": 206,
+                "DM": 25,
+                "XP": 1212
+            },
+            "nightmare": {
+                "AC": 479,
+                "TH": 792,
+                "HP": 627,
+                "DM": 33,
+                "XP": 3144
+            },
+            "hell": {
+                "AC": 716,
+                "TH": 1660,
+                "HP": 1685,
+                "DM": 46,
+                "XP": 4716
+            }
+        },
+        "Level": 39
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 240,
+                "TH": 419,
+                "HP": 215,
+                "DM": 25,
+                "XP": 1297
+            },
+            "nightmare": {
+                "AC": 490,
+                "TH": 810,
+                "HP": 661,
+                "DM": 33,
+                "XP": 3365
+            },
+            "hell": {
+                "AC": 730,
+                "TH": 1698,
+                "HP": 1707,
+                "DM": 46,
+                "XP": 5048
+            }
+        },
+        "Level": 40
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 246,
+                "TH": 430,
+                "HP": 225,
+                "DM": 26,
+                "XP": 1388
+            },
+            "nightmare": {
+                "AC": 500,
+                "TH": 828,
+                "HP": 696,
+                "DM": 35,
+                "XP": 3600
+            },
+            "hell": {
+                "AC": 745,
+                "TH": 1736,
+                "HP": 1730,
+                "DM": 48,
+                "XP": 5400
+            }
+        },
+        "Level": 41
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 252,
+                "TH": 441,
+                "HP": 234,
+                "DM": 26,
+                "XP": 1485
+            },
+            "nightmare": {
+                "AC": 510,
+                "TH": 846,
+                "HP": 729,
+                "DM": 35,
+                "XP": 3852
+            },
+            "hell": {
+                "AC": 760,
+                "TH": 1774,
+                "HP": 1752,
+                "DM": 48,
+                "XP": 5778
+            }
+        },
+        "Level": 42
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 258,
+                "TH": 452,
+                "HP": 243,
+                "DM": 27,
+                "XP": 1589
+            },
+            "nightmare": {
+                "AC": 520,
+                "TH": 864,
+                "HP": 764,
+                "DM": 36,
+                "XP": 4121
+            },
+            "hell": {
+                "AC": 775,
+                "TH": 1812,
+                "HP": 1775,
+                "DM": 50,
+                "XP": 6182
+            }
+        },
+        "Level": 43
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 264,
+                "TH": 463,
+                "HP": 253,
+                "DM": 28,
+                "XP": 1693
+            },
+            "nightmare": {
+                "AC": 530,
+                "TH": 882,
+                "HP": 797,
+                "DM": 37,
+                "XP": 4409
+            },
+            "hell": {
+                "AC": 791,
+                "TH": 1850,
+                "HP": 1797,
+                "DM": 52,
+                "XP": 6614
+            }
+        },
+        "Level": 44
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 270,
+                "TH": 474,
+                "HP": 262,
+                "DM": 28,
+                "XP": 1797
+            },
+            "nightmare": {
+                "AC": 541,
+                "TH": 900,
+                "HP": 832,
+                "DM": 37,
+                "XP": 4718
+            },
+            "hell": {
+                "AC": 805,
+                "TH": 1888,
+                "HP": 1820,
+                "DM": 52,
+                "XP": 7077
+            }
+        },
+        "Level": 45
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 276,
+                "TH": 485,
+                "HP": 271,
+                "DM": 29,
+                "XP": 1901
+            },
+            "nightmare": {
+                "AC": 551,
+                "TH": 918,
+                "HP": 867,
+                "DM": 39,
+                "XP": 5051
+            },
+            "hell": {
+                "AC": 820,
+                "TH": 1926,
+                "HP": 1842,
+                "DM": 54,
+                "XP": 7577
+            }
+        },
+        "Level": 46
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 282,
+                "TH": 496,
+                "HP": 281,
+                "DM": 29,
+                "XP": 2005
+            },
+            "nightmare": {
+                "AC": 561,
+                "TH": 936,
+                "HP": 900,
+                "DM": 39,
+                "XP": 5402
+            },
+            "hell": {
+                "AC": 835,
+                "TH": 1964,
+                "HP": 1865,
+                "DM": 54,
+                "XP": 8103
+            }
+        },
+        "Level": 47
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 288,
+                "TH": 507,
+                "HP": 290,
+                "DM": 30,
+                "XP": 2109
+            },
+            "nightmare": {
+                "AC": 571,
+                "TH": 954,
+                "HP": 935,
+                "DM": 40,
+                "XP": 5783
+            },
+            "hell": {
+                "AC": 850,
+                "TH": 2002,
+                "HP": 1887,
+                "DM": 56,
+                "XP": 8675
+            }
+        },
+        "Level": 48
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 294,
+                "TH": 518,
+                "HP": 299,
+                "DM": 31,
+                "XP": 2213
+            },
+            "nightmare": {
+                "AC": 581,
+                "TH": 972,
+                "HP": 968,
+                "DM": 41,
+                "XP": 6186
+            },
+            "hell": {
+                "AC": 865,
+                "TH": 2040,
+                "HP": 1910,
+                "DM": 57,
+                "XP": 9279
+            }
+        },
+        "Level": 49
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 300,
+                "TH": 529,
+                "HP": 310,
+                "DM": 31,
+                "XP": 2317
+            },
+            "nightmare": {
+                "AC": 592,
+                "TH": 990,
+                "HP": 1003,
+                "DM": 41,
+                "XP": 6618
+            },
+            "hell": {
+                "AC": 880,
+                "TH": 2078,
+                "HP": 1932,
+                "DM": 57,
+                "XP": 9927
+            }
+        },
+        "Level": 50
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 306,
+                "TH": 540,
+                "HP": 321,
+                "DM": 32,
+                "XP": 2421
+            },
+            "nightmare": {
+                "AC": 602,
+                "TH": 1008,
+                "HP": 1037,
+                "DM": 43,
+                "XP": 7080
+            },
+            "hell": {
+                "AC": 895,
+                "TH": 2116,
+                "HP": 1955,
+                "DM": 59,
+                "XP": 10620
+            }
+        },
+        "Level": 51
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 312,
+                "TH": 551,
+                "HP": 331,
+                "DM": 32,
+                "XP": 2525
+            },
+            "nightmare": {
+                "AC": 612,
+                "TH": 1026,
+                "HP": 1071,
+                "DM": 43,
+                "XP": 7506
+            },
+            "hell": {
+                "AC": 910,
+                "TH": 2154,
+                "HP": 1977,
+                "DM": 59,
+                "XP": 11259
+            }
+        },
+        "Level": 52
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 318,
+                "TH": 562,
+                "HP": 342,
+                "DM": 33,
+                "XP": 2629
+            },
+            "nightmare": {
+                "AC": 622,
+                "TH": 1044,
+                "HP": 1105,
+                "DM": 44,
+                "XP": 7956
+            },
+            "hell": {
+                "AC": 925,
+                "TH": 2192,
+                "HP": 2000,
+                "DM": 61,
+                "XP": 11934
+            }
+        },
+        "Level": 53
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 324,
+                "TH": 573,
+                "HP": 352,
+                "DM": 34,
+                "XP": 2733
+            },
+            "nightmare": {
+                "AC": 632,
+                "TH": 1062,
+                "HP": 1139,
+                "DM": 45,
+                "XP": 8435
+            },
+            "hell": {
+                "AC": 940,
+                "TH": 2230,
+                "HP": 2030,
+                "DM": 63,
+                "XP": 12653
+            }
+        },
+        "Level": 54
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 330,
+                "TH": 584,
+                "HP": 363,
+                "DM": 34,
+                "XP": 2837
+            },
+            "nightmare": {
+                "AC": 643,
+                "TH": 1080,
+                "HP": 1173,
+                "DM": 45,
+                "XP": 8942
+            },
+            "hell": {
+                "AC": 955,
+                "TH": 2268,
+                "HP": 2075,
+                "DM": 63,
+                "XP": 13413
+            }
+        },
+        "Level": 55
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 336,
+                "TH": 595,
+                "HP": 374,
+                "DM": 35,
+                "XP": 2941
+            },
+            "nightmare": {
+                "AC": 653,
+                "TH": 1098,
+                "HP": 1208,
+                "DM": 47,
+                "XP": 9477
+            },
+            "hell": {
+                "AC": 970,
+                "TH": 2306,
+                "HP": 2135,
+                "DM": 65,
+                "XP": 14216
+            }
+        },
+        "Level": 56
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 342,
+                "TH": 606,
+                "HP": 384,
+                "DM": 35,
+                "XP": 3045
+            },
+            "nightmare": {
+                "AC": 663,
+                "TH": 1116,
+                "HP": 1241,
+                "DM": 47,
+                "XP": 10044
+            },
+            "hell": {
+                "AC": 984,
+                "TH": 2344,
+                "HP": 2222,
+                "DM": 65,
+                "XP": 15066
+            }
+        },
+        "Level": 57
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 348,
+                "TH": 617,
+                "HP": 395,
+                "DM": 36,
+                "XP": 3149
+            },
+            "nightmare": {
+                "AC": 673,
+                "TH": 1134,
+                "HP": 1276,
+                "DM": 48,
+                "XP": 10647
+            },
+            "hell": {
+                "AC": 1000,
+                "TH": 2382,
+                "HP": 2308,
+                "DM": 67,
+                "XP": 15971
+            }
+        },
+        "Level": 58
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 354,
+                "TH": 628,
+                "HP": 406,
+                "DM": 37,
+                "XP": 3253
+            },
+            "nightmare": {
+                "AC": 683,
+                "TH": 1152,
+                "HP": 1309,
+                "DM": 49,
+                "XP": 11286
+            },
+            "hell": {
+                "AC": 1015,
+                "TH": 2420,
+                "HP": 2394,
+                "DM": 68,
+                "XP": 16929
+            }
+        },
+        "Level": 59
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 360,
+                "TH": 639,
+                "HP": 418,
+                "DM": 37,
+                "XP": 3357
+            },
+            "nightmare": {
+                "AC": 694,
+                "TH": 1170,
+                "HP": 1344,
+                "DM": 49,
+                "XP": 11964
+            },
+            "hell": {
+                "AC": 1029,
+                "TH": 2458,
+                "HP": 2480,
+                "DM": 68,
+                "XP": 17946
+            }
+        },
+        "Level": 60
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 366,
+                "TH": 650,
+                "HP": 430,
+                "DM": 38,
+                "XP": 3461
+            },
+            "nightmare": {
+                "AC": 704,
+                "TH": 1188,
+                "HP": 1379,
+                "DM": 51,
+                "XP": 12680
+            },
+            "hell": {
+                "AC": 1045,
+                "TH": 2496,
+                "HP": 2567,
+                "DM": 70,
+                "XP": 19020
+            }
+        },
+        "Level": 61
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 372,
+                "TH": 661,
+                "HP": 442,
+                "DM": 38,
+                "XP": 3565
+            },
+            "nightmare": {
+                "AC": 714,
+                "TH": 1206,
+                "HP": 1412,
+                "DM": 51,
+                "XP": 13442
+            },
+            "hell": {
+                "AC": 1059,
+                "TH": 2534,
+                "HP": 2653,
+                "DM": 70,
+                "XP": 20163
+            }
+        },
+        "Level": 62
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 378,
+                "TH": 672,
+                "HP": 454,
+                "DM": 39,
+                "XP": 3669
+            },
+            "nightmare": {
+                "AC": 724,
+                "TH": 1224,
+                "HP": 1447,
+                "DM": 52,
+                "XP": 14249
+            },
+            "hell": {
+                "AC": 1074,
+                "TH": 2572,
+                "HP": 2739,
+                "DM": 72,
+                "XP": 21374
+            }
+        },
+        "Level": 63
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 384,
+                "TH": 683,
+                "HP": 466,
+                "DM": 39,
+                "XP": 3773
+            },
+            "nightmare": {
+                "AC": 734,
+                "TH": 1242,
+                "HP": 1480,
+                "DM": 52,
+                "XP": 15104
+            },
+            "hell": {
+                "AC": 1090,
+                "TH": 2610,
+                "HP": 2825,
+                "DM": 72,
+                "XP": 22656
+            }
+        },
+        "Level": 64
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 390,
+                "TH": 694,
+                "HP": 477,
+                "DM": 40,
+                "XP": 3877
+            },
+            "nightmare": {
+                "AC": 745,
+                "TH": 1260,
+                "HP": 1515,
+                "DM": 53,
+                "XP": 16010
+            },
+            "hell": {
+                "AC": 1104,
+                "TH": 2648,
+                "HP": 2912,
+                "DM": 74,
+                "XP": 24015
+            }
+        },
+        "Level": 65
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 396,
+                "TH": 705,
+                "HP": 489,
+                "DM": 41,
+                "XP": 3981
+            },
+            "nightmare": {
+                "AC": 755,
+                "TH": 1278,
+                "HP": 1549,
+                "DM": 55,
+                "XP": 16916
+            },
+            "hell": {
+                "AC": 1119,
+                "TH": 2686,
+                "HP": 2998,
+                "DM": 76,
+                "XP": 25374
+            }
+        },
+        "Level": 66
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 402,
+                "TH": 716,
+                "HP": 501,
+                "DM": 41,
+                "XP": 4085
+            },
+            "nightmare": {
+                "AC": 765,
+                "TH": 1296,
+                "HP": 1583,
+                "DM": 55,
+                "XP": 17822
+            },
+            "hell": {
+                "AC": 1134,
+                "TH": 2724,
+                "HP": 3084,
+                "DM": 76,
+                "XP": 26733
+            }
+        },
+        "Level": 67
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 408,
+                "TH": 727,
+                "HP": 513,
+                "DM": 42,
+                "XP": 4189
+            },
+            "nightmare": {
+                "AC": 775,
+                "TH": 1314,
+                "HP": 1617,
+                "DM": 56,
+                "XP": 18728
+            },
+            "hell": {
+                "AC": 1149,
+                "TH": 2762,
+                "HP": 3170,
+                "DM": 78,
+                "XP": 28092
+            }
+        },
+        "Level": 68
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 414,
+                "TH": 738,
+                "HP": 525,
+                "DM": 43,
+                "XP": 4293
+            },
+            "nightmare": {
+                "AC": 785,
+                "TH": 1332,
+                "HP": 1651,
+                "DM": 57,
+                "XP": 19634
+            },
+            "hell": {
+                "AC": 1165,
+                "TH": 2800,
+                "HP": 3257,
+                "DM": 80,
+                "XP": 29451
+            }
+        },
+        "Level": 69
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 420,
+                "TH": 749,
+                "HP": 539,
+                "DM": 43,
+                "XP": 4397
+            },
+            "nightmare": {
+                "AC": 796,
+                "TH": 1350,
+                "HP": 1685,
+                "DM": 57,
+                "XP": 20540
+            },
+            "hell": {
+                "AC": 1179,
+                "TH": 2838,
+                "HP": 3343,
+                "DM": 80,
+                "XP": 30810
+            }
+        },
+        "Level": 70
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 426,
+                "TH": 760,
+                "HP": 552,
+                "DM": 44,
+                "XP": 4501
+            },
+            "nightmare": {
+                "AC": 806,
+                "TH": 1368,
+                "HP": 1720,
+                "DM": 59,
+                "XP": 21446
+            },
+            "hell": {
+                "AC": 1194,
+                "TH": 2876,
+                "HP": 3429,
+                "DM": 81,
+                "XP": 32169
+            }
+        },
+        "Level": 71
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 432,
+                "TH": 771,
+                "HP": 565,
+                "DM": 44,
+                "XP": 4605
+            },
+            "nightmare": {
+                "AC": 816,
+                "TH": 1386,
+                "HP": 1753,
+                "DM": 59,
+                "XP": 22352
+            },
+            "hell": {
+                "AC": 1209,
+                "TH": 2914,
+                "HP": 3515,
+                "DM": 81,
+                "XP": 33528
+            }
+        },
+        "Level": 72
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 438,
+                "TH": 782,
+                "HP": 579,
+                "DM": 45,
+                "XP": 4709
+            },
+            "nightmare": {
+                "AC": 826,
+                "TH": 1404,
+                "HP": 1788,
+                "DM": 60,
+                "XP": 23258
+            },
+            "hell": {
+                "AC": 1224,
+                "TH": 2952,
+                "HP": 3602,
+                "DM": 83,
+                "XP": 34887
+            }
+        },
+        "Level": 73
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 444,
+                "TH": 793,
+                "HP": 592,
+                "DM": 46,
+                "XP": 4813
+            },
+            "nightmare": {
+                "AC": 836,
+                "TH": 1422,
+                "HP": 1821,
+                "DM": 61,
+                "XP": 24164
+            },
+            "hell": {
+                "AC": 1239,
+                "TH": 2990,
+                "HP": 3688,
+                "DM": 85,
+                "XP": 36246
+            }
+        },
+        "Level": 74
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 450,
+                "TH": 804,
+                "HP": 605,
+                "DM": 46,
+                "XP": 4917
+            },
+            "nightmare": {
+                "AC": 847,
+                "TH": 1440,
+                "HP": 1856,
+                "DM": 61,
+                "XP": 25070
+            },
+            "hell": {
+                "AC": 1254,
+                "TH": 3028,
+                "HP": 3774,
+                "DM": 85,
+                "XP": 37605
+            }
+        },
+        "Level": 75
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 456,
+                "TH": 815,
+                "HP": 618,
+                "DM": 47,
+                "XP": 5021
+            },
+            "nightmare": {
+                "AC": 857,
+                "TH": 1458,
+                "HP": 1891,
+                "DM": 63,
+                "XP": 25976
+            },
+            "hell": {
+                "AC": 1269,
+                "TH": 3066,
+                "HP": 3860,
+                "DM": 87,
+                "XP": 38964
+            }
+        },
+        "Level": 76
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 462,
+                "TH": 826,
+                "HP": 632,
+                "DM": 47,
+                "XP": 5125
+            },
+            "nightmare": {
+                "AC": 867,
+                "TH": 1476,
+                "HP": 1924,
+                "DM": 63,
+                "XP": 26882
+            },
+            "hell": {
+                "AC": 1284,
+                "TH": 3104,
+                "HP": 3947,
+                "DM": 87,
+                "XP": 40323
+            }
+        },
+        "Level": 77
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 468,
+                "TH": 837,
+                "HP": 645,
+                "DM": 48,
+                "XP": 5229
+            },
+            "nightmare": {
+                "AC": 877,
+                "TH": 1494,
+                "HP": 1959,
+                "DM": 64,
+                "XP": 27788
+            },
+            "hell": {
+                "AC": 1299,
+                "TH": 3142,
+                "HP": 4033,
+                "DM": 89,
+                "XP": 41682
+            }
+        },
+        "Level": 78
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 474,
+                "TH": 848,
+                "HP": 658,
+                "DM": 49,
+                "XP": 5333
+            },
+            "nightmare": {
+                "AC": 887,
+                "TH": 1512,
+                "HP": 1992,
+                "DM": 65,
+                "XP": 28694
+            },
+            "hell": {
+                "AC": 1314,
+                "TH": 3180,
+                "HP": 4119,
+                "DM": 91,
+                "XP": 43041
+            }
+        },
+        "Level": 79
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 480,
+                "TH": 859,
+                "HP": 673,
+                "DM": 49,
+                "XP": 5437
+            },
+            "nightmare": {
+                "AC": 898,
+                "TH": 1530,
+                "HP": 2027,
+                "DM": 65,
+                "XP": 29600
+            },
+            "hell": {
+                "AC": 1329,
+                "TH": 3218,
+                "HP": 4205,
+                "DM": 91,
+                "XP": 44400
+            }
+        },
+        "Level": 80
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 486,
+                "TH": 870,
+                "HP": 688,
+                "DM": 50,
+                "XP": 5541
+            },
+            "nightmare": {
+                "AC": 908,
+                "TH": 1548,
+                "HP": 2061,
+                "DM": 67,
+                "XP": 30506
+            },
+            "hell": {
+                "AC": 1344,
+                "TH": 3256,
+                "HP": 4292,
+                "DM": 93,
+                "XP": 45759
+            }
+        },
+        "Level": 81
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 492,
+                "TH": 881,
+                "HP": 702,
+                "DM": 50,
+                "XP": 5645
+            },
+            "nightmare": {
+                "AC": 918,
+                "TH": 1566,
+                "HP": 2095,
+                "DM": 67,
+                "XP": 31412
+            },
+            "hell": {
+                "AC": 1358,
+                "TH": 3294,
+                "HP": 4378,
+                "DM": 93,
+                "XP": 47118
+            }
+        },
+        "Level": 82
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 498,
+                "TH": 892,
+                "HP": 717,
+                "DM": 51,
+                "XP": 5749
+            },
+            "nightmare": {
+                "AC": 928,
+                "TH": 1584,
+                "HP": 2129,
+                "DM": 68,
+                "XP": 32318
+            },
+            "hell": {
+                "AC": 1374,
+                "TH": 3332,
+                "HP": 4464,
+                "DM": 94,
+                "XP": 48477
+            }
+        },
+        "Level": 83
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 504,
+                "TH": 903,
+                "HP": 732,
+                "DM": 51,
+                "XP": 5853
+            },
+            "nightmare": {
+                "AC": 938,
+                "TH": 1602,
+                "HP": 2163,
+                "DM": 68,
+                "XP": 33224
+            },
+            "hell": {
+                "AC": 1389,
+                "TH": 3370,
+                "HP": 4550,
+                "DM": 94,
+                "XP": 49836
+            }
+        },
+        "Level": 84
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 510,
+                "TH": 914,
+                "HP": 746,
+                "DM": 52,
+                "XP": 5957
+            },
+            "nightmare": {
+                "AC": 949,
+                "TH": 1620,
+                "HP": 2197,
+                "DM": 69,
+                "XP": 34130
+            },
+            "hell": {
+                "AC": 1403,
+                "TH": 3408,
+                "HP": 4637,
+                "DM": 96,
+                "XP": 51195
+            }
+        },
+        "Level": 85
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 516,
+                "TH": 925,
+                "HP": 761,
+                "DM": 53,
+                "XP": 6061
+            },
+            "nightmare": {
+                "AC": 959,
+                "TH": 1638,
+                "HP": 2232,
+                "DM": 70,
+                "XP": 35036
+            },
+            "hell": {
+                "AC": 1419,
+                "TH": 3446,
+                "HP": 4723,
+                "DM": 98,
+                "XP": 52554
+            }
+        },
+        "Level": 86
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 522,
+                "TH": 936,
+                "HP": 775,
+                "DM": 53,
+                "XP": 6165
+            },
+            "nightmare": {
+                "AC": 969,
+                "TH": 1656,
+                "HP": 2265,
+                "DM": 70,
+                "XP": 35942
+            },
+            "hell": {
+                "AC": 1433,
+                "TH": 3484,
+                "HP": 4809,
+                "DM": 98,
+                "XP": 53913
+            }
+        },
+        "Level": 87
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 528,
+                "TH": 947,
+                "HP": 790,
+                "DM": 54,
+                "XP": 6269
+            },
+            "nightmare": {
+                "AC": 979,
+                "TH": 1674,
+                "HP": 2300,
+                "DM": 72,
+                "XP": 36848
+            },
+            "hell": {
+                "AC": 1448,
+                "TH": 3522,
+                "HP": 4895,
+                "DM": 100,
+                "XP": 55272
+            }
+        },
+        "Level": 88
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 534,
+                "TH": 958,
+                "HP": 805,
+                "DM": 55,
+                "XP": 6373
+            },
+            "nightmare": {
+                "AC": 989,
+                "TH": 1692,
+                "HP": 2333,
+                "DM": 73,
+                "XP": 37754
+            },
+            "hell": {
+                "AC": 1464,
+                "TH": 3560,
+                "HP": 4982,
+                "DM": 102,
+                "XP": 56631
+            }
+        },
+        "Level": 89
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 540,
+                "TH": 969,
+                "HP": 821,
+                "DM": 55,
+                "XP": 6477
+            },
+            "nightmare": {
+                "AC": 1000,
+                "TH": 1710,
+                "HP": 2368,
+                "DM": 73,
+                "XP": 38660
+            },
+            "hell": {
+                "AC": 1478,
+                "TH": 3598,
+                "HP": 5068,
+                "DM": 102,
+                "XP": 57990
+            }
+        },
+        "Level": 90
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 546,
+                "TH": 980,
+                "HP": 837,
+                "DM": 56,
+                "XP": 6581
+            },
+            "nightmare": {
+                "AC": 1010,
+                "TH": 1728,
+                "HP": 2403,
+                "DM": 74,
+                "XP": 39566
+            },
+            "hell": {
+                "AC": 1493,
+                "TH": 3636,
+                "HP": 5154,
+                "DM": 104,
+                "XP": 59349
+            }
+        },
+        "Level": 91
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 552,
+                "TH": 991,
+                "HP": 853,
+                "DM": 56,
+                "XP": 6685
+            },
+            "nightmare": {
+                "AC": 1020,
+                "TH": 1746,
+                "HP": 2436,
+                "DM": 74,
+                "XP": 40472
+            },
+            "hell": {
+                "AC": 1508,
+                "TH": 3674,
+                "HP": 5240,
+                "DM": 104,
+                "XP": 60708
+            }
+        },
+        "Level": 92
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 558,
+                "TH": 1002,
+                "HP": 868,
+                "DM": 57,
+                "XP": 6789
+            },
+            "nightmare": {
+                "AC": 1030,
+                "TH": 1764,
+                "HP": 2471,
+                "DM": 76,
+                "XP": 41378
+            },
+            "hell": {
+                "AC": 1523,
+                "TH": 3712,
+                "HP": 5327,
+                "DM": 105,
+                "XP": 62067
+            }
+        },
+        "Level": 93
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 564,
+                "TH": 1013,
+                "HP": 884,
+                "DM": 58,
+                "XP": 6893
+            },
+            "nightmare": {
+                "AC": 1040,
+                "TH": 1782,
+                "HP": 2504,
+                "DM": 77,
+                "XP": 42284
+            },
+            "hell": {
+                "AC": 1539,
+                "TH": 3750,
+                "HP": 5413,
+                "DM": 107,
+                "XP": 63426
+            }
+        },
+        "Level": 94
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 570,
+                "TH": 1024,
+                "HP": 900,
+                "DM": 58,
+                "XP": 6997
+            },
+            "nightmare": {
+                "AC": 1051,
+                "TH": 1800,
+                "HP": 2539,
+                "DM": 77,
+                "XP": 43190
+            },
+            "hell": {
+                "AC": 1553,
+                "TH": 3788,
+                "HP": 5499,
+                "DM": 107,
+                "XP": 64785
+            }
+        },
+        "Level": 95
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 576,
+                "TH": 1035,
+                "HP": 916,
+                "DM": 59,
+                "XP": 7101
+            },
+            "nightmare": {
+                "AC": 1061,
+                "TH": 1818,
+                "HP": 2573,
+                "DM": 78,
+                "XP": 44096
+            },
+            "hell": {
+                "AC": 1568,
+                "TH": 3826,
+                "HP": 5585,
+                "DM": 109,
+                "XP": 66144
+            }
+        },
+        "Level": 96
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 582,
+                "TH": 1046,
+                "HP": 932,
+                "DM": 59,
+                "XP": 7205
+            },
+            "nightmare": {
+                "AC": 1071,
+                "TH": 1836,
+                "HP": 2607,
+                "DM": 78,
+                "XP": 45002
+            },
+            "hell": {
+                "AC": 1583,
+                "TH": 3864,
+                "HP": 5672,
+                "DM": 109,
+                "XP": 67503
+            }
+        },
+        "Level": 97
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 588,
+                "TH": 1057,
+                "HP": 948,
+                "DM": 60,
+                "XP": 7309
+            },
+            "nightmare": {
+                "AC": 1081,
+                "TH": 1854,
+                "HP": 2641,
+                "DM": 80,
+                "XP": 45908
+            },
+            "hell": {
+                "AC": 1598,
+                "TH": 3902,
+                "HP": 5758,
+                "DM": 111,
+                "XP": 68862
+            }
+        },
+        "Level": 98
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 594,
+                "TH": 1068,
+                "HP": 964,
+                "DM": 60,
+                "XP": 7413
+            },
+            "nightmare": {
+                "AC": 1091,
+                "TH": 1872,
+                "HP": 2675,
+                "DM": 80,
+                "XP": 46814
+            },
+            "hell": {
+                "AC": 1613,
+                "TH": 3940,
+                "HP": 5844,
+                "DM": 111,
+                "XP": 70221
+            }
+        },
+        "Level": 99
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 600,
+                "TH": 1079,
+                "HP": 982,
+                "DM": 61,
+                "XP": 7517
+            },
+            "nightmare": {
+                "AC": 1102,
+                "TH": 1890,
+                "HP": 2709,
+                "DM": 81,
+                "XP": 47720
+            },
+            "hell": {
+                "AC": 1628,
+                "TH": 3978,
+                "HP": 5930,
+                "DM": 113,
+                "XP": 71580
+            }
+        },
+        "Level": 100
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 606,
+                "TH": 1090,
+                "HP": 999,
+                "DM": 62,
+                "XP": 7621
+            },
+            "nightmare": {
+                "AC": 1112,
+                "TH": 1908,
+                "HP": 2744,
+                "DM": 82,
+                "XP": 48626
+            },
+            "hell": {
+                "AC": 1643,
+                "TH": 4016,
+                "HP": 6017,
+                "DM": 115,
+                "XP": 72939
+            }
+        },
+        "Level": 101
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 612,
+                "TH": 1101,
+                "HP": 1016,
+                "DM": 62,
+                "XP": 7725
+            },
+            "nightmare": {
+                "AC": 1122,
+                "TH": 1926,
+                "HP": 2777,
+                "DM": 82,
+                "XP": 49532
+            },
+            "hell": {
+                "AC": 1658,
+                "TH": 4054,
+                "HP": 6103,
+                "DM": 115,
+                "XP": 74298
+            }
+        },
+        "Level": 102
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 618,
+                "TH": 1112,
+                "HP": 1033,
+                "DM": 63,
+                "XP": 7829
+            },
+            "nightmare": {
+                "AC": 1132,
+                "TH": 1944,
+                "HP": 2812,
+                "DM": 84,
+                "XP": 50438
+            },
+            "hell": {
+                "AC": 1673,
+                "TH": 4092,
+                "HP": 6189,
+                "DM": 117,
+                "XP": 75657
+            }
+        },
+        "Level": 103
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 624,
+                "TH": 1123,
+                "HP": 1051,
+                "DM": 63,
+                "XP": 7933
+            },
+            "nightmare": {
+                "AC": 1142,
+                "TH": 1962,
+                "HP": 2845,
+                "DM": 84,
+                "XP": 51344
+            },
+            "hell": {
+                "AC": 1688,
+                "TH": 4130,
+                "HP": 6275,
+                "DM": 117,
+                "XP": 77016
+            }
+        },
+        "Level": 104
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 630,
+                "TH": 1134,
+                "HP": 1068,
+                "DM": 64,
+                "XP": 8037
+            },
+            "nightmare": {
+                "AC": 1153,
+                "TH": 1980,
+                "HP": 2880,
+                "DM": 85,
+                "XP": 52250
+            },
+            "hell": {
+                "AC": 1703,
+                "TH": 4168,
+                "HP": 6362,
+                "DM": 118,
+                "XP": 78375
+            }
+        },
+        "Level": 105
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 636,
+                "TH": 1145,
+                "HP": 1085,
+                "DM": 65,
+                "XP": 8141
+            },
+            "nightmare": {
+                "AC": 1163,
+                "TH": 1998,
+                "HP": 2915,
+                "DM": 86,
+                "XP": 53156
+            },
+            "hell": {
+                "AC": 1718,
+                "TH": 4206,
+                "HP": 6448,
+                "DM": 120,
+                "XP": 79734
+            }
+        },
+        "Level": 106
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 642,
+                "TH": 1156,
+                "HP": 1103,
+                "DM": 65,
+                "XP": 8245
+            },
+            "nightmare": {
+                "AC": 1173,
+                "TH": 2016,
+                "HP": 2948,
+                "DM": 86,
+                "XP": 54062
+            },
+            "hell": {
+                "AC": 1732,
+                "TH": 4244,
+                "HP": 6534,
+                "DM": 120,
+                "XP": 81093
+            }
+        },
+        "Level": 107
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 648,
+                "TH": 1167,
+                "HP": 1120,
+                "DM": 66,
+                "XP": 8349
+            },
+            "nightmare": {
+                "AC": 1183,
+                "TH": 2034,
+                "HP": 2983,
+                "DM": 88,
+                "XP": 54968
+            },
+            "hell": {
+                "AC": 1748,
+                "TH": 4282,
+                "HP": 6620,
+                "DM": 122,
+                "XP": 82452
+            }
+        },
+        "Level": 108
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 654,
+                "TH": 1178,
+                "HP": 1137,
+                "DM": 67,
+                "XP": 8453
+            },
+            "nightmare": {
+                "AC": 1193,
+                "TH": 2052,
+                "HP": 3016,
+                "DM": 89,
+                "XP": 55874
+            },
+            "hell": {
+                "AC": 1763,
+                "TH": 4320,
+                "HP": 6707,
+                "DM": 124,
+                "XP": 83811
+            }
+        },
+        "Level": 109
+    },
+    {
+        "monsterLevelDifficultyVariables": {
+            "normal": {
+                "AC": 2100,
+                "TH": 6532,
+                "HP": 10000,
+                "DM": 130,
+                "XP": 160000
+            },
+            "nightmare": {
+                "AC": 2100,
+                "TH": 6532,
+                "HP": 10000,
+                "DM": 130,
+                "XP": 160000
+            },
+            "hell": {
+                "AC": 2100,
+                "TH": 6532,
+                "HP": 10000,
+                "DM": 130,
+                "XP": 160000
+            }
+        },
+        "Level": 110
+    }
+]
