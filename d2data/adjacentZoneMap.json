@@ -207,12 +207,13 @@
         "Burial Grounds"
     ],
     "Stony Field": [
+        "Tristram",
         "Cold Plains",
         "Dark Wood",
         "Underground Passage Level 1"
     ],
     "Tristram": [
-        "-"
+        "Stony Field"
     ],
     "Dark Wood": [
         "Stony Field",
