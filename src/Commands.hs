@@ -8,7 +8,7 @@ import Discord.Types
 import Stats
 import Views
 
-data Command = Quest | Run | CreateCharacter CharClass CharName | SelectCharacter CharName | View ViewCommand (Maybe CharName) | Equip | Unequip | AssignStats Int Stat | AssignSkills Int Skill deriving (Show, Eq)
+data Command = Quest | Run (Maybe Int) [T.Text] | CreateCharacter CharClass CharName | SelectCharacter CharName | View ViewCommand (Maybe CharName) | Equip | Unequip | AssignStats Int Stat | AssignSkills Int Skill | Cancel deriving (Show, Eq)
 
 data Skill = Unimplemented deriving (Show, Eq)
 
@@ -20,7 +20,12 @@ getCommand :: Message -> Either CmdError Command
 getCommand m =
   case baseCommand of
     "quest" -> Right Quest
-    "run" -> Right Run
+    "run"
+      | length commandArgs >= 2 ->
+        case parseInitAmount commandArgs of
+          Nothing -> Right $ Run Nothing commandArgs
+          Just amount -> Right $ Run (Just amount) commandArgs
+      | otherwise -> Left "Wrong number of arguments. Run usage: \\run ([Amount] - optional) [AreaName]"
     "create"
       | length commandArgs == 2 ->
         case parseClass commandArgs of

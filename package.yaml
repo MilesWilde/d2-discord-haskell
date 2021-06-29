@@ -40,6 +40,9 @@ dependencies:
     - rio
     - resourcet
     - aeson
+    - random
+    - containers
+    - array
 
 library:
     source-dirs: src
@@ -47,6 +50,8 @@ library:
         - Core
         - Db.Migrations
         - Db.GameData.GDDbCommands
+        - Db.DbCharacter
+
 executables:
     d2haskell-exe:
         main: Main.hs
