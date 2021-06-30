@@ -18,21 +18,16 @@ import System.Environment
 import System.Random
 import UnliftIO (liftIO, throwIO)
 
-getXpFromMonPackRar :: Int -> Int -> MonsterPackRarity -> IO (Either CmdError Experience)
+getXpFromMonPackRar :: Int -> Int -> MonsterPackRarity -> ReaderT SqlBackend (NoLoggingT (ResourceT IO)) (Either CmdError Experience)
 getXpFromMonPackRar lvl diff mpr = do
-  loadFile defaultConfig
-  connectionString <- connString
-  runStderrLoggingT $
-    withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
-      flip runSqlPersistMPool pool $ do
-        mEMonLvl <- selectFirst [MonLvlLevel ==. lvl, MonLvlDifficulty ==. diff] []
-        case mEMonLvl of
-          Nothing -> pure $ Left "No monster level corresponding to the level of the mission."
-          Just eMonLvl -> do
-            mEMonDiffStat <- selectFirst [MonDiffStatTextId ==. (monStatTextId . monPStat) mpr] []
-            case mEMonDiffStat of
-              Nothing -> pure $ Left $ "No monster difficulty stats available for the monster with ID " <> (monStatTextId . monPStat) mpr
-              Just eMonDiffStat -> pure $ Right $ monPAmount mpr * getXpFromMonster (entityVal eMonDiffStat) (entityVal eMonLvl)
+  mEMonLvl <- selectFirst [MonLvlLevel ==. lvl, MonLvlDifficulty ==. diff] []
+  case mEMonLvl of
+    Nothing -> pure $ Left "No monster level corresponding to the level of the mission."
+    Just eMonLvl -> do
+      mEMonDiffStat <- selectFirst [MonDiffStatTextId ==. (monStatTextId . monPStat) mpr] []
+      case mEMonDiffStat of
+        Nothing -> pure $ Left $ "No monster difficulty stats available for the monster with ID " <> (monStatTextId . monPStat) mpr
+        Just eMonDiffStat -> pure $ Right $ monPAmount mpr * getXpFromMonster (entityVal eMonDiffStat) (entityVal eMonLvl)
 
 getXpFromMonster :: MonDiffStat -> MonLvl -> Experience
 getXpFromMonster mds ml = floor (xp * xpMult / 100)
@@ -46,14 +41,11 @@ getCommonPacks zone zoneDiffs = do
   let tMons
         | diff == 0 = zoneLvlNormMons zone
         | otherwise = zoneLvlNmhMons zone
-  eMonStats <- getMonStats tMons
-  case eMonStats of
-    Left err -> pure $ Left err
-    Right monStats -> do
-      gen <- getStdGen
-      let selectedMons = selectMons monStats gen numMonTypes
-      packs <- addAmountToPacks (initializeMonsterPacks selectedMons Common) packSize <$> getStdGen
-      pure $ Right packs
+  monStats <- getMonStats tMons
+  gen <- getStdGen
+  let selectedMons = selectMons monStats gen numMonTypes
+  packs <- addAmountToPacks (initializeMonsterPacks selectedMons Common) packSize <$> getStdGen
+  pure $ Right packs
   where
     diff = zoneLvlDiffVarsDifficulty zoneDiffs
     numMonTypes = zoneLvlNumMon zone
@@ -86,22 +78,15 @@ selectMons mms gen amount = do
   let (shuffled, newGen) = shuffle mms gen
   take amount shuffled
 
-getMonStats :: [MonsterTextId] -> IO (Either CmdError [MonStat])
+getMonStats :: [MonsterTextId] -> IO [MonStat]
 getMonStats ms = do
-  monStats <- mapM getMonStat ms
-  pure $ sequence monStats
-
-getMonStat :: MonsterTextId -> IO (Either CmdError MonStat)
-getMonStat monId = do
   loadFile defaultConfig
   connectionString <- connString
   runStderrLoggingT $
     withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
       flip runSqlPersistMPool pool $ do
-        mMonStat <- selectFirst [MonStatTextId ==. monId] []
-        case mMonStat of
-          Just monStat -> pure $ Right $ entityVal monStat
-          Nothing -> pure $ Left $ "The monster " <> monId <> " does not have corresponding stats. Please report this to a developer."
+        monStats <- selectList [MonStatTextId <-. ms] []
+        pure $ map entityVal monStats
 
 getAmountOfPacks :: ZoneLvl -> ZoneLvlDiffVars -> IO Int
 getAmountOfPacks zone zoneDiffs = do
@@ -114,29 +99,19 @@ getAmountOfPacks zone zoneDiffs = do
 
 type ZoneName = T.Text
 
-getZoneLvl :: ZoneName -> IO (Maybe ZoneLvl)
+getZoneLvl :: ZoneName -> ReaderT SqlBackend (NoLoggingT (ResourceT IO)) (Maybe ZoneLvl)
 getZoneLvl z = do
-  loadFile defaultConfig
-  connectionString <- connString
-  runStderrLoggingT $
-    withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
-      flip runSqlPersistMPool pool $ do
-        mZoneLvl <- selectFirst [ZoneLvlZoneName ==. z] []
-        case mZoneLvl of
-          Nothing -> pure Nothing
-          Just zoneLvl -> (pure . Just . entityVal) zoneLvl
+  mZoneLvl <- selectFirst [ZoneLvlZoneName ==. z] []
+  case mZoneLvl of
+    Nothing -> pure Nothing
+    Just zoneLvl -> (pure . Just . entityVal) zoneLvl
 
-getZoneDiff :: ZoneName -> Int -> IO (Maybe ZoneLvlDiffVars)
+getZoneDiff :: ZoneName -> Int -> ReaderT SqlBackend (NoLoggingT (ResourceT IO)) (Maybe ZoneLvlDiffVars)
 getZoneDiff z diff = do
-  loadFile defaultConfig
-  connectionString <- connString
-  runStderrLoggingT $
-    withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
-      flip runSqlPersistMPool pool $ do
-        mZoneLvlDiff <- selectFirst [ZoneLvlDiffVarsZoneName ==. z, ZoneLvlDiffVarsDifficulty ==. diff] []
-        case mZoneLvlDiff of
-          Nothing -> pure Nothing
-          Just zoneLvlDiff -> (pure . Just . entityVal) zoneLvlDiff
+  mZoneLvlDiff <- selectFirst [ZoneLvlDiffVarsZoneName ==. z, ZoneLvlDiffVarsDifficulty ==. diff] []
+  case mZoneLvlDiff of
+    Nothing -> pure Nothing
+    Just zoneLvlDiff -> (pure . Just . entityVal) zoneLvlDiff
 
 packSpawnTop :: Int
 packSpawnTop = 100000
@@ -152,23 +127,16 @@ rndAmntPacks density (_ : xs) = do
         | otherwise = pure 0
   (+) <$> packShouldSpawn <*> rndAmntPacks density xs
 
-getCharLvlFromExp :: Experience -> IO (Maybe Int)
+getCharLvlFromExp :: Experience -> ReaderT SqlBackend (NoLoggingT (ResourceT IO)) (Maybe Int)
 getCharLvlFromExp e = do
-  loadFile defaultConfig
-  connectionString <- connString
-  runStderrLoggingT $
-    withPostgresqlPool connectionString 10 $ \pool -> liftIO $ do
-      flip runSqlPersistMPool pool $ do
-        mGDExperience <- selectFirst [GDExperienceNextLevelAbs >. e] []
-        case mGDExperience of
-          Nothing -> pure Nothing
-          Just gDExperience -> (pure . Just . gDExperienceLevel . entityVal) gDExperience
+  mGDExperience <- selectFirst [GDExperienceNextLevelAbs >. e] []
+  case mGDExperience of
+    Nothing -> pure Nothing
+    Just gDExperience -> (pure . Just . gDExperienceLevel . entityVal) gDExperience
 
 type MonsterTextId = T.Text
 
 getMPRaritiesFromLists :: [MonsterTextId] -> [(Amount, MonRarity)] -> ReaderT SqlBackend (NoLoggingT (ResourceT IO)) [MonsterPackRarity]
-getMPRaritiesFromLists [] _ = pure []
-getMPRaritiesFromLists _ [] = pure []
 getMPRaritiesFromLists ms xs = do
   monStats <- selectList [MonStatTextId <-. ms] []
   pure $

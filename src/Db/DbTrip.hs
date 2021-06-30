@@ -26,12 +26,12 @@ createTripCompleted t = do
     Just eCharacter -> do
       let character = entityVal eCharacter
       mPRs <- getMPRaritiesFromLists (monsters t) (zip (amounts t) (toEnum <$> rarities t))
-      eTripXps <- liftIO $ sequence $ getXpFromMonPackRar (tripLevel t) (difficulty t) <$> mPRs
+      eTripXps <- sequence $ getXpFromMonPackRar (tripLevel t) (difficulty t) <$> mPRs
       case sequence eTripXps of
         Left err -> pure $ Left err
         Right tripXps -> do
           let tripXp = sum tripXps
-          mNewCharLvl <- liftIO $ getCharLvlFromExp (experience character + tripXp)
+          mNewCharLvl <- getCharLvlFromExp (experience character + tripXp)
           case mNewCharLvl of
             Nothing -> pure $ Left "Max level"
             Just newCharLvl -> do
@@ -104,14 +104,14 @@ setupTrip mTripAmnt zoneWords userKey chanId = do
     Just eCharacter -> do
       let character = entityVal eCharacter
       let charCurrDiff = currentDiff character
-      mZoneLvl <- liftIO $ getZoneLvl zoneText
+      mZoneLvl <- getZoneLvl zoneText
       case mZoneLvl of
         Nothing -> pure $ Left "That zone doesn't exist."
         Just zoneLvl -> do
           if zoneLvlTown zoneLvl
             then pure $ Left "That zone is not runnable."
             else do
-              mZoneDiffs <- liftIO $ getZoneDiff zoneText charCurrDiff
+              mZoneDiffs <- getZoneDiff zoneText charCurrDiff
               case mZoneDiffs of
                 Nothing -> pure $ Left $ "The zone " <> zoneLvlZoneName zoneLvl <> " does not have a ZoneLvl corresponding. Please report this error."
                 Just zoneDiffs -> do
