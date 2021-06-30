@@ -21,6 +21,8 @@ data Difficulty = Normal | Nightmare | Hell deriving (Show, Eq, Enum)
 
 type DbStatus = T.Text
 
+type Experience = Int
+
 -- connString = pure "host=ip port=port user=whatever dbname=whatever password=pass"
 connString :: IO ConnectionString
 connString = stringToConn <$> getEnv "DB_CONNECTION_STRING"
