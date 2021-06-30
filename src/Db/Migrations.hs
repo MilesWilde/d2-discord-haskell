@@ -239,3 +239,6 @@ mPRAmnts (MonsterPackRarity _ amnt _ : ms) = amnt : mPRAmnts ms
 mPRRarities :: [MonsterPackRarity] -> [Int]
 mPRRarities [] = []
 mPRRarities (MonsterPackRarity _ _ rarity : ms) = fromEnum rarity : mPRRarities ms
+
+snowfToUserKey :: Integral a => a -> Key User
+snowfToUserKey s = UserKey {unUserKey = fromIntegral s}

@@ -7,8 +7,11 @@ import qualified Data.Text as T
 import qualified Data.Text.IO as TIO
 import Data.Time.Clock.POSIX
 import Database.Persist.Sql
+import Db.DbCharacter
 import Db.DbCommands
 import Db.DbHelpers
+import Db.DbMonstersZones
+import Db.DbTrip
 import Db.Migrations
 import Discord
 import qualified Discord.Requests as R
